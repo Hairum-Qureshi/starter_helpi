@@ -1,0 +1,25 @@
+button {
+  background-color: #e0cce5; /* Match the background color of the navbar */
+  padding: 10px 15px; /* Match the padding of the navbar links */
+  color: #c64d23; /* Match the text color of the navbar links */
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.start-button:hover,
+.save-button:hover {
+  background-color: #d1b9cf; /* Change the background color on hover */
+  color: #4b3f9f; /* Change the text color on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow on hover */
+}
+
+.save-button {
+  position: absolute;
+  top: 120px;
+  right: 30px;
+  padding: 5px 5px;
+}
