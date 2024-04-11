@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (110 ms)
+  ✕ renders learn react link (115 ms)
 
   ● renders learn react link
 
@@ -108,6 +108,30 @@ FAIL src/App.test.tsx
             [36m</button>[39m
           [36m</form>[39m
         [36m</div>[39m
+        [36m<div>[39m
+          [36m<div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mBasic Quiz[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<p>[39m
+            [0mThis is a 10 - 15 minute quiz aimed to gauge interests and skills in order to provide suggestions and information on potential careers.[0m
+          [36m</p>[39m
+          [36m<div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mDetailed Quiz[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<p>[39m
+            [0mThis is a 30 - 35 minute quiz aimed to understand your goals and passions in order to provide potential careers.[0m
+          [36m</p>[39m
+        [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
 
@@ -132,9 +156,9 @@ FAIL src/App.test.tsx
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |   25.92 |    16.66 |      20 |   25.92 |                   
+All files           |   22.22 |    16.66 |   13.33 |   22.22 |                   
  App.tsx            |      60 |       50 |   33.33 |      60 | 15,23-29          
- basic.tsx          |       0 |      100 |       0 |       0 | 3                 
+ basic.tsx          |      10 |      100 |       0 |      10 | 3-48,62-75        
  detailed.tsx       |       0 |      100 |       0 |       0 | 9-105             
  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
  navbar.tsx         |     100 |      100 |     100 |     100 |                   
@@ -143,7 +167,7 @@ All files           |   25.92 |    16.66 |      20 |   25.92 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.119 s
+Time:        2.767 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
