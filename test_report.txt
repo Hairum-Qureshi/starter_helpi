@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (136 ms)
+  ✕ renders learn react link (99 ms)
 
   ● renders learn react link
 
@@ -87,51 +87,24 @@ FAIL src/App.test.tsx
               [36m</a>[39m
             [36m</ul>[39m
           [36m</nav>[39m
-          [36m<form[39m
-            [33mclass[39m=[32m""[39m
-          [36m>[39m
-            [36m<label[39m
-              [33mclass[39m=[32m"form-label"[39m
-            [36m>[39m
-              [0mAPI Key:[0m
+          [36m<footer>[39m
+            [36m<label>[39m
+              [0mAPI Key Here: [0m
             [36m</label>[39m
             [36m<input[39m
-              [33mclass[39m=[32m"form-control"[39m
               [33mplaceholder[39m=[32m"Insert API Key Here"[39m
               [33mtype[39m=[32m"password"[39m
             [36m/>[39m
-            [36m<br />[39m
             [36m<button[39m
-              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
+              [33mclass[39m=[32m"Submit-Button"[39m
             [36m>[39m
               [0mSubmit[0m
             [36m</button>[39m
-          [36m</form>[39m
-        [36m</div>[39m
-        [36m<div>[39m
-          [36m<div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mBasic Quiz[0m
-            [36m</button>[39m
-          [36m</div>[39m
-          [36m<p>[39m
-            [0mThis is a 10 - 15 minute quiz aimed to gauge interests and skills in order to provide suggestions and information on potential careers.[0m
-          [36m</p>[39m
-          [36m<div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mDetailed Quiz[0m
-            [36m</button>[39m
-          [36m</div>[39m
-          [36m<p>[39m
-            [0mThis is a 30 - 35 minute quiz aimed to understand your goals and passions in order to provide potential careers.[0m
-          [36m</p>[39m
+            [36m<br />[39m
+            [0m© [0m
+            [0m2024[0m
+            [0m Hairum Qureshi, Mithra Sankar, Olive Odida, and Olivia Folliard[0m
+          [36m</footer>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -154,21 +127,25 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   10.81 |     2.17 |    7.69 |   11.11 |                   
- App.tsx            |      60 |       50 |   33.33 |      60 | 15,23-29          
- basic.tsx          |      10 |      100 |       0 |      10 | 3-48,62-75        
- detailed.tsx       |       0 |        0 |       0 |       0 | 13-183            
- index.tsx          |       0 |      100 |     100 |       0 | 7-19              
- navbar.tsx         |     100 |      100 |     100 |     100 |                   
- reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
---------------------|---------|----------|---------|---------|-------------------
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |      12 |     2.17 |   10.71 |   12.32 |                   
+ src                 |      12 |     2.17 |   11.11 |   12.32 |                   
+  App.tsx            |     100 |      100 |     100 |     100 |                   
+  Footer.tsx         |      60 |       50 |   33.33 |      60 | 10,17-23          
+  basic.tsx          |      10 |      100 |       0 |      10 | 3-48,62-75        
+  detailed.tsx       |       0 |        0 |       0 |       0 | 13-183            
+  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
+  navbar.tsx         |     100 |      100 |     100 |     100 |                   
+  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
+ src/hooks           |       0 |        0 |       0 |       0 |                   
+  useChatGPT.ts      |       0 |        0 |       0 |       0 |                   
+---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.882 s
+Time:        3.135 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
