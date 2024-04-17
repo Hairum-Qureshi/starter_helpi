@@ -23,3 +23,8 @@ button {
   right: 30px;
   padding: 5px 5px;
 }
+.checkmark {
+  vertical-align: middle;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
