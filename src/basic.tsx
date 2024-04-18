@@ -60,7 +60,7 @@ function Basic() {
         {
           question:'15. Do you enjoy working on a team?',
           options:['yes','no','sometimes'],
-        }
+        },
       ];
   return (
     <div>
