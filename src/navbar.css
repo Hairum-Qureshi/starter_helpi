@@ -2,62 +2,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap");
 
 nav {
-	background-color: rgb(251, 187, 244);
-	text-align: left;
-	/* responsive design for accessiblity */
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  background-color: rgb(251, 187, 244);
+  text-align: left;
+  /* responsive design for accessiblity */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav .group {
-	display: inline-flex;
-	align-items: center;
+  display: inline-flex;
+  align-items: center;
 }
 
 nav img {
-	width: 60px;
-	height: 60px;
-	margin: 10px;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
 }
 
 nav h1 {
-	font-family: "Changa", sans-serif;
-	font-weight: 700;
-	font-size: 35px;
-	margin: 0;
-	color: rgb(131, 16, 40);
+  font-family: "Changa", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  margin: 0;
+  color: rgb(131, 16, 40);
 }
 
 nav h1 span {
-	color: rgb(195, 26, 26);
+  color: rgb(195, 26, 26);
 }
 
 nav ul {
-	display: inline-flex;
-	list-style-type: none;
-	float: right;
+  display: inline-flex;
+  list-style-type: none;
+  float: right;
 }
 
 nav ul a {
-	text-decoration: none;
-	color: rgb(131, 16, 40);
+  text-decoration: none;
+  color: rgb(131, 16, 40);
 }
 
 nav ul li {
-	margin: 15px;
-	font-size: 18px;
-	border-radius: 5px;
-	padding: 5px;
-	font-family: "Anybody", sans-serif;
-	font-weight: 700;
+  margin: 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Anybody", sans-serif;
+  font-weight: 700;
 }
 
 nav ul li:hover {
-	color: rgb(195, 26, 26);
-	transition: 0.5s ease;
+  color: rgb(195, 26, 26);
+  transition: 0.5s ease;
 }
 
 nav ul li:active {
-	color: rgb(255, 22, 22);
+  color: rgb(255, 22, 22);
 }

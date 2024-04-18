@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Start from "./startbutton";
-<Start />;
 function Basic() {
+  const [quizStarted, setQuizStarted] = useState<boolean>(false);
   const basicQuestions: { question: string; options: string[] }[] = [
     {
       question: "1. What is your ideal environment to live in?",
@@ -45,16 +45,24 @@ function Basic() {
   ];
   return (
     <div>
-      <h1>This is the Basic Quiz.</h1>
-      {basicQuestions.map((question, index) => (
-        <div key={index}>
-          <h2>{question.question}</h2>
-          <QuestionFormatComponent options={question.options} />
+      <Start onStartQuiz={() => setQuizStarted(true)} />
+      {quizStarted && (
+        <div>
+          <p>
+            Hi {localStorage.getItem("quizName")}, welcome to the detailed quiz.
+          </p>
+          {basicQuestions.map((question, index) => (
+            <div key={index}>
+              <h2>{question.question}</h2>
+              <QuestionFormatComponent options={question.options} />
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }
+
 interface QuestionFormatProps {
   options: string[];
 }

@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./start.css";
 
-export function Start(): JSX.Element {
+interface StartProps {
+  onStartQuiz: () => void;
+}
+export function Start({ onStartQuiz }: StartProps): JSX.Element {
   const [name, setName] = useState<string>("");
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
   const [nameTyped, setNameTyped] = useState<boolean>(false); // State to manage if name has been typed
@@ -31,10 +34,10 @@ export function Start(): JSX.Element {
     <div>
       {!quizStarted && (
         <Button className="start-button" onClick={handleStartQuiz}>
-          Start Quiz
+          START QUIZ
         </Button>
       )}
-      {quizStarted && <p>Hi {name}, you have started the quiz.</p>}
+      {quizStarted && <p>HI {name}, WELCOME.</p>}
       {quizStarted &&
         !checkmarkClicked && ( // Render the text box only if the checkmark is not clicked
           <Form.Group controlId="EditName">

@@ -1,30 +1,23 @@
 button {
-  background-color: #e0cce5; /* Match the background color of the navbar */
-  padding: 10px 15px; /* Match the padding of the navbar links */
-  color: #c64d23; /* Match the text color of the navbar links */
+  background-color: #e0cce5;
+  padding: 10px 15px;
+  color: rgb(131, 16, 40);
   transition: all 0.2s ease-in-out;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   text-decoration: none;
+  font-family: "Changa", sans-serif;
 }
 
-.start-button:hover,
-.save-button:hover {
-  background-color: #d1b9cf; /* Change the background color on hover */
-  color: #4b3f9f; /* Change the text color on hover */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow on hover */
+.start-button:hover {
+  color: rgb(195, 26, 26);
+  transition: 0.5s ease;
 }
 
-.save-button {
-  position: absolute;
-  top: 120px;
-  right: 30px;
-  padding: 5px 5px;
-}
 .checkmark {
-  vertical-align: middle;
+  vertical-align: RIGHT;
   font-size: 0.8em;
   margin-left: 5px;
 }
