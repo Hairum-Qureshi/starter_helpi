@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (99 ms)
+  ✕ renders learn react link (103 ms)
 
   ● renders learn react link
 
@@ -127,25 +127,22 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |      12 |     2.17 |   10.71 |   12.32 |                   
- src                 |      12 |     2.17 |   11.11 |   12.32 |                   
-  App.tsx            |     100 |      100 |     100 |     100 |                   
-  Footer.tsx         |      60 |       50 |   33.33 |      60 | 10,17-23          
-  basic.tsx          |      10 |      100 |       0 |      10 | 3-48,62-75        
-  detailed.tsx       |       0 |        0 |       0 |       0 | 13-183            
-  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
-  navbar.tsx         |     100 |      100 |     100 |     100 |                   
-  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/hooks           |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts      |       0 |        0 |       0 |       0 |                   
----------------------|---------|----------|---------|---------|-------------------
+--------------------|---------|----------|---------|---------|-------------------
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------|---------|----------|---------|---------|-------------------
+All files           |      12 |     2.17 |   11.11 |   12.32 |                   
+ App.tsx            |     100 |      100 |     100 |     100 |                   
+ Footer.tsx         |      60 |       50 |   33.33 |      60 | 10,17-23          
+ basic.tsx          |      10 |      100 |       0 |      10 | 3-48,62-75        
+ detailed.tsx       |       0 |        0 |       0 |       0 | 13-183            
+ index.tsx          |       0 |      100 |     100 |       0 | 7-19              
+ navbar.tsx         |     100 |      100 |     100 |     100 |                   
+ reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
+--------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.135 s
+Time:        2.753 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
