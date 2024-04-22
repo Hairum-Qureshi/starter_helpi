@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (94 ms)
+  ✕ renders learn react link (90 ms)
 
   ● renders learn react link
 
@@ -46,47 +46,47 @@ FAIL src/App.test.tsx
     Ignored nodes: comments, script, style
     [36m<body>[39m
       [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-        [36m>[39m
-          [36m<nav>[39m
-            [36m<a[39m
-              [33mhref[39m=[32m"/"[39m
+        [36m<nav>[39m
+          [36m<a[39m
+            [33mhref[39m=[32m"/"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"group"[39m
             [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"group"[39m
-              [36m>[39m
-                [36m<img[39m
-                  [33malt[39m=[32m"Careeribou logo"[39m
-                  [33msrc[39m=[32m"caribou.png"[39m
-                [36m/>[39m
-                [36m<h1>[39m
-                  [36m<span>[39m
-                    [36m<u>[39m
-                      [0mCAREER[0m
-                    [36m</u>[39m
-                  [36m</span>[39m
-                  [0mIBOU[0m
-                [36m</h1>[39m
-              [36m</div>[39m
+              [36m<img[39m
+                [33malt[39m=[32m"Careeribou logo"[39m
+                [33msrc[39m=[32m"caribou.png"[39m
+              [36m/>[39m
+              [36m<h1>[39m
+                [36m<span>[39m
+                  [36m<u>[39m
+                    [0mCAREER[0m
+                  [36m</u>[39m
+                [36m</span>[39m
+                [0mIBOU[0m
+              [36m</h1>[39m
+            [36m</div>[39m
+          [36m</a>[39m
+          [36m<ul>[39m
+            [36m<a[39m
+              [33mhref[39m=[32m"/basic"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [0mBASIC QUESTIONS[0m
+              [36m</li>[39m
             [36m</a>[39m
-            [36m<ul>[39m
-              [36m<a[39m
-                [33mhref[39m=[32m"/basic"[39m
-              [36m>[39m
-                [36m<li>[39m
-                  [0mBASIC QUESTIONS[0m
-                [36m</li>[39m
-              [36m</a>[39m
-              [36m<a[39m
-                [33mhref[39m=[32m"/detailed"[39m
-              [36m>[39m
-                [36m<li>[39m
-                  [0mDETAILED QUESTIONS[0m
-                [36m</li>[39m
-              [36m</a>[39m
-            [36m</ul>[39m
-          [36m</nav>[39m
+            [36m<a[39m
+              [33mhref[39m=[32m"/detailed"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [0mDETAILED QUESTIONS[0m
+              [36m</li>[39m
+            [36m</a>[39m
+          [36m</ul>[39m
+        [36m</nav>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"footerContainer"[39m
+        [36m>[39m
           [36m<footer>[39m
             [36m<label>[39m
               [0mAPI Key Here: [0m
@@ -135,14 +135,14 @@ All files           |      12 |     2.17 |   11.11 |   12.32 |
  Footer.tsx         |      60 |       50 |   33.33 |      60 | 10,17-23          
  basic.tsx          |      10 |      100 |       0 |      10 | 3-48,62-75        
  detailed.tsx       |       0 |        0 |       0 |       0 | 13-183            
- index.tsx          |       0 |      100 |     100 |       0 | 6-18              
+ index.tsx          |       0 |      100 |     100 |       0 | 6-19              
  navbar.tsx         |     100 |      100 |     100 |     100 |                   
  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
 --------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.717 s
+Time:        2.768 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
