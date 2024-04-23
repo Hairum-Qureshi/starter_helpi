@@ -1,5 +1,5 @@
 button {
-  background-color: #e0cce5;
+  background-color: rgb(251, 187, 244);
   padding: 10px 15px;
   color: rgb(131, 16, 40);
   transition: all 0.2s ease-in-out;
@@ -9,6 +9,8 @@ button {
   cursor: pointer;
   text-decoration: none;
   font-family: "Changa", sans-serif;
+  margin: 50px;
+  margin-left: 650px;
 }
 
 .start-button:hover {
