@@ -9,27 +9,22 @@ interface StartProps {
 const Start: React.FC<StartProps> = ({ onStartQuiz }) => {
   const [name, setName] = useState<string>("");
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
-  const [nameTyped, setNameTyped] = useState<boolean>(false);
-  const [checkmarkClicked, setCheckmarkClicked] = useState<boolean>(false);
+  const [showNameInput, setShowNameInput] = useState<boolean>(false);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newName = event.target.value;
     setName(newName);
     localStorage.setItem("quizName", newName);
-    if (newName.length > 0) {
-      setNameTyped(true);
-    } else {
-      setNameTyped(false);
-    }
   };
 
   const handleStartQuiz = () => {
     setQuizStarted(true);
-    onStartQuiz(); // Invoke the callback to notify the parent component
+    setShowNameInput(true);
+    onStartQuiz();
   };
 
   const handleCheckmarkClick = () => {
-    setCheckmarkClicked(true);
+    setShowNameInput(false);
   };
 
   return (
@@ -40,21 +35,24 @@ const Start: React.FC<StartProps> = ({ onStartQuiz }) => {
       >
         START QUIZ
       </Button>
-      {quizStarted && <p>HI {name}, WELCOME.</p>}
-      {quizStarted && !checkmarkClicked && (
+      {quizStarted && showNameInput && (
         <Form.Group controlId="EditName">
           <Form.Control
             type="text"
             value={name}
             onChange={handleNameChange}
-            placeholder="Edit Name"
+            placeholder="Enter Your Name"
           />
+          <Button className="checkmark" onClick={handleCheckmarkClick}>
+            ✓
+          </Button>
         </Form.Group>
       )}
-      {quizStarted && nameTyped && !checkmarkClicked && (
-        <Button className="checkmark" onClick={handleCheckmarkClick}>
-          ✓
-        </Button>
+      {quizStarted && !showNameInput && (
+        <div>
+          <p>Hi {name}, welcome to the detailed quiz.</p>
+          {/* Render other quiz components here */}
+        </div>
       )}
     </div>
   );
