@@ -8,14 +8,14 @@ import Footer from "./Footer";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <>
         <Navigation />
         <Routes>
           <Route path="/basic" Component={Basic} />
           <Route path="/detailed" Component={Detailed} />
         </Routes>
         <Footer />
-      </div>
+      </>
     </Router>
   );
 }

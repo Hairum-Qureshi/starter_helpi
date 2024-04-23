@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Changa:wght@200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap");
 
+body {
+	margin: 0;
+}
+
 nav {
   background-color: rgb(251, 187, 244);
   text-align: left;
@@ -8,6 +12,33 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.navbar a {
+	padding: 10px 15px;
+	border-radius: 5px;
+	/* color: #c64d23; */
+	transition: all 0.2s ease-in-out;
+	font-weight: 700;
+	font-size: 17px;
+	border: none;
+	text-decoration: none;
+}
+h1 {
+	font-size: 30px;
+}
+
+.nav-link {
+	/* color: #fd6b01; */
+	cursor: pointer;
+}
+
+.nav-link:hover {
+	color: #c64d23;
+}
+
+.navbar a:hover {
+	box-shadow: 0 0 30px #4b3f9f;
 }
 
 nav .group {

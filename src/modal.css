@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
+
+.modal {
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+	font-family: "Archivo", sans-serif;
+}
+
+.modal-content {
+	background-color: #392c60;
+	margin: auto;
+	padding: 20px;
+	border: 2px solid #9f86c0;
+	width: 80%;
+	border-radius: 10px;
+}
+
+.modal-content p {
+	font-size: 20px;
+	text-align: center;
+	padding: 10px;
+	width: 70%;
+	margin: 20px auto 30px;
+	line-height: 35px;
+	font-weight: 400;
+	color: white;
+}
+
+.modal-content .buttonContainer {
+	width: 100%;
+	box-sizing: border-box;
+	display: inline-flex;
+}
+
+.modal-content .buttonContainer button:first-of-type {
+	background-color: #86142d;
+	border: 2px solid rgb(178, 40, 40);
+}
+
+.modal-content .buttonContainer button:first-of-type:hover {
+	background-color: #86142d;
+	border: 2px solid red;
+}
+
+.modal-content .buttonContainer button:first-of-type:active {
+	background-color: #a81132;
+}
+
+.modal-content .buttonContainer button {
+	width: 30%;
+	margin: 0 auto 20px;
+	padding: 15px;
+	font-size: 18px;
+	background-color: #720874;
+	color: white;
+	border: 2px solid #8d5fca;
+	font-family: "Archivo", sans-serif;
+	font-weight: 600;
+	border-radius: 10px;
+}
+
+.modal-content .buttonContainer button:hover {
+	cursor: pointer;
+	border: 2px solid #a980de;
+	background-color: #8c098e;
+	transition: 0.5s ease;
+}
+
+.modal-content .buttonContainer button:active {
+	background-color: #c00ac4;
+}

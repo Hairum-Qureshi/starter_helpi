@@ -24,19 +24,21 @@ export default function Footer() {
 	}
 
 	return (
-		<footer>
-			<label>API Key Here: </label>
-			<input
-				type="password"
-				placeholder="Insert API Key Here"
-				onChange={changeKey}
-			/>
-			<button className="Submit-Button" onClick={handleSubmit}>
-				Submit
-			</button>
-			<br />
-			&copy; {new Date().getFullYear()} Hairum Qureshi, Mithra Sankar, Olive
-			Odida, and Olivia Folliard
-		</footer>
+		<div className="footerContainer">
+			<footer>
+				<label>API Key Here: </label>
+				<input
+					type="password"
+					placeholder="Insert API Key Here"
+					onChange={changeKey}
+				/>
+				<button className="Submit-Button" onClick={handleSubmit}>
+					Submit
+				</button>
+				<br />
+				&copy; {new Date().getFullYear()} Hairum Qureshi, Mithra Sankar, Olive
+				Odida, and Olivia Folliard
+			</footer>
+		</div>
 	);
 }
