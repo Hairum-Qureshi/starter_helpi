@@ -14,6 +14,33 @@ nav {
 	align-items: center;
 }
 
+.navbar a {
+	padding: 10px 15px;
+	border-radius: 5px;
+	/* color: #c64d23; */
+	transition: all 0.2s ease-in-out;
+	font-weight: 700;
+	font-size: 17px;
+	border: none;
+	text-decoration: none;
+}
+h1 {
+	font-size: 30px;
+}
+
+.nav-link {
+	/* color: #fd6b01; */
+	cursor: pointer;
+}
+
+.nav-link:hover {
+	color: #c64d23;
+}
+
+.navbar a:hover {
+	box-shadow: 0 0 30px #4b3f9f;
+}
+
 nav .group {
 	display: inline-flex;
 	align-items: center;
