@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Start from "./startbutton";
+
 function Basic() {
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+
   const basicQuestions: { question: string; options: string[] }[] = [
     {
       question: "1. What is your ideal environment to live in?",
@@ -22,7 +25,7 @@ function Basic() {
     },
     {
       question:
-        "4. Besides career interests, what other activites interest you?",
+        "4. Besides career interests, what other activities interest you?",
       options: ["relaxing", "art", "exercise", "volunteering"],
     },
     {
@@ -43,14 +46,52 @@ function Basic() {
       options: ["in-person", "hybrid", "virtual", "no-preference"],
     },
   ];
+
+  interface QuestionFormatProps {
+    options: string[];
+  }
+
+  const QuestionFormatComponent: React.FC<QuestionFormatProps> = ({
+    options,
+  }) => {
+    const [selected, setSelected] = useState<string | null>(null);
+    const optionSelect = (option: string) => {
+      setSelected(option);
+    };
+    return (
+      <div>
+        <p>Select an option:</p>
+        {options.map((option) => (
+          <label key={option}>
+            <input
+              type="radio"
+              value={option}
+              checked={selected === option}
+              onChange={() => optionSelect(option)}
+            />
+            {option}
+          </label>
+        ))}
+        <p>You selected: {selected}</p>
+      </div>
+    );
+  };
+
   return (
     <div>
-      <Start onStartQuiz={() => setQuizStarted(true)} />
+      <div className={`start-container ${quizStarted ? "fade-out" : ""}`}>
+        {!quizStarted && (
+          <Start
+            onStartQuiz={() => {
+              setQuizStarted(true);
+              setName(localStorage.getItem("quizName") || "");
+            }}
+          />
+        )}
+        {quizStarted && <p>Hi {name}, welcome to the detailed quiz.</p>}
+      </div>
       {quizStarted && (
         <div>
-          <p>
-            Hi {localStorage.getItem("quizName")}, welcome to the detailed quiz.
-          </p>
           {basicQuestions.map((question, index) => (
             <div key={index}>
               <h2>{question.question}</h2>
@@ -63,32 +104,4 @@ function Basic() {
   );
 }
 
-interface QuestionFormatProps {
-  options: string[];
-}
-const QuestionFormatComponent: React.FC<QuestionFormatProps> = ({
-  options,
-}) => {
-  const [selected, setSelected] = useState<string | null>(null);
-  const optionSelect = (option: string) => {
-    setSelected(option);
-  };
-  return (
-    <div>
-      <p>Select an option:</p>
-      {options.map((option) => (
-        <label key={option}>
-          <input
-            type="radio"
-            value={option}
-            checked={selected === option}
-            onChange={() => optionSelect(option)}
-          />
-          {option}
-        </label>
-      ))}
-      <p>You selected: {selected}</p>
-    </div>
-  );
-};
 export default Basic;

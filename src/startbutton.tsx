@@ -5,58 +5,59 @@ import "./start.css";
 interface StartProps {
   onStartQuiz: () => void;
 }
-export function Start({ onStartQuiz }: StartProps): JSX.Element {
+
+const Start: React.FC<StartProps> = ({ onStartQuiz }) => {
   const [name, setName] = useState<string>("");
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
-  const [nameTyped, setNameTyped] = useState<boolean>(false); // State to manage if name has been typed
-  const [checkmarkClicked, setCheckmarkClicked] = useState<boolean>(false); // State to manage if checkmark is clicked
+  const [nameTyped, setNameTyped] = useState<boolean>(false);
+  const [checkmarkClicked, setCheckmarkClicked] = useState<boolean>(false);
 
-  function editing(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newName = event.target.value;
     setName(newName);
     localStorage.setItem("quizName", newName);
     if (newName.length > 0) {
-      setNameTyped(true); // Set nameTyped to true if the name length is greater than zero
+      setNameTyped(true);
     } else {
-      setNameTyped(false); // Set nameTyped to false if the name length is zero
+      setNameTyped(false);
     }
-  }
+  };
 
-  function handleStartQuiz() {
+  const handleStartQuiz = () => {
     setQuizStarted(true);
-  }
+    onStartQuiz(); // Invoke the callback to notify the parent component
+  };
 
-  function handleCheckmarkClick() {
-    setCheckmarkClicked(true); // Set checkmarkClicked to true when checkmark is clicked
-  }
+  const handleCheckmarkClick = () => {
+    setCheckmarkClicked(true);
+  };
 
   return (
-    <div>
-      {!quizStarted && (
-        <Button className="start-button" onClick={handleStartQuiz}>
-          START QUIZ
+    <div className={`start-container ${quizStarted ? "fade-out" : ""}`}>
+      <Button
+        className={`start-button ${quizStarted ? "hide" : ""}`}
+        onClick={handleStartQuiz}
+      >
+        START QUIZ
+      </Button>
+      {quizStarted && <p>HI {name}, WELCOME.</p>}
+      {quizStarted && !checkmarkClicked && (
+        <Form.Group controlId="EditName">
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Edit Name"
+          />
+        </Form.Group>
+      )}
+      {quizStarted && nameTyped && !checkmarkClicked && (
+        <Button className="checkmark" onClick={handleCheckmarkClick}>
+          ✓
         </Button>
       )}
-      {quizStarted && <p>HI {name}, WELCOME.</p>}
-      {quizStarted &&
-        !checkmarkClicked && ( // Render the text box only if the checkmark is not clicked
-          <Form.Group controlId="EditName">
-            <Form.Control
-              type="text"
-              value={name}
-              onChange={editing}
-              placeholder="Edit Name"
-            />
-          </Form.Group>
-        )}
-      {quizStarted &&
-        nameTyped &&
-        !checkmarkClicked && ( // Render the checkmark button only if nameTyped is true and checkmark is not clicked
-          <Button className="checkmark" onClick={handleCheckmarkClick}>
-            ✓
-          </Button>
-        )}
     </div>
   );
-}
+};
+
 export default Start;
