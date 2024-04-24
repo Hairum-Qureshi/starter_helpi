@@ -4,12 +4,11 @@ import questions from "./detailedQuestions.json";
 
 // TODO - [] add functionality to allow users to hit enter to move to the next question (or left + right arrow keys)
 
+export interface Answer {
+  questionNo: number;
+  choice: string;
+}
 function Detailed() {
-  interface Answer {
-    questionNo: number;
-    choice: string;
-  }
-
   const [choice, setChoice] = useState<string>();
 
   const saved_index: number =
