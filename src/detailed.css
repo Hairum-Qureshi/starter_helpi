@@ -3,10 +3,10 @@
 .quizContainer {
 	background-color: #2386c0;
 	border-radius: 10px;
-	width: 70%;
+	width: 60%;
 	height: auto;
 	padding: 10px;
-	margin: 30px auto;
+	margin: 30px auto 50px;
 }
 
 .quizContainer .questionContainer {
@@ -76,7 +76,6 @@
 
 .quizContainer .optionsContainer button:hover {
 	background-color: #00538f;
-	/* transition: 0.5s ease-out; */
 	cursor: pointer;
 }
 

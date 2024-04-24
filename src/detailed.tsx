@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import "../src/detailed.css";
 import questions from "./detailedQuestions.json";
+import Modal from "./Modal";
+import Confetti from "react-confetti";
 import Start from "./startbutton";
 
-// TODO - [] add functionality to allow users to hit enter to move to the next question (or left + right arrow keys)
-
 export interface Answer {
+  question: string;
   questionNo: number;
   choice: string;
 }
@@ -31,11 +32,18 @@ function Detailed() {
   const [userInput, setUserInput] = useState<string>(
     answeredQuestions[currentIndex] && answeredQuestions[currentIndex].choice
   );
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  function updateModalVisibility() {
+    setModalVisibility(!modalVisibility);
+  }
 
   function saveAnswers(
     choice: string,
     question_num: number,
-    question_type: string
+    question_type: string,
+    question: string
   ) {
     if (question_type === "free_response" && !choice.trim()) {
       setChoice("");
@@ -66,15 +74,13 @@ function Detailed() {
       } else {
         setAnsweredQuestions([
           ...answeredQuestions,
-          { questionNo: question_num, choice },
+          { questionNo: question_num, choice, question },
         ]);
       }
     } else {
-      setAnsweredQuestions([{ questionNo: question_num, choice }]);
+      setAnsweredQuestions([{ questionNo: question_num, choice, question }]);
     }
   }
-
-  console.log(userInput);
 
   useEffect(() => {
     if (answeredQuestions.length !== 0) {
@@ -87,6 +93,8 @@ function Detailed() {
 
   return (
     <div>
+      {showConfetti && <Confetti />}
+      {modalVisibility && <Modal modalFunction={updateModalVisibility} />}
       <div className={`start-container ${quizStarted ? "fade-out" : ""}`}>
         {!quizStarted && (
           <Start
@@ -96,26 +104,28 @@ function Detailed() {
             }}
           />
         )}
-        <p
-          style={{
-            fontSize: "30px",
-            marginLeft: "10px",
-            fontFamily: "Changa, sans-serif",
-          }}
-        >
-          Hi{" "}
-          <span
+        {quizStarted && (
+          <p
             style={{
               fontSize: "30px",
               marginLeft: "10px",
               fontFamily: "Changa, sans-serif",
-              fontWeight: "bold",
             }}
           >
-            {name}
-          </span>
-          , welcome to the detailed quiz.
-        </p>
+            Hi{" "}
+            <span
+              style={{
+                fontSize: "30px",
+                marginLeft: "10px",
+                fontFamily: "Changa, sans-serif",
+                fontWeight: "bold",
+              }}
+            >
+              {name}
+            </span>
+            , welcome to the detailed quiz.
+          </p>
+        )}
       </div>
       {quizStarted && (
         <div className="quizContainer">
@@ -125,71 +135,77 @@ function Detailed() {
               alt="Visual question aid"
             />
             <h3>
-              ({questions[currentIndex].question_number}/{questions.length}
-              )&nbsp;
+              ({questions[currentIndex].question_number}/{questions.length})
+              &nbsp;
               {questions[currentIndex].question}
             </h3>
           </div>
           <div className="optionsContainer">
-            {questions[currentIndex].type === "multiple_choice" ? (
-              questions[currentIndex].choices.map(
-                (choice: string, index: number) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setChoice(choice);
+            {questions[currentIndex].type === "multiple_choice"
+              ? questions[currentIndex].choices.map(
+                  (choice: string, index: number) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setChoice(choice);
+                        saveAnswers(
+                          choice,
+                          questions[currentIndex].question_number,
+                          questions[currentIndex].type,
+                          questions[currentIndex].question
+                        );
+                      }}
+                      style={{
+                        backgroundColor: `${
+                          answeredQuestions.some(
+                            (selectedAnswer) => selectedAnswer.choice === choice
+                          )
+                            ? "#006BA6"
+                            : "#003459"
+                        }`,
+                        transition: "0.25s ease",
+                        border: `${
+                          answeredQuestions.some(
+                            (selectedAnswer) => selectedAnswer.choice === choice
+                          )
+                            ? "2px solid cyan"
+                            : "none"
+                        }`,
+                      }}
+                    >
+                      {choice}
+                    </button>
+                  )
+                )
+              : questions[currentIndex].type === "free_response" && (
+                  <textarea
+                    placeholder="Enter your response..."
+                    value={
+                      answeredQuestions[currentIndex] &&
+                      answeredQuestions[currentIndex].choice
+                    }
+                    onChange={(e) => {
+                      setChoice(e.target.value);
+                      setUserInput(e.target.value);
                       saveAnswers(
-                        choice,
+                        e.target.value,
                         questions[currentIndex].question_number,
-                        questions[currentIndex].type
+                        questions[currentIndex].type,
+                        questions[currentIndex].question
                       );
                     }}
-                    style={{
-                      backgroundColor: `${
-                        answeredQuestions.some(
-                          (selectedAnswer) => selectedAnswer.choice === choice
-                        )
-                          ? "#006BA6"
-                          : "#003459"
-                      }`,
-                      transition: "0.25s ease",
-                      border: `${
-                        answeredQuestions.some(
-                          (selectedAnswer) => selectedAnswer.choice === choice
-                        )
-                          ? "2px solid cyan"
-                          : "none"
-                      }`,
-                    }}
-                  >
-                    {choice}
-                  </button>
-                )
-              )
-            ) : questions[currentIndex].type === "free_response" ? (
-              <textarea
-                placeholder="Enter your response..."
-                value={answeredQuestions[currentIndex]?.choice || ""}
-                onChange={(e) => {
-                  setChoice(e.target.value);
-                  setUserInput(e.target.value);
-                  saveAnswers(
-                    e.target.value,
-                    questions[currentIndex].question_number,
-                    questions[currentIndex].type
-                  );
-                }}
-              ></textarea>
-            ) : null}
+                  ></textarea>
+                )}
           </div>
           <div className="containerFooter">
             <button
               disabled={currentIndex === 0}
               onClick={() => {
-                setCurrentIndex(
-                  (index) => (index - 1 + questions.length) % questions.length
+                setCurrentIndex((index) => (index -= 1 % questions.length));
+                setChoice(
+                  answeredQuestions[currentIndex] &&
+                    answeredQuestions[currentIndex - 1]?.choice
                 );
-                setChoice(answeredQuestions[currentIndex - 1]?.choice || "");
               }}
             >
               {currentIndex === 0 ? "END" : "PREV."}
@@ -197,11 +213,25 @@ function Detailed() {
             <button
               disabled={currentIndex === questions.length - 1 || !choice}
               onClick={() => {
-                setCurrentIndex((index) => (index + 1) % questions.length);
-                setChoice(answeredQuestions[currentIndex + 1]?.choice || "");
+                if (currentIndex === questions.length - 1) {
+                  setModalVisibility(!modalVisibility);
+                  setShowConfetti(true);
+
+                  setTimeout(() => {
+                    setShowConfetti(false);
+                  }, 8000);
+                } else {
+                  setCurrentIndex((index) => (index += 1 % questions.length));
+                  setChoice(
+                    answeredQuestions[currentIndex + 1] &&
+                      answeredQuestions[currentIndex + 1]?.choice
+                  );
+                }
               }}
             >
-              {currentIndex === questions.length - 1 ? "END" : "NEXT"}
+              {currentIndex === questions.length - 1
+                ? "SUBMIT RESPONSES"
+                : "NEXT"}
             </button>
           </div>
         </div>
