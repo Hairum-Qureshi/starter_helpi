@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.11a2d6ef.css",
+    "main.css": "/starter_helpi/static/css/main.a9a03e8e.css",
     "main.js": "/starter_helpi/static/js/main.6da62651.js",
     "static/js/453.bad6c33a.chunk.js": "/starter_helpi/static/js/453.bad6c33a.chunk.js",
     "static/media/caribou.png": "/starter_helpi/static/media/caribou.2edf47d605fa4174dfc1.png",
     "index.html": "/starter_helpi/index.html",
-    "main.11a2d6ef.css.map": "/starter_helpi/static/css/main.11a2d6ef.css.map",
+    "main.a9a03e8e.css.map": "/starter_helpi/static/css/main.a9a03e8e.css.map",
     "main.6da62651.js.map": "/starter_helpi/static/js/main.6da62651.js.map",
     "453.bad6c33a.chunk.js.map": "/starter_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11a2d6ef.css",
+    "static/css/main.a9a03e8e.css",
     "static/js/main.6da62651.js"
   ]
 }
