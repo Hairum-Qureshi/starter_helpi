@@ -1,0 +1,16 @@
+.basic-button {
+    background-color : rgb(251, 187, 244);
+    color : rgb(195, 26, 26);
+    font-size : 30px;
+    border-radius : 5px;
+    border : none;
+}
+
+.detailed-button{
+    background-color : rgb(251, 187, 244);
+    color : rgb(195, 26, 26);
+    font-size : 30px;
+    border-radius : 5px;
+    border : none;
+}
+
