@@ -88,7 +88,28 @@ function Basic() {
             }}
           />
         )}
-        {quizStarted && <p>Hi {name}, welcome to the detailed quiz.</p>}
+        {quizStarted && (
+          <p
+            style={{
+              fontSize: "30px",
+              marginLeft: "10px",
+              fontFamily: "Changa, sans-serif",
+            }}
+          >
+            Hi{" "}
+            <span
+              style={{
+                fontSize: "30px",
+                marginLeft: "10px",
+                fontFamily: "Changa, sans-serif",
+                fontWeight: "bold",
+              }}
+            >
+              {name}
+            </span>
+            , welcome to the detailed quiz.
+          </p>
+        )}
       </div>
       {quizStarted && (
         <div>
