@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Start from "./startbutton";
-
+//
 function Basic() {
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
   const [name, setName] = useState<string>("");

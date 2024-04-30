@@ -4,7 +4,7 @@ import questions from "./detailedQuestions.json";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
 import Start from "./startbutton";
-
+//
 export interface Answer {
   question: string;
   questionNo: number;
