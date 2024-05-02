@@ -113,6 +113,39 @@ function Detailed() {
 		}
 	}, [answeredQuestions]);
 
+	function keyInputs(event: React.KeyboardEvent) {
+		let indexOfChoice: number = answeredQuestions.findIndex(
+			(answer: Answer) => answer.choice === choice
+		);
+
+		indexOfChoice++;
+
+		switch (event.key) {
+			case "ArrowUp":
+				// const indexOfChoice = answeredQuestions.findIndex(
+				// 	(answer: Answer) => answer.choice === choice
+				// );
+				setChoice(choice);
+				console.log(indexOfChoice + 1, choice);
+
+				const lengthOfChoices: number = questions[indexOfChoice].choices.length;
+				console.log(
+					questions[currentIndex].choices[(indexOfChoice + 1) % lengthOfChoices]
+				);
+
+				break;
+			case "ArrowDown":
+				setChoice(choice);
+				break;
+			case "ArrowRight":
+				setChoice(choice);
+				break;
+			case "ArrowLeft":
+				setChoice(choice);
+				break;
+		}
+	}
+
 	return (
 		<>
 			{showConfetti && <Confetti />}
@@ -132,6 +165,7 @@ function Detailed() {
 								(choice: string, index: number) => (
 									<button
 										key={index}
+										onKeyDown={e => keyInputs(e)}
 										onClick={() => {
 											setChoice(choice);
 											saveAnswers(
@@ -202,7 +236,6 @@ function Detailed() {
 							if (currentIndex === questions.length - 1) {
 								setModalVisibility(!modalVisibility);
 								setShowConfetti(true);
-
 								setTimeout(() => {
 									setShowConfetti(false);
 								}, 8000);
