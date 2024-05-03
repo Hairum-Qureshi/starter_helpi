@@ -115,23 +115,17 @@ function Detailed() {
 	const [counter, setCounter] = useState(0);
 
 	function keyInputs(event: React.KeyboardEvent) {
-		let indexOfChoice: number = answeredQuestions.findIndex(
-			(answer: Answer) => answer.choice === choice
+		let indexOfChoice: number = questions[currentIndex].choices.findIndex(
+			(questionChoice: string) => {
+				return questionChoice === choice;
+			}
 		);
 
+		console.log("index of choice", indexOfChoice);
 		switch (event.key) {
 			case "ArrowUp":
 				setCounter((counter + 1) % 5);
-				// setChoice(
-				// 	questions[currentIndex].choices[indexOfChoice + (counter % 5)]
-				// );
-
-				// console.log(choice, indexOfChoice + (counter % 5));
-
-				console.log(
-					questions[currentIndex].choices[indexOfChoice + counter],
-					indexOfChoice + counter
-				);
+				setChoice(questions[currentIndex].choices[counter % 5]);
 
 				break;
 			case "ArrowDown":
