@@ -22,7 +22,7 @@
 			"I want to avoid: High stress levels, unethical practices, limited autonomy",
 			"I am willing to embrace: Limited initial salary, physical demands, intense competition"
 		],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/b3mS26h/1.png",
 		"type": "multiple_choice"
 	},
 	{
@@ -35,7 +35,7 @@
 			"Health and wellness promotion",
 			"Economic development and poverty alleviation"
 		],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/6J37mjN/2.png",
 		"type": "multiple_choice"
 	},
 	{
@@ -48,7 +48,7 @@
 			"Work-life balance and flexible scheduling",
 			"Recognition and appreciation for contributions"
 		],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/xSW6MC5/2.png",
 		"type": "multiple_choice"
 	},
 	{
@@ -61,7 +61,7 @@
 			"Transitioning into a different sector with transferable skills",
 			"Exploring opportunities in a completely different field of interest"
 		],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/ynkGVQr/2.png",
 		"type": "multiple_choice"
 	},
 	{
@@ -74,7 +74,7 @@
 			"Work-life balance and flexibility",
 			"Training and development opportunities for new skills"
 		],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/SV353fp/2.png",
 		"type": "multiple_choice"
 	},
 	{
@@ -87,21 +87,128 @@
 			"Problem-solving and analytical capabilities",
 			"I am currently not employed"
 		],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/y0Drg3k/2.png",
 		"type": "multiple_choice"
 	},
 	{
 		"question_number": 8,
-		"question": "What gets your blood boiling? What's a problem in the world that you'd love to fix?",
-		"choices": [],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
-		"type": "free_response"
+		"question": "Do you feel like your current job isn't utilizing key skills that you feel may be holding you back from gaining valuable experience?",
+		"choices": [
+			"Yes, I feel underutilized in my current role",
+			"No, I feel my current role utilizes my skills effectively",
+			"Somewhat, I think there's room for improvement in skill utilization",
+			"I'm not sure"
+		],
+		"image": "https://i.ibb.co/QnzNN6R/2.png",
+		"type": "multiple_choice"
 	},
 	{
 		"question_number": 9,
+		"question": "Would you say your career aspirations are solely driven by money, or do you seek deeper fulfillment and purpose in your work?",
+		"choices": [
+			"Money is my primary motivation for my career choices",
+			" I prioritize fulfillment and purpose over monetary rewards",
+			"A balance of both money and fulfillment is important to me",
+			"I haven't thought much about it"
+		],
+		"image": "https://i.ibb.co/1GjrJXt/2.png",
+		"type": "multiple_choice"
+	},
+	{
+		"question_number": 10,
+		"question": "How far are you willing to relocate for your dream job?",
+		"choices": [
+			"Anywhere, I'm open to relocating globally",
+			"Within my country or region",
+			"I'm open to relocation but prefer to stay within a certain distance",
+			"I’m not willing to relocate"
+		],
+		"image": "https://i.ibb.co/1R1JXpG/2.png",
+		"type": "multiple_choice"
+	},
+	{
+		"question_number": 11,
+		"question": "Do you believe there are factors that might hinder your career progression or opportunities for advancement, such as biases or prejudices?",
+		"choices": [
+			"Yes, I believe biases and prejudices can impact career advancement",
+			"No, I think career progression is solely based on merit",
+			"I'm not sure if biases and prejudices affect career advancement",
+			"I haven't experienced or observed biases in my career"
+		],
+		"image": "https://i.ibb.co/98jPdtp/2.png",
+		"type": "multiple_choice"
+	},
+	{
+		"question_number": 12,
+		"question": "Are you willing to take risks or step out of your comfort zone to advance your career if given the opportunity?",
+		"choices": [
+			"Yes, I'm willing to take calculated risks for career advancement",
+			"No, I prefer to stay within my comfort zone",
+			"It depends on the specific opportunity and potential risks involved",
+			"I''m not sure"
+		],
+		"image": "https://i.ibb.co/wwDS6bG/2.png",
+		"type": "multiple_choice"
+	},
+	{
+		"question_number": 13,
+		"question": "Which of the following perks would you most value in a job?",
+		"choices": [
+			"Flexible work hours or remote work options",
+			"Generous healthcare and wellness benefits",
+			"Opportunities for professional development and career growth",
+			"Additional vacation days or paid time off"
+		],
+		"image": "https://i.ibb.co/0yYMFZF/2.png",
+		"type": "multiple_choice"
+	},
+	{
+		"question_number": 14,
+		"question": "What gets your blood boiling? What's a problem in the world that you'd love to fix?",
+		"choices": [],
+		"image": "https://i.ibb.co/XLKc5xp/2.png",
+		"type": "free_response"
+	},
+	{
+		"question_number": 15,
 		"question": "What’s something that, when immersed in it, you lose track of time?",
 		"choices": [],
-		"image": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+		"image": "https://i.ibb.co/dcK3TJS/2.png",
+		"type": "free_response"
+	},
+	{
+		"question_number": 16,
+		"question": "Describe a project or task where you felt most engaged and fulfilled. What aspects of it made it meaningful to you?",
+		"choices": [],
+		"image": "https://i.ibb.co/WygkyJH/2.png",
+		"type": "free_response"
+	},
+	{
+		"question_number": 17,
+		"question": "What values are most important to you in your career? How do these values influence your career decisions and actions?",
+		"choices": [],
+		"image": "https://i.ibb.co/m6DVYnB/2.png",
+		"type": "free_response"
+	},
+	{
+		"question_number": 18,
+		"question": "What factors are most important to you when considering potential career opportunities, such as company culture, growth potential, or work-life balance?",
+		"choices": [],
+		"image": "https://i.ibb.co/R3cZR1b/2.png",
+		"type": "free_response"
+	},
+	{
+		"question_number": 19,
+		"question": "What are some concerns you have (if any) with finding the right career or the climate of job hunting?",
+		"choices": [],
+		"image": "https://i.ibb.co/X5CC3fR/2.png",
+		"type": "free_response"
+	},
+	{
+		"question_number": 20,
+		"question": "Is there anything else you would like to add you feel hasn't been asked or you feel is important to mention?",
+		"choices": [],
+		"image": "https://i.ibb.co/KjdNwr8/2.png",
 		"type": "free_response"
 	}
 ]

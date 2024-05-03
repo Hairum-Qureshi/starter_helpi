@@ -1,0 +1,102 @@
+[
+		{
+			"question_number": 1,
+			"question": "1. What is your ideal environment to live in?",
+			"options": ["City", "Suburb", "Rural", "Town"],
+            "type": "multiple choice"
+		},
+		{
+			"question_number": 2,
+			"question": "2. What personal skill do you most value?",
+			"options": ["time management", "resourceful", "organization", "leadership"],
+            "type": "multiple choice"
+        },
+		{
+			"question_number": 3,
+			"question": "3. What level of your academic career are you at?",
+			"options": [
+				"some high school",
+				"high school degree/GED",
+				"college",
+				"graduate school"
+			],
+            "type": "multiple choice"
+		},
+		{
+			"question_number": 4,
+			"question": "4. Besides career interests, what other activites interest you?",
+			"options": ["relaxing", "art", "exercise", "volunteering"],
+            "type": "multiple choice"
+		},
+		{
+			"question_number": 5,
+			"question": "5. How many hours would you like to work per week?",
+			"options": ["20 or less", "20-30", "30-35", "35+"],
+            "type": "multiple choice"
+		},
+		{
+			"question_number": 6,
+			"question": "6. What topics or ideas spark your interest?",
+			"options": [
+				"physical sciences",
+				"mathematics/engineering",
+				"history/social sciences",
+				"art"
+			],
+            "type": "multiple choice"
+		},
+		{
+			"question_number": 7,
+			"question": "7. Would you like to work in-person, hybrid, or virtual?",
+			"options": ["in-person", "hybrid", "virtual", "no-preference"],
+            "type": "multiple choice"
+		},
+		{
+			"question_number": 8,
+            "question":"8. What time of day are you most productive?",
+            "options": ["early morning (5am-7am)","mid-morning (8am-11am)","afternoon (12pm-5pm)","night (after 6pm)"],
+            "type": "multiple choice"
+        },
+        {
+			"question_number": 9,
+            "question":"9. What type of company environment are you looking for?",
+            "options": ["high-stress, high salary", "low stress, low salary"],
+            "type": "multiple choice"
+        },
+        {
+			"question_number": 10,
+            "question":"10. What is the highest level of education that you would like to complete?",
+            "options": ["high school/GED","college","Masters or PhD","trade school"],
+            "type": "multiple choice"
+        },
+        {
+			"question_number": 11,
+            "question":"11. On a scale from 1 to 10, how much do you value a larger salary?",
+            "options": [],
+            "type": "slider range"
+        },
+        {
+			"question_number": 12,
+            "question":"12. On a scale from 1 to 10, how good are you at time management?",
+            "options":[],
+            "type": "slider range"
+        },
+        {
+			"question_number": 13,
+            "question":"13. What is your biggest weakness?",
+            "options":["communication","time management","organization","motivation"],
+            "type": "multiple choice"
+        },
+        {
+			"question_number": 14,
+            "question":"14. Do you enjoy learning on a constant basis?",
+            "options":["yes","no"],
+            "type": "multiple choice"
+        },
+        {
+			"question_number": 15,
+            "question":"15. Do you enjoy working on a team?",
+            "options":["yes","no","sometimes"],
+            "type": "multiple choice"
+        }
+]
