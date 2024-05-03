@@ -102,7 +102,7 @@ function Detailed() {
 		}
 	}
 
-	console.log(userInput);
+	// console.log(userInput);
 
 	useEffect(() => {
 		if (answeredQuestions.length !== 0) {
@@ -113,24 +113,25 @@ function Detailed() {
 		}
 	}, [answeredQuestions]);
 
+	const [counter, setCounter] = useState(0);
+
 	function keyInputs(event: React.KeyboardEvent) {
 		let indexOfChoice: number = answeredQuestions.findIndex(
 			(answer: Answer) => answer.choice === choice
 		);
 
-		indexOfChoice++;
-
 		switch (event.key) {
 			case "ArrowUp":
-				// const indexOfChoice = answeredQuestions.findIndex(
-				// 	(answer: Answer) => answer.choice === choice
+				setCounter((counter + 1) % 5);
+				// setChoice(
+				// 	questions[currentIndex].choices[indexOfChoice + (counter % 5)]
 				// );
-				setChoice(choice);
-				console.log(indexOfChoice + 1, choice);
 
-				const lengthOfChoices: number = questions[indexOfChoice].choices.length;
+				// console.log(choice, indexOfChoice + (counter % 5));
+
 				console.log(
-					questions[currentIndex].choices[(indexOfChoice + 1) % lengthOfChoices]
+					questions[currentIndex].choices[indexOfChoice + counter],
+					indexOfChoice + counter
 				);
 
 				break;
