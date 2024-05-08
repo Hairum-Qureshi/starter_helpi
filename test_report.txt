@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (103 ms)
+  ✕ renders learn react link (104 ms)
 
   ● renders learn react link
 
@@ -180,28 +180,27 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   13.49 |    18.05 |   11.62 |    13.7 |                   
- src                      |   16.19 |       20 |   12.82 |    16.5 |                   
+All files                 |   14.91 |    22.03 |   11.11 |   15.45 |                   
+ src                      |   18.27 |       25 |   12.19 |    19.1 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
   Footer.tsx              |      60 |       50 |   33.33 |      60 | 10,17-23          
   Modal.tsx               |       0 |      100 |       0 |       0 | 9-25              
-  ProgressBar.tsx         |   16.66 |        0 |       0 |   16.66 | 7-12              
+  ProgressBar.tsx         |   33.33 |      100 |       0 |   33.33 | 14-16             
   Results.tsx             |       0 |      100 |       0 |       0 | 2                 
-  basic.tsx               |   11.11 |      100 |       0 |   11.11 | 9-40              
+  basic.tsx               |    6.66 |      100 |       0 |    7.69 | 9-44              
   basicDetailedButton.tsx |    87.5 |      100 |   66.66 |    87.5 | 15                
   basicSlider.tsx         |       0 |      100 |       0 |       0 | 3-11              
-  detailed.tsx            |       0 |        0 |       0 |       0 | 16-216            
+  detailed.tsx            |       0 |        0 |       0 |       0 | 16-150            
   index.tsx               |       0 |      100 |     100 |       0 | 6-19              
   navbar.tsx              |     100 |      100 |     100 |     100 |                   
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
  src/hooks                |       0 |        0 |       0 |       0 |                   
   useChatGPT.ts           |       0 |        0 |       0 |       0 | 12-67             
  src/interfaces           |       0 |        0 |       0 |       0 |                   
-  progressFunction.ts     |       0 |        0 |       0 |       0 |                   
   questionFormat.ts       |       0 |        0 |       0 |       0 |                   
 --------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.62 s
+Time:        2.657 s
 Ran all test suites.
