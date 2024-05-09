@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.6cf42dc7.css",
-    "main.js": "/starter_helpi/static/js/main.2746a284.js",
+    "main.css": "/starter_helpi/static/css/main.bb9c8151.css",
+    "main.js": "/starter_helpi/static/js/main.f2cbef59.js",
     "static/js/213.103f6a0f.chunk.js": "/starter_helpi/static/js/213.103f6a0f.chunk.js",
     "static/js/732.17aa9ed3.chunk.js": "/starter_helpi/static/js/732.17aa9ed3.chunk.js",
     "static/js/453.dda23872.chunk.js": "/starter_helpi/static/js/453.dda23872.chunk.js",
     "static/media/caribou.png": "/starter_helpi/static/media/caribou.2edf47d605fa4174dfc1.png",
     "index.html": "/starter_helpi/index.html",
-    "main.6cf42dc7.css.map": "/starter_helpi/static/css/main.6cf42dc7.css.map",
-    "main.2746a284.js.map": "/starter_helpi/static/js/main.2746a284.js.map",
+    "main.bb9c8151.css.map": "/starter_helpi/static/css/main.bb9c8151.css.map",
+    "main.f2cbef59.js.map": "/starter_helpi/static/js/main.f2cbef59.js.map",
     "213.103f6a0f.chunk.js.map": "/starter_helpi/static/js/213.103f6a0f.chunk.js.map",
     "732.17aa9ed3.chunk.js.map": "/starter_helpi/static/js/732.17aa9ed3.chunk.js.map",
     "453.dda23872.chunk.js.map": "/starter_helpi/static/js/453.dda23872.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cf42dc7.css",
-    "static/js/main.2746a284.js"
+    "static/css/main.bb9c8151.css",
+    "static/js/main.f2cbef59.js"
   ]
 }
