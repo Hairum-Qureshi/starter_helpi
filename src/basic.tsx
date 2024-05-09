@@ -49,7 +49,8 @@ const RangeComponent: React.FC<QuestionFormatProps> = ({
 		setRangeVal(parseInt(event.target.value));
 	}
 	return (
-		<div className="questionContainer">
+		<div className="quizContainer">
+			<div className="questionContainer">
 			<label htmlFor="range">Select a value:</label>
 			<input
 				type="range"
@@ -61,6 +62,7 @@ const RangeComponent: React.FC<QuestionFormatProps> = ({
 				onChange={handleRangeChange}
 			/>
 			<p>Selected value: {rangeVal} </p>
+			</div>
 		</div>
 	);
 };
