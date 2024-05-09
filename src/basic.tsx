@@ -20,21 +20,19 @@ const MultipleChoiceComponent: React.FC<QuestionFormatProps> = ({
 	};
 	return (
 		<div className="quizContainer">
-			<div className="questionContainer">
+			<div className="optionsContainer">
 				{options?.map((option: BasicOptions) => (
-					<div className="questionContainer">
-					<label key={option.text}>
+					<button key={option.image}>
 						<input
-							value={option.text}
+							value={option.image}
 							checked={selected === option.text}
 							onChange={() => optionSelect(option)}
 						/>
+						{/*this line is fine*/}
 						<div className="optionsContainer">{option.text}</div>
 						<img src={option.image} alt="selected" className="selected-image"/>
-					</label>
-					</div>
+					</button>
 				))}
-				{/*<p>You selected: {selected?.text}</p>*/}
 			</div>
 		</div>
 	);
@@ -86,24 +84,33 @@ function Basic() {
 			currentIndex={currentIndex}
 			totalQuestions={questions.length}
 			/>
-			<div key={currentIndex}>
-			<h2>{questions[currentIndex].question}</h2>
-			{questions[currentIndex].type === "multipleChoice" ? (
-				<MultipleChoiceComponent
-					options={questions[currentIndex].options as BasicOptions[]}
-					question={questions[currentIndex].question}
-					type={questions[currentIndex].type}
-					question_number={questions[currentIndex].question_number}
-				/>
+			<div className="quizContainer">
+					<div key={currentIndex}>
+						<div className="questionContainer">
+							<h3>
+							({questions[currentIndex].question_number}/{questions.length})
+							&nbsp;
+							{questions[currentIndex].question}
+						</h3>
+						</div>
+						{questions[currentIndex].type === "multipleChoice" ? (
+							<MultipleChoiceComponent
+							options={questions[currentIndex].options as BasicOptions[]}
+							question={questions[currentIndex].question}
+							type={questions[currentIndex].type}
+							question_number={questions[currentIndex].question_number}
+						/>
 			) : (
-				<RangeComponent
-					options={questions[currentIndex].options as BasicOptions[]}
-					question={questions[currentIndex].question}
-					type={questions[currentIndex].type}
-					question_number={questions[currentIndex].question_number}
-				/>	
+						<RangeComponent
+							options={questions[currentIndex].options as BasicOptions[]}
+							question={questions[currentIndex].question}
+							type={questions[currentIndex].type}
+							question_number={questions[currentIndex].question_number}
+					/>	
 			)}
-			</div>
+						</div>
+						
+				</div>
 			<button onClick={handlePrev} disabled={currentIndex === 0}>
 			Previous
 			</button>

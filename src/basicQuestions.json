@@ -1,7 +1,7 @@
 [
 {
 	"question_number": 1,
-	"question": "1. What is your ideal environment to live in?",
+	"question": "What is your ideal environment to live in?",
 	"options": [{"text":"City","image": "https://i.ibb.co/0c2hzmY/4d-OSxx6-GAw-Wyus4-CGQI0-Q02.jpg"}, 
 	{"text": "Suburb", "image": "https://i.ibb.co/3fxmsJB/qbh-R0ec-Xwku-Myg-A2-OSs-So0.jpg"}, 
 	{"text": "Rural", "image": "https://i.ibb.co/G2N3bKc/4d-OSy-H1-MRWGecaw-KE8-CYwy-I.jpg"}, 
@@ -10,7 +10,7 @@
 },
 {
 	"question_number": 2,
-	"question": "2. What personal skill do you most value?",
+	"question": "What personal skill do you most value?",
 	"options": [{"text": "time management", "image": "https://i.ibb.co/7KF2dpf/Gec-NG2mw6s-CGs-K6-A0-WUs-Eq-E.jpg"}, 
 	{"text": "resourceful", "image": "https://i.ibb.co/mRyhmYV/4d-OSz-Ji-X8k-Ag-Qq-Kmca-YEa-Ks.jpg"},
 	 {"text": "organization", "image": "https://i.ibb.co/2ZwL2Pt/gerb-VVr-H9e-WOaey4-WUo-OW.jpg"}, 
@@ -19,7 +19,7 @@
 },
 {
 	"question_number": 3,
-	"question": "3. What level of your academic career are you at?",
+	"question": "What level of your academic career are you at?",
 	"options": [
 		{"text": "some high school", "image": "https://i.ibb.co/MZRPbC2/4d-OSTj-JIZOwgiau-So2y-IAUs.jpg"},
 		{"text": "high school degree/GED", "image": "https://i.ibb.co/XDRZvjz/2-Cko83-TKEguo-Me-GOUi-Cq8-A.jpg"},
@@ -30,7 +30,7 @@
 },
 {
 	"question_number": 4,
-	"question": "4. Besides career interests, what other activites interest you?",
+	"question": "Besides career interests, what other activites interest you?",
 	"options": [{"text":"relaxing", "image":"https://i.ibb.co/1dFzmFg/a3-ZS72-HFp-Ccw8a8i8-Mm-W.jpg"},
 	 {"text": "art", "image":"https://i.ibb.co/2sKYPQ7/10o-N3-C716-Cay-Am-AC2k-ME.jpg"}, 
 	 {"text": "exercise", "image":"https://i.ibb.co/JHtj2yS/gex98-Q1p7iw4-EWw-EYo0k-E.jpg"}, 
@@ -39,7 +39,7 @@
 },
 {
 	"question_number": 5,
-	"question": "5. How many hours would you like to work per week?",
+	"question": "How many hours would you like to work per week?",
 	"options": [{"text": "20 or less", "image":"https://i.ibb.co/pLnzCSB/20num.jpg"},
 	{"text": "20-30", "image": "https://i.ibb.co/QfFW2y6/30.jpg"}, 
 	{"text": "30-35", "image": "https://i.ibb.co/C6wC3gv/35num.png"}, 
@@ -48,7 +48,7 @@
 },
 {
 	"question_number": 6,
-	"question": "6. What topics or ideas spark your interest?",
+	"question": "What topics or ideas spark your interest?",
 	"options": [
 		{"text": "physical sciences", "image":"https://i.ibb.co/WGjdKwq/qbi-Loj1y3m-AW6-Ew4-GWEi-IM.jpg"},
 		{"text": "mathematics/engineering", "image":"https://i.ibb.co/mcW0Gg2/10o-MG5-Qx-Geqg-I6-QEe-MKc.jpg"},
@@ -59,7 +59,7 @@
 },
 {
 	"question_number": 7,
-	"question": "7. Would you like to work in-person, hybrid, or virtual?",
+	"question": "Would you like to work in-person, hybrid, or virtual?",
 	"options": [{"text": "in-person", "image":"https://i.ibb.co/ZJmM4TH/Geej-X10f-Yc2-YMkek-UGqik-OS.jpg"},
 	{"text": "hybrid", "image":"https://i.ibb.co/3YSZdNk/2-Ck-ATERIsog-KWee6cki-QKI.jpg"},
 	{"text": "virtual", "image":"https://i.ibb.co/b10PSsj/1-CE34d-Cu-JWKSqc-Uq2y-QGC.jpg"},
@@ -68,7 +68,7 @@
 },
 {
 	"question_number": 8,
-	"question":"8. What time of day are you most productive?",
+	"question":"What time of day are you most productive?",
 	"options": [{"text": "early morning (5am-7am)", "image":"https://i.ibb.co/NStmBp0/sunrise.jpg"},
 	{"text": "mid-morning (8am-11am)", "image":"https://i.ibb.co/JqhtTYj/mid-morning.jpg"},
 	{"text": "afternoon (12pm-5pm)", "image":"https://i.ibb.co/23hz7cj/afternoon.jpg"},
@@ -77,14 +77,14 @@
 },
 {
 	"question_number": 9,
-	"question":"9. What type of company environment are you looking for?",
+	"question":"What type of company environment are you looking for?",
 	"options": [{"text": "high-stress, high salary", "image":"https://i.ibb.co/tYF0YRp/geszwn-RIt2-OMWk20w-OMOy.jpg"}, 
 	{"text": "low stress, low salary", "image":"https://i.ibb.co/W3PKbSd/a40mwi-Xm9-O8-MSe-Ui-Ukkg.jpg"}],
 	"type": "multipleChoice"
 },
 {
 	"question_number": 10,
-	"question":"10. What is the highest level of education that you would like to complete?",
+	"question":"What is the highest level of education that you would like to complete?",
 	"options": [{"text": "high school/GED","image": "https://i.ibb.co/QmD3LW9/high-school-students.jpg"},
 	{"text": "college", "image":"https://i.ibb.co/C1D4jK3/4d-Pfks-WLskk-QMIE4-KYq-Yko-G.jpg"},
 	{"text": "Masters or PhD", "image":"https://i.ibb.co/VT9B1xF/10o-PVv-HYRw-Ykcs2q-AK04.jpg"},
@@ -93,19 +93,19 @@
 },
 {
 	"question_number": 11,
-	"question":"11. On a scale from 1 to 10, how much do you value a larger salary?",
+	"question":"On a scale from 1 to 10, how much do you value a larger salary?",
 	"options": [{"images": "https://i.ibb.co/xGzgVf0/money.jpg"}],
 	"type": "range"
 },
 {
 	"question_number": 12,
-	"question":"12. On a scale from 1 to 10, how good are you at time management?",
+	"question":"On a scale from 1 to 10, how good are you at time management?",
 	"options": [{"image": "https://i.ibb.co/GJVQb8f/10o-PYl-WXUacgie00-M08-S.jpg"}],
 	"type": "range"
 },
 {
 	"question_number": 13,
-	"question":"13. What is your biggest weakness?",
+	"question":"What is your biggest weakness?",
 	"options":[{"text": "communication", "image": "https://i.ibb.co/dL0xJqM/4d-Pf-U64-Oj-Cg-EO40-Iia-QSi-YA.jpg"},
 	{"text": "time management", "image":"https://i.ibb.co/DtMB4gW/4d-Pf.jpg"},
 	{"text": "organization", "image":"https://i.ibb.co/D8hgVry/organized.jpg"},
@@ -114,14 +114,14 @@
 },
 {
 	"question_number": 14,
-	"question":"14. Do you enjoy learning on a constant basis?",
+	"question":"Do you enjoy learning on a constant basis?",
 	"options":[{"text": "yes", "image": "https://i.ibb.co/y4c82wV/4d-Pgf-JGN8-Qg-Y8-CAKE80-UIk6.jpg"},
 	{"text": "no", "image":"https://i.ibb.co/FmkTg09/not-approved.jpg"}],
 	"type": "multipleChoice"
 },
 {
 	"question_number": 15,
-	"question":"15. Do you enjoy working on a team?",
+	"question":"Do you enjoy working on a team?",
 	"options":[{"text": "yes", "image": "https://i.ibb.co/y4c82wV/4d-Pgf-JGN8-Qg-Y8-CAKE80-UIk6.jpg"},
 	{"text": "no", "image":"https://i.ibb.co/FmkTg09/not-approved.jpg"},
 	{"text": "sometimes", "image":"https://i.ibb.co/wC7Qds2/sometimes.jpg"}],
