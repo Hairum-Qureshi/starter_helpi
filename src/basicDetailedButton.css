@@ -1,16 +1,44 @@
-.basic-button {
-    background-color : rgb(251, 187, 244);
-    color : rgb(195, 26, 26);
-    font-size : 30px;
-    border-radius : 5px;
-    border : none;
+@import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap");
+
+.button-container {
+    display : flex;
+    justify-content : center;
+    align-items : center;
 }
 
+.basic-button, 
 .detailed-button{
     background-color : rgb(251, 187, 244);
     color : rgb(195, 26, 26);
     font-size : 30px;
-    border-radius : 5px;
+    border-radius : 40px;
+    padding : 20px 40px;
     border : none;
+    margin : 15px;
+    font-family: "Anybody", sans-serif;
+	font-weight: 700;
+}
+
+.basic-button:hover,
+.detailed-button:hover{
+    /*added hover to help users navigate through buttons*/
+    background-color: rgb(195, 26, 26);
+    color : rgb(251, 187, 244);
+    transition: 0.5s ease;
+}
+
+.par-container{
+    display : flex;
+    justify-content : center;
+    font-family: "Anybody", sans-serif;
+    margin-top : 5px;
+}
+
+.par-basic,
+.par-detailed{
+    /*descriptions remain visible while buttons are to provide info to user*/
+    color :rgb(195, 26, 26);
+    margin : 20px;
+    line-height : 1.5
 }
 

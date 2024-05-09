@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+.backdrop {
+	width: 100%;
+	box-sizing: border-box;
+	height: 200px;
+	padding: 10px;
+	background-color: rgb(137, 69, 127);
+	position: relative;
+	border: 2px solid fuchsia;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.backdrop h1 {
+	color: white;
+	font-size: 40px;
+	font-family: "Merriweather Sans", sans-serif;
+	font-weight: 500;
+	word-spacing: 10px;
+}
+
+.pieChartContainer {
+	width: 80%;
+	box-sizing: border-box;
+	margin: -30px auto 80px;
+	border: 2px solid rgb(6, 52, 180);
+	padding: 10px;
+	background-color: rgb(214, 209, 252);
+	border-radius: 10px;
+}
+
+.pieChartContainer h3 {
+	text-align: center;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+	color: purple;
+}
+
+.report {
+	width: 70%;
+	margin: 50px auto 50px;
+	box-sizing: border-box;
+	padding: 10px;
+	/* border: 2px solid black; */
+	min-height: 100vh;
+	max-height: inherit;
+	font-family: "Rubik", sans-serif;
+	font-weight: 400;
+}
+
+.report h1,
+.report h2,
+.pieChartHeader {
+	font-family: "Merriweather Sans", sans-serif;
+	text-align: center;
+	margin-top: -10px;
+	color: rgb(192, 9, 9);
+}
+
+.pieChartHeader {
+	margin: -45px 0 60px 0;
+	color: rgb(161, 6, 161);
+}
+
+.report .alternativesHeader {
+	margin-top: 30px;
+	color: rgb(9, 82, 192);
+}
+
+.report .cardContainer {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.report .cardContainer .careersCard ul,
+.report .cardContainer .careersCard ol {
+	margin: 25px;
+	padding: 5px;
+}
+
+.report .cardContainer .careersCard,
+.report .cardContainer .alternativesCard {
+	flex: 1 1 45%;
+	margin: 5px;
+	border: 2px solid red;
+	color: rgb(146, 8, 8);
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgb(238, 181, 190);
+}
+
+.report .cardContainer .careersCard p:first-child {
+	font-size: 20px;
+	text-align: center;
+}
+
+.report .cardContainer .careersCard ul {
+	margin: 10px 5px 10px 25px;
+}
+
+.report .cardContainer .alternativesCard h3 {
+	text-align: center;
+	margin: 10px 0 15px 0;
+}
+
+.report .cardContainer .alternativesCard ul {
+	margin: 5px 10px 10px 5px;
+}
+
+.report .cardContainer .careersCard:hover {
+	color: rgb(180, 6, 6);
+	transition: 0.5s ease;
+}
+
+.report .cardContainer .alternativesCard:hover {
+	color: rgb(6, 52, 180);
+	transition: 0.5s ease;
+}
+
+.report .cardContainer .alternativesCard {
+	background-color: rgb(181, 217, 238);
+	border: 2px solid rgb(0, 60, 255);
+	color: rgb(8, 93, 146);
+}
+
+.userOptionsContainer {
+	width: 70%;
+	box-sizing: border-box;
+	margin: -40px auto 80px;
+	border: 2px solid limegreen;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgb(161, 223, 161);
+}
+
+.userOptionsContainer p {
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+	font-size: 17px;
+}
+
+.userOptionsContainer input[type="email"] {
+	width: 50%;
+	margin: 10px;
+	padding: 10px;
+	font-size: 16px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	outline: none;
+	border: 1px solid limegreen;
+}
+
+.userOptionsContainer button {
+	padding: 10px;
+	font-size: 15px;
+	border-radius: 10px;
+	border: 2px solid limegreen;
+	background-color: green;
+	color: white;
+}
+
+.userOptionsContainer button:hover {
+	cursor: pointer;
+	background-color: rgb(6, 108, 6);
+	transition: 0.5s ease;
+}
+
+.userOptionsContainer button:active {
+	background-color: darkgreen;
+	transition: 0s;
+}
+
+.NotFoundContainer {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid red;
+	text-align: center;
+}

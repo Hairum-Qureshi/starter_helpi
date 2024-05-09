@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function Modal({ modalFunction }: Props) {
-	const { checkConnection } = useChatGPT();
+	const { checkConnection, loading } = useChatGPT();
 
 	return (
 		<div className="modal" onClick={modalFunction}>
@@ -18,14 +18,17 @@ export default function Modal({ modalFunction }: Props) {
 					button to proceed.
 				</p>
 				<div className="buttonContainer">
-					<button>CANCEL</button>
+					<button disabled={loading}>
+						{loading ? "CANNOT CANCEL" : "CANCEL"}
+					</button>
 					<button
+						disabled={loading}
 						onClick={e => {
 							e.stopPropagation();
 							checkConnection();
 						}}
 					>
-						GET RESULTS!
+						{loading ? "Generating report...." : "GET RESULTS!"}
 					</button>
 				</div>
 			</div>

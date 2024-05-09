@@ -97,7 +97,7 @@
 			"Yes, I feel underutilized in my current role",
 			"No, I feel my current role utilizes my skills effectively",
 			"Somewhat, I think there's room for improvement in skill utilization",
-			"I'm not sure"
+			"I'm not sure/I'm not currently employed"
 		],
 		"image": "https://i.ibb.co/QnzNN6R/2.png",
 		"type": "multiple_choice"
@@ -145,7 +145,7 @@
 			"Yes, I'm willing to take calculated risks for career advancement",
 			"No, I prefer to stay within my comfort zone",
 			"It depends on the specific opportunity and potential risks involved",
-			"I''m not sure"
+			"I'm not sure"
 		],
 		"image": "https://i.ibb.co/wwDS6bG/2.png",
 		"type": "multiple_choice"

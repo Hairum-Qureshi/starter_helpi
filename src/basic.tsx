@@ -1,17 +1,21 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState} from "react";
+import { useState } from "react";
 import questions from "./basicQuestions.json";
-import { QuestionFormatProps } from "./interfaces/questionFormat";
+import QuestionFormatProps from "./interfaces/questionFormat";
 import { BasicOptions } from "./interfaces/basicOption";
 import "./Basic.css";
-import ProgressBar from "./ProgressBar";
 import Modal from "./Modal";
-import Confetti from 'react-confetti';
+import Confetti from "react-confetti";
+import ProgressBar from "./ProgressBar";
+import QuestionFormatComponent from "./QuestionFormatComponent";
 
-//component used for multiple choice responses
-
+// Component used for multiple choice responses
+// Component used for multiple choice responses
 const MultipleChoiceComponent: React.FC<QuestionFormatProps> = ({
+	question_number,
+	question,
+	type,
 	options
 }) => {
 	const [selected, setSelected] = useState<BasicOptions | null>(null);
@@ -37,15 +41,19 @@ const MultipleChoiceComponent: React.FC<QuestionFormatProps> = ({
 		</div>
 	);
 };
-//component used for range slider answer choices
+
+// Component used for range slider answer choices
 const RangeComponent: React.FC<QuestionFormatProps> = ({
+	question_number,
+	question,
+	type,
 	options
 }) => {
 	const [rangeVal, setRangeVal] = useState<number>(5);
 
 	const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setRangeVal(parseInt(event.target.value));
-	}
+	};
 	return (
 		<div className="quizContainer">
 			<div className="questionContainer">
@@ -65,24 +73,22 @@ const RangeComponent: React.FC<QuestionFormatProps> = ({
 	);
 };
 
-
 function Basic() {
-	//consts added for progress bar
 	const [currentIndex, setCurrentIndex] = useState(0);
 
-  	const handleNext = () => {
-    setCurrentIndex((prevIndex) => prevIndex + 1);
-  	};
+	const handleNext = () => {
+		setCurrentIndex(prevIndex => prevIndex + 1);
+	};
 
-  	const handlePrev = () => {
-    setCurrentIndex((prevIndex) => prevIndex - 1);
-  	};
-	//main return used to show completed question component
+	const handlePrev = () => {
+		setCurrentIndex(prevIndex => prevIndex - 1);
+	};
+
 	return (
 		<div>
 			<ProgressBar
-			currentIndex={currentIndex}
-			totalQuestions={questions.length}
+				currentIndex={currentIndex}
+				totalQuestions={questions.length}
 			/>
 			<div className="quizContainer">
 					<div key={currentIndex}>
@@ -111,16 +117,18 @@ function Basic() {
 						</div>
 						
 				</div>
+
 			<button onClick={handlePrev} disabled={currentIndex === 0}>
-			Previous
+				Previous
 			</button>
 			<button
-			onClick={handleNext}
-			disabled={currentIndex === questions.length - 1}
+				onClick={handleNext}
+				disabled={currentIndex === questions.length - 1}
 			>
-			Next
+				Next
 			</button>
 		</div>
-		);
+	);
 }
+
 export default Basic;
