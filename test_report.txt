@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (104 ms)
+  ✕ renders learn react link (96 ms)
 
   ● renders learn react link
 
@@ -180,7 +180,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   14.91 |    22.03 |   11.11 |   15.45 |                   
+All files                 |   13.93 |    20.63 |   11.11 |   14.52 |                   
  src                      |   18.27 |       25 |   12.19 |    19.1 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
   Footer.tsx              |      60 |       50 |   33.33 |      60 | 10,17-23          
@@ -195,12 +195,12 @@ All files                 |   14.91 |    22.03 |   11.11 |   15.45 |
   navbar.tsx              |     100 |      100 |     100 |     100 |                   
   reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
  src/hooks                |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts           |       0 |        0 |       0 |       0 | 12-67             
+  useChatGPT.ts           |       0 |        0 |       0 |       0 | 14-85             
  src/interfaces           |       0 |        0 |       0 |       0 |                   
   questionFormat.ts       |       0 |        0 |       0 |       0 |                   
 --------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.657 s
+Time:        2.658 s
 Ran all test suites.
