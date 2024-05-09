@@ -54,7 +54,10 @@ export default function useChatGPT(): Tools {
 			if (api_request === "user_report") setChat_gptResponse(response);
 			else setGraphData(response);
 
-			setLoading(false);
+			// set loading to false once both states are populated
+			if (chat_gptResponse && graphData) {
+				setLoading(false);
+			}
 			console.log(response);
 		} catch (error) {
 			console.log(error);
