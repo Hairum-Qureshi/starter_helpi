@@ -55,8 +55,9 @@ File                          | % Stmts | % Branch | % Funcs | % Lines | Uncover
 ------------------------------|---------|----------|---------|---------|-------------------
 All files                     |       0 |        0 |       0 |       0 |                   
  src                          |       0 |        0 |       0 |       0 |                   
-  App.tsx                     |       0 |      100 |       0 |       0 | 11-24             
+  App.tsx                     |       0 |      100 |       0 |       0 | 12-25             
   Footer.tsx                  |       0 |        0 |       0 |       0 | 6-26              
+  Home.tsx                    |       0 |      100 |       0 |       0 | 4                 
   Modal.tsx                   |       0 |        0 |       0 |       0 | 9-28              
   ProgressBar.tsx             |       0 |      100 |       0 |       0 | 10-16             
   QuestionFormatComponent.tsx |       0 |        0 |       0 |       0 | 5-24              
@@ -77,5 +78,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.405 s
+Time:        3.34 s
 Ran all test suites.
