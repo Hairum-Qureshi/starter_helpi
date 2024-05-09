@@ -2,14 +2,7 @@ import { useEffect, useState } from "react";
 import "./detailed.css";
 import questions from "./detailedQuestions.json";
 import Modal from "./Modal";
-import Confetti from 'react-confetti';
-
-// TODO - [ ] add functionality to allow users to hit enter to move to the next question (or left + right arrow keys)
-// TODO - [x] add confetti effect when the user clicks the 'submit responses' button
-// There is a minor bug where if you get to the free response section and enter your response in the first input, it populates in the second input also too
-// TODO - [x] have the object hold the question itself also
-// TODO - [x] check if you're at the last question, add have it call the 'checkConnection' function so that it can then call the ChatGPT API
-// TODO - [ ] add  a character limit to the text-areas
+import Confetti from "react-confetti";
 
 export interface Answer {
 	question: string;
@@ -43,6 +36,7 @@ function Detailed() {
 
 	function updateModalVisibility() {
 		setModalVisibility(!modalVisibility);
+		setShowConfetti(false);
 	}
 
 	function saveAnswers(
@@ -164,23 +158,29 @@ function Detailed() {
 								)
 						  )
 						: questions[currentIndex].type === "free_response" && (
-								<textarea
-									placeholder="Enter your response..."
-									value={
-										answeredQuestions[currentIndex] &&
-										answeredQuestions[currentIndex].choice
-									}
-									onChange={e => {
-										setChoice(e.target.value);
-										setUserInput(e.target.value);
-										saveAnswers(
-											e.target.value,
-											questions[currentIndex].question_number,
-											questions[currentIndex].type,
-											questions[currentIndex].question
-										);
-									}}
-								></textarea>
+								<>
+									<textarea
+										placeholder="Enter your response..."
+										maxLength={500}
+										value={
+											answeredQuestions[currentIndex] &&
+											answeredQuestions[currentIndex].choice
+										}
+										onChange={e => {
+											setChoice(e.target.value);
+											setUserInput(e.target.value);
+											saveAnswers(
+												e.target.value,
+												questions[currentIndex].question_number,
+												questions[currentIndex].type,
+												questions[currentIndex].question
+											);
+										}}
+									></textarea>
+									<p className="characterLimitText">
+										{!choice ? 0 : choice.length}/500 characters remaining
+									</p>
+								</>
 						  )}
 				</div>
 				<div className="containerFooter">
@@ -197,7 +197,7 @@ function Detailed() {
 						{currentIndex === 0 ? "END" : "PREV."}
 					</button>
 					<button
-						disabled={!choice}
+						disabled={!choice || choice.length > 500}
 						onClick={() => {
 							if (currentIndex === questions.length - 1) {
 								setModalVisibility(!modalVisibility);
