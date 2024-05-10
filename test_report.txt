@@ -55,7 +55,7 @@ File                          | % Stmts | % Branch | % Funcs | % Lines | Uncover
 ------------------------------|---------|----------|---------|---------|-------------------
 All files                     |       0 |        0 |       0 |       0 |                   
  src                          |       0 |        0 |       0 |       0 |                   
-  App.tsx                     |       0 |      100 |       0 |       0 | 12-25             
+  App.tsx                     |       0 |      100 |       0 |       0 | 12                
   Footer.tsx                  |       0 |        0 |       0 |       0 | 6-26              
   Home.tsx                    |       0 |      100 |       0 |       0 | 4                 
   Modal.tsx                   |       0 |        0 |       0 |       0 | 9-28              
@@ -78,5 +78,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.649 s
+Time:        3.313 s
 Ran all test suites.
