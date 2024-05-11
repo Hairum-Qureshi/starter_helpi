@@ -3,18 +3,13 @@ import "./results.css";
 import Markdown from "react-markdown";
 import { PieChart } from "@mui/x-charts/PieChart";
 import emailjs from "@emailjs/browser";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export default function Results() {
-	const [test, setTest] = useState<string>();
-	const { chat_gptResponse } = useChatGPT()!;
+	const { chat_gptResponse, loading: pending } = useChatGPT();
 
-	useEffect(() => {
-		if (chat_gptResponse) setTest(chat_gptResponse);
-	}, [chat_gptResponse]);
-	console.log(test);
 	// TODO [ ] - implement a loading feature when the user presses the "get results" button on the modal
 	// TODO [ ] - implement the 404 logic when the user attempts to access this page without completing the quiz
 	// TODO [ ] - add a feature to have their report emailed to them or someone else
