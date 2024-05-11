@@ -19,7 +19,7 @@ export default function Home() {
 		<div className="landingContainer">
 			{currentSlide === -1 && !isNameSaved ? (
 				<div className="welcomeMessage">
-					<h1>Welcome to Careeribou Careers</h1>
+					<h1>Welcome to Careeribou Careers!</h1>
 					<p>
 						Find the career that works just for you through two kinds of quizzes
 						that utilizes unique—but important—questions
