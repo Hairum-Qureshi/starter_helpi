@@ -57,13 +57,13 @@ All files                     |       0 |        0 |       0 |       0 |
  src                          |       0 |        0 |       0 |       0 |                   
   App.tsx                     |       0 |      100 |       0 |       0 | 12                
   Footer.tsx                  |       0 |        0 |       0 |       0 | 6-26              
-  Home.tsx                    |       0 |      100 |       0 |       0 | 4                 
+  Home.tsx                    |       0 |        0 |       0 |       0 | 7-45              
   Modal.tsx                   |       0 |        0 |       0 |       0 | 9-28              
   ProgressBar.tsx             |       0 |      100 |       0 |       0 | 10-16             
   QuestionFormatComponent.tsx |       0 |        0 |       0 |       0 | 5-24              
   Results.tsx                 |       0 |        0 |       0 |       0 | 26-350            
   basic.tsx                   |       0 |        0 |       0 |       0 | 15-86             
-  basicDetailedButton.tsx     |       0 |        0 |       0 |       0 | 7-20              
+  basicDetailedButton.tsx     |       0 |      100 |       0 |       0 | 5-18              
   basicSlider.tsx             |       0 |      100 |       0 |       0 | 3-11              
   detailed.tsx                |       0 |        0 |       0 |       0 | 21-170            
   index.tsx                   |       0 |      100 |     100 |       0 | 6-19              
@@ -78,5 +78,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.313 s
+Time:        4.049 s
 Ran all test suites.
