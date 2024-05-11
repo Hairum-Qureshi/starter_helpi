@@ -67,7 +67,7 @@ All files                     |       0 |        0 |       0 |       0 |
   basicSlider.tsx             |       0 |      100 |       0 |       0 | 3-11              
   detailed.tsx                |       0 |        0 |       0 |       0 | 21-170            
   index.tsx                   |       0 |      100 |     100 |       0 | 6-19              
-  navbar.tsx                  |       0 |      100 |       0 |       0 | 6                 
+  navbar.tsx                  |       0 |        0 |       0 |       0 | 6-8               
   reportWebVitals.ts          |       0 |        0 |       0 |       0 | 3-10              
  src/hooks                    |       0 |        0 |       0 |       0 |                   
   useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-85             
@@ -78,5 +78,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.049 s
+Time:        3.669 s
 Ran all test suites.
