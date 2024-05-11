@@ -58,7 +58,7 @@ All files                     |       0 |        0 |       0 |       0 |
   App.tsx                     |       0 |      100 |       0 |       0 | 12                
   Footer.tsx                  |       0 |        0 |       0 |       0 | 6-26              
   Home.tsx                    |       0 |        0 |       0 |       0 | 7-45              
-  Modal.tsx                   |       0 |        0 |       0 |       0 | 9-28              
+  Modal.tsx                   |       0 |        0 |       0 |       0 | 9-30              
   ProgressBar.tsx             |       0 |      100 |       0 |       0 | 10-16             
   QuestionFormatComponent.tsx |       0 |        0 |       0 |       0 | 5-24              
   Results.tsx                 |       0 |        0 |       0 |       0 | 26-350            
@@ -70,7 +70,7 @@ All files                     |       0 |        0 |       0 |       0 |
   navbar.tsx                  |       0 |        0 |       0 |       0 | 6-8               
   reportWebVitals.ts          |       0 |        0 |       0 |       0 | 3-10              
  src/hooks                    |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-89             
+  useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-91             
  src/interfaces               |       0 |        0 |       0 |       0 |                   
   basicOption.ts              |       0 |        0 |       0 |       0 |                   
   questionFormat.ts           |       0 |        0 |       0 |       0 |                   
@@ -78,5 +78,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.563 s
+Time:        3.577 s
 Ran all test suites.
