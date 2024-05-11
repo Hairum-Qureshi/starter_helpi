@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./basicDetailedButton.css";
-import { useState } from "react";
 
 function BasicDetailedButtons() {
 	const navigate = useNavigate();
