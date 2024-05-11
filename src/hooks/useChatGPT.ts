@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import detailedQuestions from "../detailedQuestions.json";
 import { Answer } from "../detailed";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Tools {
 	checkConnection: () => void;
@@ -21,16 +21,14 @@ export default function useChatGPT(): Tools {
 		users_responses: Answer[],
 		api_request: string
 	) {
-		setLoading(true);
 		let formattedQ_A = "";
 		users_responses.map((a: Answer) => {
 			return (formattedQ_A += `(${a.questionNo}) ${a.question} \n ${a.choice} \n`);
 		});
 
-		console.log("Loading ChatGPT's response...");
-
 		let response = "";
 		try {
+			setLoading(true);
 			const stream = await openai.chat.completions.create({
 				model: "gpt-4-turbo",
 				messages: [
@@ -53,14 +51,18 @@ export default function useChatGPT(): Tools {
 
 			if (api_request === "user_report") setChat_gptResponse(response);
 			else setGraphData(response);
-
-			setLoading(false);
-			console.log(response);
 		} catch (error) {
-			console.log(error);
+			alert(error);
 			setLoading(false);
 		}
 	}
+
+	useEffect(() => {
+		// set loading to false once both states are populated
+		if (chat_gptResponse && graphData) {
+			setLoading(false);
+		}
+	}, [chat_gptResponse, graphData]);
 
 	const users_responses: string | null =
 		localStorage.getItem("answered_questions");
@@ -78,7 +80,7 @@ export default function useChatGPT(): Tools {
 			callAPI(openai, JSON.parse(users_responses), "user_report");
 			callAPI(openai, JSON.parse(users_responses), "graph_data");
 		} else {
-			console.log("Please make sure you've entered your API key");
+			alert("Please make sure you've entered your API key");
 		}
 	}
 
