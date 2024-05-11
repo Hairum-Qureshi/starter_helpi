@@ -26,8 +26,6 @@ export default function useChatGPT(): Tools {
 			return (formattedQ_A += `(${a.questionNo}) ${a.question} \n ${a.choice} \n`);
 		});
 
-		console.log("Loading ChatGPT's response...");
-
 		let response = "";
 		try {
 			setLoading(true);
@@ -53,8 +51,6 @@ export default function useChatGPT(): Tools {
 
 			if (api_request === "user_report") setChat_gptResponse(response);
 			else setGraphData(response);
-
-			console.log(response);
 		} catch (error) {
 			alert(error);
 			setLoading(false);
