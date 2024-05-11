@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import detailedQuestions from "../detailedQuestions.json";
 import { Answer } from "../detailed";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Tools {
 	checkConnection: () => void;
@@ -59,12 +59,14 @@ export default function useChatGPT(): Tools {
 			alert(error);
 			setLoading(false);
 		}
+	}
 
+	useEffect(() => {
 		// set loading to false once both states are populated
 		if (chat_gptResponse && graphData) {
 			setLoading(false);
 		}
-	}
+	}, [chat_gptResponse, graphData]);
 
 	const users_responses: string | null =
 		localStorage.getItem("answered_questions");

@@ -8,6 +8,8 @@ interface Props {
 export default function Modal({ modalFunction }: Props) {
 	const { checkConnection, loading } = useChatGPT();
 
+	console.log(loading);
+
 	return (
 		<div className="modal" onClick={modalFunction}>
 			<div className="modal-content">
