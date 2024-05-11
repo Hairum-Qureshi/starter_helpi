@@ -1,5 +1,6 @@
 import "./modal.css";
 import useChatGPT from "./hooks/useChatGPT";
+import { waveform } from "ldrs";
 
 interface Props {
 	modalFunction: () => void;
@@ -8,21 +9,29 @@ interface Props {
 export default function Modal({ modalFunction }: Props) {
 	const { checkConnection, loading } = useChatGPT();
 
-	console.log(loading);
+	waveform.register();
+
+	const name = localStorage.getItem("name");
 
 	return (
 		<div className="modal" onClick={modalFunction}>
 			<div className="modal-content">
-				<p>
-					Congratulations, you've answered all of the questions! Click the
-					cancel button if you would like to go back and review your answer
-					choices once more. If you feel you're ready, click the 'GET RESULTS!'
-					button to proceed.
-				</p>
+				{!loading ? (
+					<p>
+						Congratulations {name}, you've answered all of the questions! Click
+						the cancel button if you would like to go back and review your
+						answer choices once more. If you feel you're ready, click the 'GET
+						RESULTS!' button to proceed.
+					</p>
+				) : (
+					<h2>Generating your personalized career report. Please wait!</h2>
+				)}
 				<div className="buttonContainer">
-					<button disabled={loading}>
-						{loading ? "CANNOT CANCEL" : "CANCEL"}
-					</button>
+					{!loading ? (
+						<button disabled={loading} className="cancelBtn">
+							CANCEL
+						</button>
+					) : null}
 					<button
 						disabled={loading}
 						onClick={e => {
@@ -30,7 +39,16 @@ export default function Modal({ modalFunction }: Props) {
 							checkConnection();
 						}}
 					>
-						{loading ? "Generating report...." : "GET RESULTS!"}
+						{loading ? (
+							<l-waveform
+								size="25"
+								stroke="3.5"
+								speed="1"
+								color="rgb(253, 8, 199)"
+							></l-waveform>
+						) : (
+							"GET RESULTS!"
+						)}
 					</button>
 				</div>
 			</div>

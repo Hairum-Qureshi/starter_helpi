@@ -3,6 +3,7 @@ import "./detailed.css";
 import questions from "./detailedQuestions.json";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
+import useChatGPT from "./hooks/useChatGPT";
 
 export interface Answer {
 	question: string;
@@ -11,6 +12,8 @@ export interface Answer {
 }
 
 function Detailed() {
+	const { loading } = useChatGPT();
+
 	const [choice, setChoice] = useState<string>();
 	const [currentIndex, setCurrentIndex] = useState<number>(
 		Number(localStorage.getItem("current_question")) || 0
@@ -55,7 +58,7 @@ function Detailed() {
 	}
 
 	function updateModalVisibility() {
-		setModalVisibility(!modalVisibility);
+		if (loading) setModalVisibility(!modalVisibility);
 		setShowConfetti(false);
 	}
 
