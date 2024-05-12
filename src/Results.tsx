@@ -62,31 +62,39 @@ export default function Results() {
 	const [email, setEmail] = useState("");
 
 	const sendEmail = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
 		if (!email) {
 			event.preventDefault();
 			alert("Please provide an email");
 		} else {
-			event.preventDefault();
+			const valid_email: RegExpMatchArray | null = email.match(
+				/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			);
 
-			if (!form.current) return; // Ensure form.current is not null
+			if (valid_email) {
+				if (!form.current) return; // Ensure form.current is not null
 
-			const formData = new FormData(form.current);
+				const formData = new FormData(form.current);
 
-			formData.append("to_email", email.toLowerCase());
-			reportHTML && formData.append("report_html", reportHTML);
+				formData.append("to_email", email.toLowerCase());
+				reportHTML && formData.append("report_html", reportHTML);
 
-			emailjs
-				.sendForm("service_t261vsc", "template_a7tcjsa", form.current, {
-					publicKey: "Zj1lhdMNe9-VtmDkN"
-				})
-				.then(
-					() => {
-						console.log("SUCCESS!");
-					},
-					error => {
-						console.log("FAILED...", error.text);
-					}
-				);
+				emailjs
+					.sendForm("service_t261vsc", "template_a7tcjsa", form.current, {
+						publicKey: "Zj1lhdMNe9-VtmDkN"
+					})
+					.then(
+						() => {
+							alert("Email successfully sent!");
+						},
+						error => {
+							alert("There was a problem sending an email: \n" + error.text);
+						}
+					);
+			} else {
+				alert("Invalid email format");
+			}
 		}
 	};
 
