@@ -228,7 +228,11 @@ export default function Results() {
 							If you would like to save and print this report for your
 							reference, click the button below:
 						</p>
-						<button onClick={downloadPDFReport} disabled={loading}>
+						<button
+							onClick={downloadPDFReport}
+							disabled={loading}
+							className="downloadReportBtn"
+						>
 							{loading ? "Downloading Report..." : "Get PDF Report"}
 						</button>
 					</div>
