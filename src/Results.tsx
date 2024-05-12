@@ -7,76 +7,10 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export default function Results() {
-	// TODO [ ] - implement a loading feature when the user presses the "get results" button on the modal
-	// TODO [ ] - implement the 404 logic when the user attempts to access this page without completing the quiz
-	// TODO [ ] - add a feature to have their report emailed to them or someone else
-
-	/*
-	
-	1. Software Developer: 40% 
-	2. Data Analyst: 30%
-	3. Health and Wellness Coordinator: 20%
-	4. Corporate Trainer: 10%
-	
-	*/
 	const markdown = JSON.parse(localStorage.getItem("detailed_report")!);
 	const name: string | undefined = localStorage.getItem("name")?.toUpperCase();
 
-	interface Career {
-		careerNo?: string;
-		title: string;
-		description: string;
-	}
-
-	// Array to hold the extracted career options
-	// Regular expression pattern to match each career option
-	const pattern =
-		/(\d+)\. \*\*(.+?)\*\*[\s\S]+?Why It's a Good Fit:\*\*([\s\S]+?)\*\*Alternative Path:/g;
-
-	// Array to hold the extracted career options
-	const careers: Career[] = [];
-
-	// Match each career option using the regular expression pattern
-	let match;
-	while ((match = pattern.exec(markdown)) !== null) {
-		// Extract relevant information
-		const careerNumber = match[1];
-		const careerTitle = match[2];
-		let careerDescription = match[3].trim();
-
-		// Replace line breaks with appropriate markdown syntax
-		careerDescription = careerDescription.replace(/(?:\r\n|\r|\n)/g, "\n   ");
-
-		// Push the extracted information into the array
-		careers.push({
-			careerNo: careerNumber,
-			title: careerTitle,
-			description: careerDescription
-		});
-	}
-
-	// Regular expression pattern to match the recommendations
-	const recommendationPattern = /- \*\*(.+?)\*\*([\s\S]+?)(?=- \*\*|$)/g;
-
-	// Array to hold the extracted recommendations
-	const alternativeCareers: Career[] = [];
-
-	// Match each recommendation using the regular expression pattern
-	while ((match = recommendationPattern.exec(markdown)) !== null) {
-		// Extract recommendation details
-		const recommendationTitle = match[1].trim();
-		const recommendationDescription = match[2].trim();
-
-		// Push the extracted recommendation into the array
-		alternativeCareers.push({
-			title: recommendationTitle,
-			description: recommendationDescription
-		});
-	}
-
 	const graph_data: string | null = localStorage.getItem("graph_data")!;
-
-	console.log(graph_data);
 
 	const lines: string[] | undefined = graph_data
 		?.split("\n")
@@ -107,8 +41,6 @@ export default function Results() {
 		chart_data.push({ career, percent, color: colors[index] });
 		return null;
 	});
-
-	console.log(chart_data);
 
 	// The code above was provided by ChatGPT, but I made some minor tweaks to it
 
