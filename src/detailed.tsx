@@ -13,8 +13,6 @@ export interface Answer {
 }
 
 function Detailed() {
-	const { loading } = useChatGPT();
-
 	const [choice, setChoice] = useState<string>();
 	const [currentIndex, setCurrentIndex] = useState<number>(
 		Number(localStorage.getItem("current_question")) || 0
