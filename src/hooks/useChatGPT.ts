@@ -51,7 +51,7 @@ export default function useChatGPT(): Tools {
 				localStorage.setItem("detailed_report", JSON.stringify(response));
 			} else {
 				setGraphData(response);
-				localStorage.setItem("graphData", response);
+				localStorage.setItem("graph_data", response);
 			}
 		} catch (error) {
 			alert(error);
