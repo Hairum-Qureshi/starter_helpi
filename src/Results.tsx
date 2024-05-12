@@ -19,9 +19,7 @@ export default function Results() {
 	4. Corporate Trainer: 10%
 	
 	*/
-	console.log(localStorage.getItem("detailed_report"));
-
-	const markdown = "";
+	const markdown = JSON.parse(localStorage.getItem("detailed_report")!);
 
 	interface Career {
 		careerNo?: string;
@@ -188,85 +186,85 @@ export default function Results() {
 				</div>
 				<div className="report">
 					{markdown ? <Markdown>{markdown}</Markdown> : null}
+					{chart_data.length > 0 ? (
+						<>
+							<h2 className="pieChartHeader">
+								WHAT CAREER SHOULD YOU MOST LIKELY CONSIDER?
+							</h2>
+							<div className="pieChartContainer">
+								<h3>
+									This pie chart visualizes and showcases which career you
+									closely align with (based on percentage):
+								</h3>
+								<PieChart
+									series={[
+										{
+											data: [
+												{
+													id: 0,
+													value: parseInt(chart_data[0].percent),
+													label: `${chart_data[0].career} (${chart_data[0].percent}%)`
+												},
+												{
+													id: 1,
+													value: parseInt(chart_data[1].percent),
+													label: `${chart_data[1].career} (${chart_data[1].percent}%)`
+												},
+												{
+													id: 2,
+													value: parseInt(chart_data[2].percent),
+													label: `${chart_data[2].career} (${chart_data[2].percent}%)`
+												},
+												{
+													id: 3,
+													value: parseInt(chart_data[3].percent),
+													label: `${chart_data[3].career} (${chart_data[3].percent}%)`
+												}
+											]
+										}
+									]}
+									width={900}
+									height={300}
+								/>
+							</div>
+						</>
+					) : null}
 				</div>
-				{chart_data.length > 0 ? (
-					<>
-						<h2 className="pieChartHeader">
-							WHAT CAREER SHOULD YOU MOST LIKELY CONSIDER?
-						</h2>
-						<div className="pieChartContainer">
-							<h3>
-								This pie chart visualizes and showcases which career you closely
-								align with (based on percentage):
-							</h3>
-							<PieChart
-								series={[
-									{
-										data: [
-											{
-												id: 0,
-												value: parseInt(chart_data[0].percent),
-												label: `${chart_data[0].career} (${chart_data[0].percent}%)`
-											},
-											{
-												id: 1,
-												value: parseInt(chart_data[1].percent),
-												label: `${chart_data[1].career} (${chart_data[1].percent}%)`
-											},
-											{
-												id: 2,
-												value: parseInt(chart_data[2].percent),
-												label: `${chart_data[2].career} (${chart_data[2].percent}%)`
-											},
-											{
-												id: 3,
-												value: parseInt(chart_data[3].percent),
-												label: `${chart_data[3].career} (${chart_data[3].percent}%)`
-											}
-										]
-									}
-								]}
-								width={960}
-								height={350}
-							/>
-						</div>
-					</>
-				) : null}
-			</div>
-			<div className="userOptionsContainer">
-				<p>
-					Please enter your email below if you would like to have this report
-					emailed to you for your reference:
-				</p>
-				<form ref={form} onSubmit={sendEmail}>
-					<input
-						type="email"
-						placeholder="Enter email"
-						name="user_email"
-						value={email}
-						onChange={e => setEmail(e.target.value)}
-					/>
-					<button type="submit">Send Report</button>
-					<input
-						type="text"
-						name="to_name"
-						value="[YOUR NAME HERE]" // need to add option to have the user's name here
-						style={{ visibility: "hidden" }}
-					/>
-					<input
-						type="text"
-						name="quiz_type"
-						value="detailed"
-						style={{ visibility: "hidden" }}
-					/>
-				</form>
-				<p>
-					If you would like to save and print this report for your reference,
-					click the button below:
-				</p>
-				<button onClick={downloadPDFReport} disabled={loading}>
-					{loading ? "Downloading Report..." : "Get PDF Report"}
-				</button>
+				<div className="userOptionsContainer">
+					<p>
+						Please enter your email below if you would like to have this report
+						emailed to you for your reference:
+					</p>
+					<form ref={form} onSubmit={sendEmail}>
+						<input
+							type="email"
+							placeholder="Enter email"
+							name="user_email"
+							value={email}
+							onChange={e => setEmail(e.target.value)}
+						/>
+						<button type="submit">Send Report</button>
+						<input
+							type="text"
+							name="to_name"
+							value="[YOUR NAME HERE]" // need to add option to have the user's name here
+							style={{ visibility: "hidden" }}
+						/>
+						<input
+							type="text"
+							name="quiz_type"
+							value="detailed"
+							style={{ visibility: "hidden" }}
+						/>
+					</form>
+					<p>
+						If you would like to save and print this report for your reference,
+						click the button below:
+					</p>
+					<button onClick={downloadPDFReport} disabled={loading}>
+						{loading ? "Downloading Report..." : "Get PDF Report"}
+					</button>
+				</div>
 			</div>
 		</>
 	);
