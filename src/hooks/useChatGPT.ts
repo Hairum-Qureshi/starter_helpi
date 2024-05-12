@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 
 interface Tools {
 	checkConnection: () => void;
-	chat_gptResponse: string;
-	graphData: string;
 	loading: boolean;
 }
 
@@ -50,8 +48,10 @@ export default function useChatGPT(): Tools {
 			}
 			if (api_request === "user_report") {
 				setChat_gptResponse(response);
+				localStorage.setItem("detailed_report", JSON.stringify(response));
 			} else {
 				setGraphData(response);
+				localStorage.setItem("graphData", response);
 			}
 		} catch (error) {
 			alert(error);
@@ -63,7 +63,6 @@ export default function useChatGPT(): Tools {
 		// set loading to false once both states are populated
 		if (chat_gptResponse && graphData) {
 			setLoading(false);
-			setChat_gptResponse(chat_gptResponse);
 		}
 	}, [chat_gptResponse, graphData]);
 
@@ -86,5 +85,5 @@ export default function useChatGPT(): Tools {
 			alert("Please make sure you've entered your API key");
 		}
 	}
-	return { checkConnection, chat_gptResponse, graphData, loading };
+	return { checkConnection, loading };
 }
