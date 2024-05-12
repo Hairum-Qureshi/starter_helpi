@@ -2,13 +2,27 @@ import "./results.css";
 import Markdown from "react-markdown";
 import { PieChart } from "@mui/x-charts/PieChart";
 import emailjs from "@emailjs/browser";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { marked } from "marked";
 
 export default function Results() {
-	const markdown = JSON.parse(localStorage.getItem("detailed_report")!);
-	const name: string | undefined = localStorage.getItem("name")?.toUpperCase();
+	const report_markdown = JSON.parse(localStorage.getItem("detailed_report")!);
+	const name: string | null = localStorage.getItem("name");
+
+	const [reportHTML, setReportHTML] = useState<string>();
+
+	useEffect(() => {
+		// converts the markdown to HTML so it can be sent via email
+
+		const convertMarkdownToHtml = async () => {
+			const convertedHtml = await marked(report_markdown);
+			setReportHTML(convertedHtml);
+		};
+
+		convertMarkdownToHtml();
+	}, []);
 
 	const graph_data: string | null = localStorage.getItem("graph_data")!;
 
@@ -59,6 +73,7 @@ export default function Results() {
 			const formData = new FormData(form.current);
 
 			formData.append("to_email", email.toLowerCase());
+			reportHTML && formData.append("report_html", reportHTML);
 
 			emailjs
 				.sendForm("service_t261vsc", "template_a7tcjsa", form.current, {
@@ -81,6 +96,7 @@ export default function Results() {
 	const [loading, setLoading] = useState(false);
 	const pdfRef = useRef<HTMLDivElement>(null);
 
+	// Converts the report into an HTML Canvas image then converts that image into a PDF and aligns it on the PDF, then allows the user to download their PDF report
 	function downloadPDFReport() {
 		setLoading(true);
 		const input = pdfRef.current;
@@ -113,13 +129,15 @@ export default function Results() {
 	return (
 		<>
 			<div className="backdrop">
-				<h1>HI {name || "N/A"}, WELCOME TO YOUR CAREER RESULTS!</h1>
+				<h1>
+					HI {name?.toUpperCase() || "N/A"}, WELCOME TO YOUR CAREER RESULTS!
+				</h1>
 			</div>
-			{graph_data && markdown ? (
+			{graph_data && report_markdown ? (
 				<>
 					<div ref={pdfRef}>
 						<div className="report">
-							{markdown ? <Markdown>{markdown}</Markdown> : null}
+							{report_markdown ? <Markdown>{report_markdown}</Markdown> : null}
 							{chart_data.length > 0 ? (
 								<>
 									<h2 className="pieChartHeader">
@@ -182,13 +200,19 @@ export default function Results() {
 							<input
 								type="text"
 								name="to_name"
-								value={name}
+								value={name || "N/A"}
 								style={{ visibility: "hidden" }}
 							/>
 							<input
 								type="text"
 								name="quiz_type"
 								value="detailed"
+								style={{ visibility: "hidden" }}
+							/>
+							<input
+								type="text"
+								name="report_html"
+								value={reportHTML}
 								style={{ visibility: "hidden" }}
 							/>
 						</form>
