@@ -150,47 +150,53 @@ h1 {
 .userOptionsContainer {
 	width: 70%;
 	box-sizing: border-box;
-	margin: -40px auto 80px;
-	border: 2px solid limegreen;
+	margin: -30px auto 80px;
+	border: 2px solid rgb(50, 169, 205);
 	padding: 10px;
 	border-radius: 10px;
-	background-color: rgb(161, 223, 161);
+	background-color: rgb(135, 180, 222);
+	color: rgb(7, 2, 143);
 }
 
 .userOptionsContainer p {
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	font-family: "Inter", sans-serif;
+	font-weight: 500;
 	font-size: 17px;
+}
+
+.userOptionsContainer p:nth-of-type(2) {
+	margin-top: -5px;
 }
 
 .userOptionsContainer input[type="email"] {
 	width: 50%;
-	margin: 10px;
 	padding: 10px;
 	font-size: 16px;
 	box-sizing: border-box;
 	border-radius: 10px;
 	outline: none;
-	border: 1px solid limegreen;
+	border: 1px solid rgb(50, 171, 205);
 }
 
 .userOptionsContainer button {
 	padding: 10px;
 	font-size: 15px;
 	border-radius: 10px;
-	border: 2px solid limegreen;
-	background-color: green;
+	border: 2px solid rgb(50, 138, 205);
+	background-color: rgb(0, 94, 128);
 	color: white;
+	width: 20%;
+	margin-left: 10px;
 }
 
 .userOptionsContainer button:hover {
 	cursor: pointer;
-	background-color: rgb(6, 108, 6);
+	background-color: rgb(6, 55, 108);
 	transition: 0.5s ease;
 }
 
 .userOptionsContainer button:active {
-	background-color: darkgreen;
+	background-color: rgb(13, 58, 149);
 	transition: 0s;
 }
 

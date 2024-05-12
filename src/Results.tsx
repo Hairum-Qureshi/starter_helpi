@@ -2,81 +2,29 @@ import "./results.css";
 import Markdown from "react-markdown";
 import { PieChart } from "@mui/x-charts/PieChart";
 import emailjs from "@emailjs/browser";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { marked } from "marked";
 
 export default function Results() {
-	// TODO [ ] - implement a loading feature when the user presses the "get results" button on the modal
-	// TODO [ ] - implement the 404 logic when the user attempts to access this page without completing the quiz
-	// TODO [ ] - add a feature to have their report emailed to them or someone else
+	const report_markdown = JSON.parse(localStorage.getItem("detailed_report")!);
+	const name: string | null = localStorage.getItem("name");
 
-	/*
-	
-	1. Software Developer: 40% 
-	2. Data Analyst: 30%
-	3. Health and Wellness Coordinator: 20%
-	4. Corporate Trainer: 10%
-	
-	*/
-	const markdown = JSON.parse(localStorage.getItem("detailed_report")!);
-	const name: string | undefined = localStorage.getItem("name")?.toUpperCase();
+	const [reportHTML, setReportHTML] = useState<string>();
 
-	interface Career {
-		careerNo?: string;
-		title: string;
-		description: string;
-	}
+	useEffect(() => {
+		// converts the markdown to HTML so it can be sent via email
 
-	// Array to hold the extracted career options
-	// Regular expression pattern to match each career option
-	const pattern =
-		/(\d+)\. \*\*(.+?)\*\*[\s\S]+?Why It's a Good Fit:\*\*([\s\S]+?)\*\*Alternative Path:/g;
+		const convertMarkdownToHtml = async () => {
+			const convertedHtml = await marked(report_markdown);
+			setReportHTML(convertedHtml);
+		};
 
-	// Array to hold the extracted career options
-	const careers: Career[] = [];
-
-	// Match each career option using the regular expression pattern
-	let match;
-	while ((match = pattern.exec(markdown)) !== null) {
-		// Extract relevant information
-		const careerNumber = match[1];
-		const careerTitle = match[2];
-		let careerDescription = match[3].trim();
-
-		// Replace line breaks with appropriate markdown syntax
-		careerDescription = careerDescription.replace(/(?:\r\n|\r|\n)/g, "\n   ");
-
-		// Push the extracted information into the array
-		careers.push({
-			careerNo: careerNumber,
-			title: careerTitle,
-			description: careerDescription
-		});
-	}
-
-	// Regular expression pattern to match the recommendations
-	const recommendationPattern = /- \*\*(.+?)\*\*([\s\S]+?)(?=- \*\*|$)/g;
-
-	// Array to hold the extracted recommendations
-	const alternativeCareers: Career[] = [];
-
-	// Match each recommendation using the regular expression pattern
-	while ((match = recommendationPattern.exec(markdown)) !== null) {
-		// Extract recommendation details
-		const recommendationTitle = match[1].trim();
-		const recommendationDescription = match[2].trim();
-
-		// Push the extracted recommendation into the array
-		alternativeCareers.push({
-			title: recommendationTitle,
-			description: recommendationDescription
-		});
-	}
+		convertMarkdownToHtml();
+	}, []);
 
 	const graph_data: string | null = localStorage.getItem("graph_data")!;
-
-	console.log(graph_data);
 
 	const lines: string[] | undefined = graph_data
 		?.split("\n")
@@ -108,38 +56,45 @@ export default function Results() {
 		return null;
 	});
 
-	console.log(chart_data);
-
 	// The code above was provided by ChatGPT, but I made some minor tweaks to it
 
 	const form = useRef<HTMLFormElement>(null);
 	const [email, setEmail] = useState("");
 
 	const sendEmail = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
 		if (!email) {
 			event.preventDefault();
 			alert("Please provide an email");
 		} else {
-			event.preventDefault();
+			const valid_email: RegExpMatchArray | null = email.match(
+				/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			);
 
-			if (!form.current) return; // Ensure form.current is not null
+			if (valid_email) {
+				if (!form.current) return; // Ensure form.current is not null
 
-			const formData = new FormData(form.current);
+				const formData = new FormData(form.current);
 
-			formData.append("to_email", email.toLowerCase());
+				formData.append("to_email", email.toLowerCase());
+				reportHTML && formData.append("report_html", reportHTML);
 
-			emailjs
-				.sendForm("service_t261vsc", "template_a7tcjsa", form.current, {
-					publicKey: "Zj1lhdMNe9-VtmDkN"
-				})
-				.then(
-					() => {
-						console.log("SUCCESS!");
-					},
-					error => {
-						console.log("FAILED...", error.text);
-					}
-				);
+				emailjs
+					.sendForm("service_t261vsc", "template_a7tcjsa", form.current, {
+						publicKey: "Zj1lhdMNe9-VtmDkN"
+					})
+					.then(
+						() => {
+							alert("Email successfully sent!");
+						},
+						error => {
+							alert("There was a problem sending an email: \n" + error.text);
+						}
+					);
+			} else {
+				alert("Invalid email format");
+			}
 		}
 	};
 
@@ -149,6 +104,7 @@ export default function Results() {
 	const [loading, setLoading] = useState(false);
 	const pdfRef = useRef<HTMLDivElement>(null);
 
+	// Converts the report into an HTML Canvas image then converts that image into a PDF and aligns it on the PDF, then allows the user to download their PDF report
 	function downloadPDFReport() {
 		setLoading(true);
 		const input = pdfRef.current;
@@ -181,13 +137,15 @@ export default function Results() {
 	return (
 		<>
 			<div className="backdrop">
-				<h1>HI {name || "N/A"}, WELCOME TO YOUR CAREER RESULTS!</h1>
+				<h1>
+					HI {name?.toUpperCase() || "N/A"}, WELCOME TO YOUR CAREER RESULTS!
+				</h1>
 			</div>
-			{graph_data && markdown ? (
+			{graph_data && report_markdown ? (
 				<>
 					<div ref={pdfRef}>
 						<div className="report">
-							{markdown ? <Markdown>{markdown}</Markdown> : null}
+							{report_markdown ? <Markdown>{report_markdown}</Markdown> : null}
 							{chart_data.length > 0 ? (
 								<>
 									<h2 className="pieChartHeader">
@@ -250,7 +208,7 @@ export default function Results() {
 							<input
 								type="text"
 								name="to_name"
-								value={name}
+								value={name || "N/A"}
 								style={{ visibility: "hidden" }}
 							/>
 							<input
@@ -259,12 +217,22 @@ export default function Results() {
 								value="detailed"
 								style={{ visibility: "hidden" }}
 							/>
+							<input
+								type="text"
+								name="report_html"
+								value={reportHTML}
+								style={{ visibility: "hidden" }}
+							/>
 						</form>
 						<p>
 							If you would like to save and print this report for your
 							reference, click the button below:
 						</p>
-						<button onClick={downloadPDFReport} disabled={loading}>
+						<button
+							onClick={downloadPDFReport}
+							disabled={loading}
+							className="downloadReportBtn"
+						>
 							{loading ? "Downloading Report..." : "Get PDF Report"}
 						</button>
 					</div>
