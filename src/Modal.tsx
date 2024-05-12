@@ -11,16 +11,16 @@ interface Props {
 export default function Modal({ modalFunction, showFunction }: Props) {
 	const [show, setShow] = useState(true);
 	const { checkConnection, loading } = useChatGPT();
-	const [closingReq, setClosingReq] = useState(false);
+	const [closingRequest, setClosingRequest] = useState(false);
 
 	waveform.register();
 
 	useEffect(() => {
-		if (!loading && closingReq) {
+		if (!loading && closingRequest) {
 			setShow(false);
 			showFunction();
 		}
-	}, [loading, closingReq]);
+	}, [loading, closingRequest]);
 
 	const name = localStorage.getItem("name");
 
@@ -52,7 +52,7 @@ export default function Modal({ modalFunction, showFunction }: Props) {
 						onClick={e => {
 							e.stopPropagation();
 							checkConnection();
-							setClosingReq(true);
+							setClosingRequest(true);
 						}}
 					>
 						{loading ? (
