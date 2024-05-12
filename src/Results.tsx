@@ -8,7 +8,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export default function Results() {
-	const { chat_gptResponse, loading: pending } = useChatGPT();
+	const { chat_gptResponse } = useChatGPT();
 
 	// TODO [ ] - implement a loading feature when the user presses the "get results" button on the modal
 	// TODO [ ] - implement the 404 logic when the user attempts to access this page without completing the quiz
@@ -24,6 +24,8 @@ export default function Results() {
 	*/
 
 	const markdown = chat_gptResponse;
+
+	console.log(markdown);
 
 	interface Career {
 		careerNo?: string;
