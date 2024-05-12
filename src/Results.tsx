@@ -178,10 +178,10 @@ export default function Results() {
 
 	return (
 		<>
+			<div className="backdrop">
+				<h1>HI {name}, WELCOME TO YOUR CAREER RESULTS!</h1>
+			</div>
 			<div ref={pdfRef}>
-				<div className="backdrop">
-					<h1>HI {name}, WELCOME TO YOUR CAREER RESULTS!</h1>
-				</div>
 				<div className="report">
 					{markdown ? <Markdown>{markdown}</Markdown> : null}
 					{chart_data.length > 0 ? (
@@ -228,41 +228,41 @@ export default function Results() {
 						</>
 					) : null}
 				</div>
-				<div className="userOptionsContainer">
-					<p>
-						Please enter your email below if you would like to have this report
-						emailed to you for your reference:
-					</p>
-					<form ref={form} onSubmit={sendEmail}>
-						<input
-							type="email"
-							placeholder="Enter email"
-							name="user_email"
-							value={email}
-							onChange={e => setEmail(e.target.value)}
-						/>
-						<button type="submit">Send Report</button>
-						<input
-							type="text"
-							name="to_name"
-							value={name}
-							style={{ visibility: "hidden" }}
-						/>
-						<input
-							type="text"
-							name="quiz_type"
-							value="detailed"
-							style={{ visibility: "hidden" }}
-						/>
-					</form>
-					<p>
-						If you would like to save and print this report for your reference,
-						click the button below:
-					</p>
-					<button onClick={downloadPDFReport} disabled={loading}>
-						{loading ? "Downloading Report..." : "Get PDF Report"}
-					</button>
-				</div>
+			</div>
+			<div className="userOptionsContainer">
+				<p>
+					Please enter your email below if you would like to have this report
+					emailed to you for your reference:
+				</p>
+				<form ref={form} onSubmit={sendEmail}>
+					<input
+						type="email"
+						placeholder="Enter email"
+						name="user_email"
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+					/>
+					<button type="submit">Send Report</button>
+					<input
+						type="text"
+						name="to_name"
+						value={name}
+						style={{ visibility: "hidden" }}
+					/>
+					<input
+						type="text"
+						name="quiz_type"
+						value="detailed"
+						style={{ visibility: "hidden" }}
+					/>
+				</form>
+				<p>
+					If you would like to save and print this report for your reference,
+					click the button below:
+				</p>
+				<button onClick={downloadPDFReport} disabled={loading}>
+					{loading ? "Downloading Report..." : "Get PDF Report"}
+				</button>
 			</div>
 		</>
 	);
