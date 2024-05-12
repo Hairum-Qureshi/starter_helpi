@@ -1,4 +1,3 @@
-import useChatGPT from "./hooks/useChatGPT";
 import "./results.css";
 import Markdown from "react-markdown";
 import { PieChart } from "@mui/x-charts/PieChart";
@@ -8,24 +7,20 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export default function Results() {
-	const { chat_gptResponse } = useChatGPT();
-
 	// TODO [ ] - implement a loading feature when the user presses the "get results" button on the modal
 	// TODO [ ] - implement the 404 logic when the user attempts to access this page without completing the quiz
 	// TODO [ ] - add a feature to have their report emailed to them or someone else
 
 	/*
 	
-	1. Software Developer: 40%
+	1. Software Developer: 40% 
 	2. Data Analyst: 30%
 	3. Health and Wellness Coordinator: 20%
 	4. Corporate Trainer: 10%
 	
 	*/
 
-	const markdown = chat_gptResponse;
-
-	console.log(markdown);
+	const markdown = "";
 
 	interface Career {
 		careerNo?: string;
