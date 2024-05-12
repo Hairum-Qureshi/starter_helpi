@@ -3,7 +3,6 @@ import "./detailed.css";
 import questions from "./detailedQuestions.json";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
-import useChatGPT from "./hooks/useChatGPT";
 import Results from "./Results";
 
 export interface Answer {
