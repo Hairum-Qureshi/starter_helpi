@@ -74,9 +74,9 @@ export default function Results() {
 		});
 	}
 
-	const graph_data: string | null = JSON.parse(
-		localStorage.getItem("graph_data")!
-	);
+	const graph_data: string | null = localStorage.getItem("graph_data")!;
+
+	console.log(graph_data);
 
 	const lines: string[] | undefined = graph_data
 		?.split("\n")
@@ -92,9 +92,9 @@ export default function Results() {
 	const chart_data: ChartData[] = [];
 	// Map each line to an object containing career and percent
 	lines?.map((line: string, index: number) => {
-		// Split the line by colon and trim spaces
+		// Split the line by colon or dash and trim spaces
 		const [career, percent] = line
-			.split(":")
+			.split(/:|-/)
 			.map((item: string) =>
 				item
 					.replace("1.", "")
@@ -107,6 +107,8 @@ export default function Results() {
 		chart_data.push({ career, percent, color: colors[index] });
 		return null;
 	});
+
+	console.log(chart_data);
 
 	// The code above was provided by ChatGPT, but I made some minor tweaks to it
 
