@@ -1,20 +1,35 @@
 import "./modal.css";
 import useChatGPT from "./hooks/useChatGPT";
 import { waveform } from "ldrs";
+import { useEffect, useState } from "react";
 
 interface Props {
 	modalFunction: () => void;
+	showFunction: () => void;
 }
 
-export default function Modal({ modalFunction }: Props) {
+export default function Modal({ modalFunction, showFunction }: Props) {
+	const [show, setShow] = useState(true);
 	const { checkConnection, loading } = useChatGPT();
+	const [closingReq, setClosingReq] = useState(false);
 
 	waveform.register();
+
+	useEffect(() => {
+		if (!loading && closingReq) {
+			setShow(false);
+			showFunction();
+		}
+	}, [loading, closingReq]);
 
 	const name = localStorage.getItem("name");
 
 	return (
-		<div className="modal" onClick={modalFunction}>
+		<div
+			className="modal"
+			onClick={!loading ? modalFunction : undefined}
+			style={{ display: show ? "block" : "none" }}
+		>
 			<div className="modal-content">
 				{!loading ? (
 					<p>
@@ -37,6 +52,7 @@ export default function Modal({ modalFunction }: Props) {
 						onClick={e => {
 							e.stopPropagation();
 							checkConnection();
+							setClosingReq(true);
 						}}
 					>
 						{loading ? (
