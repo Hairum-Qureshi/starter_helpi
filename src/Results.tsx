@@ -19,6 +19,7 @@ export default function Results() {
 	4. Corporate Trainer: 10%
 	
 	*/
+	console.log(localStorage.getItem("detailed_report"));
 
 	const markdown = "";
 
