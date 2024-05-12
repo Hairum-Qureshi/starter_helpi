@@ -20,6 +20,7 @@ export default function Results() {
 	
 	*/
 	const markdown = JSON.parse(localStorage.getItem("detailed_report")!);
+	const name: string | undefined = localStorage.getItem("name")?.toUpperCase();
 
 	interface Career {
 		careerNo?: string;
@@ -179,10 +180,7 @@ export default function Results() {
 		<>
 			<div ref={pdfRef}>
 				<div className="backdrop">
-					<h1>
-						HI {localStorage.getItem("name")?.toUpperCase()}, WELCOME TO YOUR
-						CAREER RESULTS!
-					</h1>
+					<h1>HI {name}, WELCOME TO YOUR CAREER RESULTS!</h1>
 				</div>
 				<div className="report">
 					{markdown ? <Markdown>{markdown}</Markdown> : null}
@@ -247,7 +245,7 @@ export default function Results() {
 						<input
 							type="text"
 							name="to_name"
-							value="[YOUR NAME HERE]" // need to add option to have the user's name here
+							value={name}
 							style={{ visibility: "hidden" }}
 						/>
 						<input

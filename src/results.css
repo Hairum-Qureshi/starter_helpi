@@ -47,7 +47,7 @@
 	margin: 60px auto 100px;
 	box-sizing: border-box;
 	padding: 10px;
-	/* border: 2px solid black; */
+	border: 2px solid rgb(53, 173, 238);
 	min-height: 100vh;
 	max-height: inherit;
 	font-family: "Inter", sans-serif;
