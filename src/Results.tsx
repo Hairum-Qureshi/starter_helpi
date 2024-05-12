@@ -74,13 +74,13 @@ export default function Results() {
 		});
 	}
 
-	const data = `
-	1. Software Developer: 40%
-	2. Data Analyst: 30%
-	3. Health and Wellness Coordinator: 20%
-	4. Corporate Trainer: 10%`;
+	const graph_data: string | null = JSON.parse(
+		localStorage.getItem("graph_data")!
+	);
 
-	const lines = data.split("\n").filter(line => line.trim() !== "");
+	const lines: string[] | undefined = graph_data
+		?.split("\n")
+		.filter((line: string) => line.trim() !== "");
 
 	interface ChartData {
 		career: string;
@@ -91,7 +91,7 @@ export default function Results() {
 	const colors = ["lime", "pink", "yellow", "orange"];
 	const chart_data: ChartData[] = [];
 	// Map each line to an object containing career and percent
-	lines.map((line: string, index: number) => {
+	lines?.map((line: string, index: number) => {
 		// Split the line by colon and trim spaces
 		const [career, percent] = line
 			.split(":")
@@ -179,91 +179,99 @@ export default function Results() {
 	return (
 		<>
 			<div className="backdrop">
-				<h1>HI {name}, WELCOME TO YOUR CAREER RESULTS!</h1>
+				<h1>HI {name || "N/A"}, WELCOME TO YOUR CAREER RESULTS!</h1>
 			</div>
-			<div ref={pdfRef}>
-				<div className="report">
-					{markdown ? <Markdown>{markdown}</Markdown> : null}
-					{chart_data.length > 0 ? (
-						<>
-							<h2 className="pieChartHeader">
-								WHAT CAREER SHOULD YOU MOST LIKELY CONSIDER?
-							</h2>
-							<div className="pieChartContainer">
-								<h3>
-									This pie chart visualizes and showcases which career you
-									closely align with (based on percentage):
-								</h3>
-								<PieChart
-									series={[
-										{
-											data: [
+			{graph_data && markdown ? (
+				<>
+					<div ref={pdfRef}>
+						<div className="report">
+							{markdown ? <Markdown>{markdown}</Markdown> : null}
+							{chart_data.length > 0 ? (
+								<>
+									<h2 className="pieChartHeader">
+										WHAT CAREER SHOULD YOU MOST LIKELY CONSIDER?
+									</h2>
+									<div className="pieChartContainer">
+										<h3>
+											This pie chart visualizes and showcases which career you
+											closely align with (based on percentage):
+										</h3>
+										<PieChart
+											series={[
 												{
-													id: 0,
-													value: parseInt(chart_data[0].percent),
-													label: `${chart_data[0].career} (${chart_data[0].percent}%)`
-												},
-												{
-													id: 1,
-													value: parseInt(chart_data[1].percent),
-													label: `${chart_data[1].career} (${chart_data[1].percent}%)`
-												},
-												{
-													id: 2,
-													value: parseInt(chart_data[2].percent),
-													label: `${chart_data[2].career} (${chart_data[2].percent}%)`
-												},
-												{
-													id: 3,
-													value: parseInt(chart_data[3].percent),
-													label: `${chart_data[3].career} (${chart_data[3].percent}%)`
+													data: [
+														{
+															id: 0,
+															value: parseInt(chart_data[0].percent),
+															label: `${chart_data[0].career} (${chart_data[0].percent}%)`
+														},
+														{
+															id: 1,
+															value: parseInt(chart_data[1].percent),
+															label: `${chart_data[1].career} (${chart_data[1].percent}%)`
+														},
+														{
+															id: 2,
+															value: parseInt(chart_data[2].percent),
+															label: `${chart_data[2].career} (${chart_data[2].percent}%)`
+														},
+														{
+															id: 3,
+															value: parseInt(chart_data[3].percent),
+															label: `${chart_data[3].career} (${chart_data[3].percent}%)`
+														}
+													]
 												}
-											]
-										}
-									]}
-									width={900}
-									height={300}
-								/>
-							</div>
-						</>
-					) : null}
-				</div>
-			</div>
-			<div className="userOptionsContainer">
-				<p>
-					Please enter your email below if you would like to have this report
-					emailed to you for your reference:
-				</p>
-				<form ref={form} onSubmit={sendEmail}>
-					<input
-						type="email"
-						placeholder="Enter email"
-						name="user_email"
-						value={email}
-						onChange={e => setEmail(e.target.value)}
-					/>
-					<button type="submit">Send Report</button>
-					<input
-						type="text"
-						name="to_name"
-						value={name}
-						style={{ visibility: "hidden" }}
-					/>
-					<input
-						type="text"
-						name="quiz_type"
-						value="detailed"
-						style={{ visibility: "hidden" }}
-					/>
-				</form>
-				<p>
-					If you would like to save and print this report for your reference,
-					click the button below:
-				</p>
-				<button onClick={downloadPDFReport} disabled={loading}>
-					{loading ? "Downloading Report..." : "Get PDF Report"}
-				</button>
-			</div>
+											]}
+											width={900}
+											height={300}
+										/>
+									</div>
+								</>
+							) : null}
+						</div>
+					</div>
+					<div className="userOptionsContainer">
+						<p>
+							Please enter your email below if you would like to have this
+							report emailed to you for your reference:
+						</p>
+						<form ref={form} onSubmit={sendEmail}>
+							<input
+								type="email"
+								placeholder="Enter email"
+								name="user_email"
+								value={email}
+								onChange={e => setEmail(e.target.value)}
+							/>
+							<button type="submit">Send Report</button>
+							<input
+								type="text"
+								name="to_name"
+								value={name}
+								style={{ visibility: "hidden" }}
+							/>
+							<input
+								type="text"
+								name="quiz_type"
+								value="detailed"
+								style={{ visibility: "hidden" }}
+							/>
+						</form>
+						<p>
+							If you would like to save and print this report for your
+							reference, click the button below:
+						</p>
+						<button onClick={downloadPDFReport} disabled={loading}>
+							{loading ? "Downloading Report..." : "Get PDF Report"}
+						</button>
+					</div>
+				</>
+			) : (
+				<h1>
+					Please make sure you have completed your quiz to view your results!
+				</h1>
+			)}
 		</>
 	);
 }

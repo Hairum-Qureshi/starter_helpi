@@ -57,6 +57,14 @@
 	border-radius: 5px;
 }
 
+h1 {
+	text-align: center;
+	font-family: "Inter", sans-serif;
+	font-weight: 600;
+	margin-top: 50px;
+	color: rgb(164, 11, 62);
+}
+
 .report h3 {
 	text-transform: uppercase;
 }
