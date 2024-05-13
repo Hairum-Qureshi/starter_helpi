@@ -7,6 +7,7 @@ import ProgressBar from "../ProgressBar";
 import { Answer } from "../detailed";
 import Modal from "../Modal";
 import Confetti from "react-confetti";
+import Results from "../Results";
 
 export interface Option {
 	text: string;
@@ -68,7 +69,7 @@ export default function Basic() {
 		setShowReport(true);
 	}
 
-	return (
+	return !showReport ? (
 		<>
 			{showConfetti && <Confetti />}
 			{modalVisibility ? (
@@ -144,5 +145,7 @@ export default function Basic() {
 				</div>
 			</div>
 		</>
+	) : (
+		<Results />
 	);
 }
