@@ -10,7 +10,7 @@ interface Props {
 
 export default function Modal({ modalFunction, showFunction }: Props) {
 	const [show, setShow] = useState(true);
-	const { checkConnection, loading } = useChatGPT();
+	const { checkConnection, loading } = useChatGPT("detailed");
 	const [closingRequest, setClosingRequest] = useState(false);
 
 	waveform.register();
@@ -51,7 +51,7 @@ export default function Modal({ modalFunction, showFunction }: Props) {
 						disabled={loading}
 						onClick={e => {
 							e.stopPropagation();
-							checkConnection();
+							checkConnection("detailed");
 							setClosingRequest(true);
 						}}
 					>
