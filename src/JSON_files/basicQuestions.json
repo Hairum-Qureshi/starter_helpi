@@ -289,7 +289,7 @@
 	},
 	{
 		"question_number": 14,
-		"question": "On a scale from 1 to 10, how good are you at time management?",
+		"question": "On a scale from 1 to 10—with 1 being awful and 10 being the best—how good are you at time management?",
 		"options": [
 			{ "image": "https://i.ibb.co/GJVQb8f/10o-PYl-WXUacgie00-M08-S.jpg" }
 		],

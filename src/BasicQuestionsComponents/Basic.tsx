@@ -42,8 +42,6 @@ export default function Basic() {
 	}
 
 	function saveAnswers(choice: string, question_num: number, question: string) {
-		console.log(choice);
-
 		const updatedAnswers = answeredQuestions.map(answer =>
 			answer.questionNo === question_num ? { ...answer, choice } : answer
 		);
@@ -68,7 +66,7 @@ export default function Basic() {
 			<div className={basic_css.quizContainer}>
 				<div className={basic_css.questionContainer}>
 					<h3>
-						({currentIndex + 1}/{basic_questions.length})
+						({currentIndex + 1}/{basic_questions.length}) &nbsp;
 						{basic_questions[currentIndex].question}
 					</h3>
 				</div>
@@ -82,7 +80,12 @@ export default function Basic() {
 							saveAnswers={saveAnswers}
 						/>
 					) : (
-						<RangeQuestion />
+						<RangeQuestion
+							currentIndex={currentIndex}
+							addChoice={addChoice}
+							currentChoice={answeredQuestions[currentIndex].choice}
+							saveAnswers={saveAnswers}
+						/>
 					)}
 				</div>
 				<div className={basic_css.containerFooter}>

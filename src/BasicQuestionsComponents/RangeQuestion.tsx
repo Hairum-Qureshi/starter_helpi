@@ -1,37 +1,47 @@
-export default function RangeQuestion() {
-	return <div>RangeQuestion</div>;
+import { Option } from "./Basic";
+import { useEffect, useState } from "react";
+import basic_css from "../CSS/basic.module.css";
+import basic_questions from "../JSON_files/basicQuestions.json";
+import { Answer } from "../detailed";
+
+interface Props {
+	currentIndex: number;
+	addChoice: (selection: string) => void;
+	currentChoice: string;
+	saveAnswers: (choice: string, question_num: number, question: string) => void;
 }
+export default function RangeQuestion({
+	currentIndex,
+	addChoice,
+	currentChoice,
+	saveAnswers
+}: Props) {
+	const [rangeVal, setRangeVal] = useState(parseInt(currentChoice) || 1);
 
-// import { useState } from "react";
-// import basic_css from "./basic.module.css";
+	useEffect(() => {
+		addChoice(rangeVal.toString());
 
-// export default function RangeComponent({
-// 	question_number,
-// 	question,
-// 	type,
-// 	options
-// }) {
-// 	const [rangeVal, setRangeVal] = useState<number>(5);
+		saveAnswers(
+			rangeVal.toString(),
+			basic_questions[currentIndex].question_number,
+			basic_questions[currentIndex].question
+		);
+	}, [rangeVal]);
 
-// 	const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-// 		setRangeVal(parseInt(event.target.value));
-// 	};
+	useEffect(() => {
+		setRangeVal(parseInt(currentChoice));
+	}, [currentIndex]);
 
-// 	return (
-// 		<div className={basic_css.quizContainer}>
-// 			<div className={basic_css.questionContainer}>
-// 				<label htmlFor="range">Select a value:</label>
-// 				<input
-// 					type="range"
-// 					id="range"
-// 					name="range"
-// 					min={1}
-// 					max={10}
-// 					value={rangeVal}
-// 					onChange={handleRangeChange}
-// 				/>
-// 				<p>Selected value: {rangeVal} </p>
-// 			</div>
-// 		</div>
-// 	);
-// }
+	return (
+		<div className={basic_css.questionContainer_range}>
+			<input
+				type="range"
+				min={1}
+				max={10}
+				value={rangeVal}
+				onChange={event => setRangeVal(parseInt(event.target.value))}
+			/>
+			<h3>You selected: {rangeVal} </h3>
+		</div>
+	);
+}

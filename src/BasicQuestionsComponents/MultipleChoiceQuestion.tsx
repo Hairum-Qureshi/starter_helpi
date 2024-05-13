@@ -33,7 +33,7 @@ export default function MultipleChoiceQuestion({
 						}}
 						style={{
 							backgroundColor: `${
-								answeredQuestions[currentIndex].choice === option.text
+								answeredQuestions[currentIndex]?.choice === option.text
 									? "#006BA6"
 									: "#003459"
 							}`,
