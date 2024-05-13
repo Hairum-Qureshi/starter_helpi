@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Option } from "./Basic";
 import basic_questions from "../JSON_files/basicQuestions.json";
 import { Answer } from "../detailed";
@@ -18,14 +17,6 @@ export default function MultipleChoiceQuestion({
 	answeredQuestions,
 	saveAnswers
 }: Props) {
-	useEffect(() => {
-		localStorage.setItem("current_question_basic", currentIndex.toString());
-		localStorage.setItem(
-			"answered_questions_basic",
-			JSON.stringify(answeredQuestions)
-		);
-	}, [currentIndex, answeredQuestions]);
-
 	return (
 		<>
 			{currentQuestionOptions.map((option: Option, index: number) => {
@@ -42,9 +33,7 @@ export default function MultipleChoiceQuestion({
 						}}
 						style={{
 							backgroundColor: `${
-								answeredQuestions.some(
-									selectedAnswer => selectedAnswer.choice === option.text
-								)
+								answeredQuestions[currentIndex].choice === option.text
 									? "#006BA6"
 									: "#003459"
 							}`,

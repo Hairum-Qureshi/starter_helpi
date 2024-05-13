@@ -12,7 +12,9 @@ export interface Option {
 }
 
 export default function Basic() {
-	const [currentIndex, setCurrentIndex] = useState(0);
+	const [currentIndex, setCurrentIndex] = useState<number>(
+		Number(localStorage.getItem("current_question_basic")) || 0
+	);
 	const [currentQuestionOptions, setCurrentQuestionOptions] = useState<
 		Option[]
 	>(basic_questions[currentIndex].options as Option[]);
@@ -24,6 +26,7 @@ export default function Basic() {
 	const [showConfetti, setShowConfetti] = useState(false);
 
 	useEffect(() => {
+		localStorage.setItem("current_question_basic", currentIndex.toString());
 		setCurrentQuestionOptions(
 			basic_questions[currentIndex].options as Option[]
 		);
@@ -39,6 +42,8 @@ export default function Basic() {
 	}
 
 	function saveAnswers(choice: string, question_num: number, question: string) {
+		console.log(choice);
+
 		const updatedAnswers = answeredQuestions.map(answer =>
 			answer.questionNo === question_num ? { ...answer, choice } : answer
 		);
@@ -50,12 +55,20 @@ export default function Basic() {
 		);
 	}
 
+	useEffect(() => {
+		localStorage.setItem("current_question_basic", currentIndex.toString());
+		localStorage.setItem(
+			"answered_questions_basic",
+			JSON.stringify(answeredQuestions)
+		);
+	}, [currentIndex, answeredQuestions]);
+
 	return (
 		<>
 			<div className={basic_css.quizContainer}>
 				<div className={basic_css.questionContainer}>
 					<h3>
-						({currentIndex + 1}/{basic_questions.length}){" "}
+						({currentIndex + 1}/{basic_questions.length})
 						{basic_questions[currentIndex].question}
 					</h3>
 				</div>
@@ -92,7 +105,7 @@ export default function Basic() {
 						{currentIndex === 0 ? "END" : "PREV."}
 					</button>
 					<button
-						disabled={!choice || choice.length > 500}
+						disabled={!choice}
 						onClick={() => {
 							if (currentIndex === basic_questions.length - 1) {
 								setModalVisibility(!modalVisibility);
