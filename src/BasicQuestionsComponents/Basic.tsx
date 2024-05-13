@@ -1,8 +1,10 @@
 import basic_questions from "../JSON_files/basicQuestions.json";
 import basic_css from "../CSS/basic.module.css";
 import { useEffect, useState } from "react";
+import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
+import RangeQuestion from "./RangeQuestion";
 
-interface Option {
+export interface Option {
 	text: string;
 	image: string;
 }
@@ -28,16 +30,13 @@ export default function Basic() {
 				</h3>
 			</div>
 			<div className={basic_css.optionsContainer}>
-				{currentQuestionOptions.map((option: Option) => {
-					return (
-						<button key={option.text}>
-							<span>
-								<img src={option.image} alt="Question choice visual" />
-							</span>
-							<span>{option.text}</span>
-						</button>
-					);
-				})}
+				{basic_questions[currentIndex].type === "multipleChoice" ? (
+					<MultipleChoiceQuestion
+						currentQuestionOptions={currentQuestionOptions}
+					/>
+				) : (
+					<RangeQuestion />
+				)}
 			</div>
 			<div className={basic_css.containerFooter}>
 				<button

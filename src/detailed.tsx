@@ -68,7 +68,12 @@ function Detailed() {
 	return (
 		<>
 			{showConfetti && <Confetti />}
-			{modalVisibility ? <Modal modalFunction={updateModalVisibility} /> : null}
+			{modalVisibility ? (
+				<Modal
+					modalFunction={updateModalVisibility}
+					showFunction={showFunction}
+				/>
+			) : null}
 			<div className="quizContainer">
 				<div className="questionContainer">
 					<img src={questions[currentIndex].image} alt="Visual question aid" />
