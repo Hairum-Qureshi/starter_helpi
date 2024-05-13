@@ -5,6 +5,8 @@ import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
 import RangeQuestion from "./RangeQuestion";
 import ProgressBar from "../ProgressBar";
 import { Answer } from "../detailed";
+import Modal from "../Modal";
+import Confetti from "react-confetti";
 
 export interface Option {
 	text: string;
@@ -24,6 +26,7 @@ export default function Basic() {
 	);
 	const [modalVisibility, setModalVisibility] = useState(false);
 	const [showConfetti, setShowConfetti] = useState(false);
+	const [showReport, setShowReport] = useState(false);
 
 	useEffect(() => {
 		localStorage.setItem("current_question_basic", currentIndex.toString());
@@ -61,8 +64,19 @@ export default function Basic() {
 		);
 	}, [currentIndex, answeredQuestions]);
 
+	function showFunction() {
+		setShowReport(true);
+	}
+
 	return (
 		<>
+			{showConfetti && <Confetti />}
+			{modalVisibility ? (
+				<Modal
+					modalFunction={updateModalVisibility}
+					showFunction={showFunction}
+				/>
+			) : null}
 			<div className={basic_css.quizContainer}>
 				<div className={basic_css.questionContainer}>
 					<h3>
