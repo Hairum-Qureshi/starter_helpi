@@ -183,7 +183,7 @@ function Detailed() {
 			</div>
 		</>
 	) : (
-		<Results />
+		<Results quiz_type={"detailed"} />
 	);
 }
 
