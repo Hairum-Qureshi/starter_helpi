@@ -1,14 +1,15 @@
 import OpenAI from "openai";
 import detailedQuestions from "../detailedQuestions.json";
+import basicQuestions from "../JSON_files/basicQuestions.json";
 import { Answer } from "../detailed";
 import { useEffect, useState } from "react";
 
 interface Tools {
-	checkConnection: () => void;
+	checkConnection: (quiz_type: string) => void;
 	loading: boolean;
 }
 
-export default function useChatGPT(): Tools {
+export default function useChatGPT(quiz_type: string): Tools {
 	const API_KEY: string | null = localStorage.getItem("MYKEY");
 	const [chat_gptResponse, setChat_gptResponse] = useState("");
 	const [graphData, setGraphData] = useState("");
@@ -67,20 +68,25 @@ export default function useChatGPT(): Tools {
 	}, [chat_gptResponse, graphData]);
 
 	const users_responses: string | null =
-		localStorage.getItem("answered_questions");
+		quiz_type === "detailed"
+			? localStorage.getItem("answered_questions")
+			: localStorage.getItem("answered_questions_basic");
 
-	function checkConnection() {
-		if (
-			API_KEY &&
-			users_responses &&
-			JSON.parse(users_responses).length === detailedQuestions.length
-		) {
-			const openai: OpenAI = new OpenAI({
-				apiKey: JSON.parse(API_KEY), // converts the string literal to a string without the double quotes
-				dangerouslyAllowBrowser: true
-			});
-			callAPI(openai, JSON.parse(users_responses), "user_report");
-			callAPI(openai, JSON.parse(users_responses), "graph_data");
+	function checkConnection(quiz_type: string) {
+		if (API_KEY && users_responses) {
+			if (
+				(quiz_type === "detailed" &&
+					JSON.parse(users_responses).length === detailedQuestions.length) ||
+				(quiz_type === "basic" &&
+					JSON.parse(users_responses).length === basicQuestions.length)
+			) {
+				const openai: OpenAI = new OpenAI({
+					apiKey: JSON.parse(API_KEY), // converts the string literal to a string without the double quotes
+					dangerouslyAllowBrowser: true
+				});
+				callAPI(openai, JSON.parse(users_responses), "user_report");
+				callAPI(openai, JSON.parse(users_responses), "graph_data");
+			}
 		} else {
 			alert("Please make sure you've entered your API key");
 		}
