@@ -2,6 +2,7 @@ import "./modal.css";
 import useChatGPT from "./hooks/useChatGPT";
 import { waveform } from "ldrs";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 interface Props {
 	modalFunction: () => void;
@@ -10,7 +11,12 @@ interface Props {
 
 export default function Modal({ modalFunction, showFunction }: Props) {
 	const [show, setShow] = useState(true);
-	const { checkConnection, loading } = useChatGPT("detailed");
+
+	const location = useLocation();
+
+	const { checkConnection, loading } = useChatGPT(
+		location.pathname.replace("/", "")
+	);
 	const [closingRequest, setClosingRequest] = useState(false);
 
 	waveform.register();
@@ -51,7 +57,7 @@ export default function Modal({ modalFunction, showFunction }: Props) {
 						disabled={loading}
 						onClick={e => {
 							e.stopPropagation();
-							checkConnection("detailed");
+							checkConnection(location.pathname.replace("/", ""));
 							setClosingRequest(true);
 						}}
 					>
