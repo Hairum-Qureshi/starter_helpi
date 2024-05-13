@@ -1,10 +1,7 @@
-.progress-bar-container {
-  border: 1px solid #ccc;
-}
-
 .progress-bar {
   height: 20px;
-  background-color: #007bff;
+  background-color: rgb(241, 209, 250);
+  border-radius: 10px;
 }
 
 button {
