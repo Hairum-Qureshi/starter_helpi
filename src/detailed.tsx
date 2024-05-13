@@ -160,7 +160,6 @@ function Detailed() {
 							if (currentIndex === questions.length - 1) {
 								setModalVisibility(!modalVisibility);
 								setShowConfetti(true);
-
 								setTimeout(() => {
 									setShowConfetti(false);
 								}, 8000);
