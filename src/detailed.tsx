@@ -65,7 +65,7 @@ function Detailed() {
 		setShowReport(true);
 	}
 
-	return (
+	return !showReport ? (
 		<>
 			{showConfetti && <Confetti />}
 			{modalVisibility ? (
@@ -182,6 +182,8 @@ function Detailed() {
 				</div>
 			</div>
 		</>
+	) : (
+		<Results />
 	);
 }
 
