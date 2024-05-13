@@ -7,8 +7,15 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { marked } from "marked";
 
-export default function Results() {
-	const report_markdown = JSON.parse(localStorage.getItem("detailed_report")!);
+interface Props {
+	quiz_type?: string;
+}
+
+export default function Results({ quiz_type }: Props) {
+	const report_markdown =
+		quiz_type === "detailed"
+			? JSON.parse(localStorage.getItem("detailed_report")!)
+			: JSON.parse(localStorage.getItem("detailed_report_basic")!);
 	const name: string | null = localStorage.getItem("name");
 
 	const [reportHTML, setReportHTML] = useState<string>();
@@ -24,7 +31,10 @@ export default function Results() {
 		convertMarkdownToHtml();
 	}, []);
 
-	const graph_data: string | null = localStorage.getItem("graph_data")!;
+	const graph_data: string | null =
+		quiz_type === "detailed"
+			? localStorage.getItem("graph_data")!
+			: localStorage.getItem("graph_data_basic")!;
 
 	const lines: string[] | undefined = graph_data
 		?.split("\n")
