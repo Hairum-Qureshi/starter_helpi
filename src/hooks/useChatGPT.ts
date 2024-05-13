@@ -49,10 +49,14 @@ export default function useChatGPT(quiz_type: string): Tools {
 			}
 			if (api_request === "user_report") {
 				setChat_gptResponse(response);
-				localStorage.setItem("detailed_report", JSON.stringify(response));
+				quiz_type === "detailed"
+					? localStorage.setItem("detailed_report", response)
+					: localStorage.setItem("detailed_report_basic", response);
 			} else {
 				setGraphData(response);
-				localStorage.setItem("graph_data", response);
+				quiz_type === "detailed"
+					? localStorage.setItem("graph_data", response)
+					: localStorage.setItem("graph_data_basic", response);
 			}
 		} catch (error) {
 			alert(error);
