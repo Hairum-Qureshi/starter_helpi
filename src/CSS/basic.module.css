@@ -105,6 +105,12 @@
 	border-bottom-right-radius: 5px;
 }
 
+.containerFooter .progressBarContainer {
+	width: 80%;
+	margin: 5px auto 5px;
+	border-radius: 5px;
+}
+
 .quizContainer .containerFooter button:hover {
 	background-color: #3f039f;
 	cursor: pointer;
