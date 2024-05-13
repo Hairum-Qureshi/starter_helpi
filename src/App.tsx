@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Basic from "./basic";
 import Detailed from "./detailed";
 import Navigation from "./navbar";
 import Footer from "./Footer";
 import BasicDetailedButtons from "./basicDetailedButton";
 import Results from "./Results";
+import Basic from "./BasicQuestionsComponents/Basic";
 import Home from "./Home";
 
 function App() {
