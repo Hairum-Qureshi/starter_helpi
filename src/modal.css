@@ -23,8 +23,8 @@
 	border-radius: 10px;
 }
 
-.modal-content p {
-	font-size: 20px;
+.modal-content p,
+.modal-content h2 {
 	text-align: center;
 	padding: 10px;
 	width: 70%;
@@ -34,23 +34,27 @@
 	color: white;
 }
 
+.modal-content p {
+	font-size: 20px;
+}
+
 .modal-content .buttonContainer {
 	width: 100%;
 	box-sizing: border-box;
 	display: inline-flex;
 }
 
-.modal-content .buttonContainer button:first-of-type {
+.modal-content .buttonContainer .cancelBtn {
 	background-color: #86142d;
 	border: 2px solid rgb(178, 40, 40);
 }
 
-.modal-content .buttonContainer button:first-of-type:hover {
+.modal-content .buttonContainer .cancelBtn:hover {
 	background-color: #86142d;
 	border: 2px solid red;
 }
 
-.modal-content .buttonContainer button:first-of-type:active {
+.modal-content .buttonContainer .cancelBtn:active {
 	background-color: #a81132;
 }
 
@@ -65,6 +69,10 @@
 	font-family: "Archivo", sans-serif;
 	font-weight: 600;
 	border-radius: 10px;
+}
+
+.modal-content .buttonContainer button span {
+	margin-top: -1000px;
 }
 
 .modal-content .buttonContainer button:hover {

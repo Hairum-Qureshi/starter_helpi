@@ -6,26 +6,20 @@ import Footer from "./Footer";
 import BasicDetailedButtons from "./basicDetailedButton";
 import Results from "./Results";
 import Basic from "./BasicQuestionsComponents/Basic";
+import Home from "./Home";
 
 function App() {
 	return (
-		<Router>
+		<Router basename="/starter_helpi">
 			<>
 				<Navigation />
-				<BasicDetailedButtons />
 				<Routes>
+					<Route path="/" Component={Home} />
 					<Route path="/basic" Component={Basic} />
 					<Route path="/detailed" Component={Detailed} />
 					<Route path="/basicDetailedButton" Component={BasicDetailedButtons} />
 					<Route path="/results" Component={Results} />
 				</Routes>
-				<button
-					onClick={() => {
-						window.location.href = "/results";
-					}}
-				>
-					Go to results page (temporary button)
-				</button>
 				<Footer />
 			</>
 		</Router>

@@ -1,44 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap");
 
-.button-container {
-    display : flex;
-    justify-content : center;
-    align-items : center;
+.buttonContainer {
+	width: 50%;
+	box-sizing: border-box;
+	/* border: 2px solid palevioletred; */
+	display: inline-flex;
+	margin: 10px;
+	font-family: "Anybody", sans-serif;
+	line-height: 25px;
+	color: rgb(168, 6, 168);
 }
 
-.basic-button, 
-.detailed-button{
-    background-color : rgb(251, 187, 244);
-    color : rgb(195, 26, 26);
-    font-size : 30px;
-    border-radius : 40px;
-    padding : 20px 40px;
-    border : none;
-    margin : 15px;
-    font-family: "Anybody", sans-serif;
-	font-weight: 700;
+.buttonContainer .basicBtnContainer,
+.buttonContainer .detailedBtnContainer {
+	width: 50%;
+	padding: 10px;
+	text-align: center;
 }
 
-.basic-button:hover,
-.detailed-button:hover{
-    /*added hover to help users navigate through buttons*/
-    background-color: rgb(195, 26, 26);
-    color : rgb(251, 187, 244);
-    transition: 0.5s ease;
+.buttonContainer .basicBtnContainer button,
+.buttonContainer .detailedBtnContainer button {
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 17px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgb(73, 107, 165);
+	color: white;
+	font-family: "Anybody", sans-serif;
+	border: 2px solid rgb(0, 174, 255);
 }
 
-.par-container{
-    display : flex;
-    justify-content : center;
-    font-family: "Anybody", sans-serif;
-    margin-top : 5px;
+.buttonContainer .basicBtnContainer {
+	margin-right: 30px;
 }
 
-.par-basic,
-.par-detailed{
-    /*descriptions remain visible while buttons are to provide info to user*/
-    color :rgb(195, 26, 26);
-    margin : 20px;
-    line-height : 1.5
+.buttonContainer .detailedBtnContainer {
+	margin-left: 30px;
 }
 
+.buttonContainer .basicBtnContainer button:hover,
+.buttonContainer .detailedBtnContainer button:hover {
+	background-color: rgb(44, 81, 145);
+	cursor: pointer;
+}
+
+.buttonContainer .basicBtnContainer button:active,
+.buttonContainer .detailedBtnContainer button:active {
+	background-color: rgb(13, 49, 112);
+}

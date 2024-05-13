@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import animal from "./caribou.png";
 
 function Navigation() {
+	const location = useLocation();
+
 	return (
 		<>
 			<nav>
@@ -18,12 +20,23 @@ function Navigation() {
 					</div>
 				</Link>
 				<ul>
-					<Link to="/basic">
-						<li>BASIC QUESTIONS</li>
-					</Link>
-					<Link to="/detailed">
-						<li>DETAILED QUESTIONS</li>
-					</Link>
+					{location.pathname !== "/" ? (
+						<>
+							<Link to="/basic">
+								<li>BASIC QUESTIONS</li>
+							</Link>
+							<Link to="/detailed">
+								<li>DETAILED QUESTIONS</li>
+							</Link>
+							<Link to="/about">
+								<li>ABOUT US</li>
+							</Link>
+						</>
+					) : (
+						<Link to="/about">
+							<li>ABOUT US</li>
+						</Link>
+					)}
 				</ul>
 			</nav>
 		</>

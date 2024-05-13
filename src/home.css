@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
+
+.landingContainer img {
+	width: 80%;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 92px;
+	margin-left: 20%;
+	z-index: -1;
+}
+
+.landingContainer .welcomeMessage {
+	margin: 40px;
+	width: 95%;
+	box-sizing: border-box;
+}
+
+.landingContainer .welcomeMessage h1,
+/* .landingContainer .welcomeMessage span h2, */
+.landingContainer .welcomeMessage h2 {
+	font-family: "IBM Plex Sans Arabic", sans-serif;
+	font-weight: 700;
+	color: rgb(30, 95, 174);
+	font-size: 70px;
+	margin: -5px 0 -10px 0;
+}
+
+.landingContainer .welcomeMessage p {
+	font-family: "IBM Plex Sans Arabic", sans-serif;
+	font-weight: 500;
+	font-size: 22px;
+	margin: -5px 0 5px 0;
+	color: rgb(8, 137, 197);
+}
+
+/* .landingContainer .welcomeMessage span h2, */
+.landingContainer .welcomeMessage h2 {
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.landingContainer .welcomeMessage span {
+	display: inline-flex;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.landingContainer .welcomeMessage span input[type="text"] {
+	margin-left: 10px;
+	width: 20%;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 2px solid rgb(8, 137, 197);
+	background: transparent;
+	outline: none;
+	font-size: 30px;
+	color: rgb(8, 137, 197);
+	font-family: "IBM Plex Sans Arabic", sans-serif;
+	font-weight: 600;
+}
+
+.landingContainer .welcomeMessage button {
+	transition: opacity 0.3s ease-in-out;
+}
+
+.landingContainer .welcomeMessage .quizzesContainer {
+	text-align: center;
+	box-sizing: border-box;
+	margin-left: -190px;
+}
+
+.landingContainer .welcomeMessage .quizzesContainer p {
+	margin-top: 15px;
+	font-size: 17px;
+}

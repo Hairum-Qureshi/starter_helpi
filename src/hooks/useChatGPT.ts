@@ -1,12 +1,10 @@
 import OpenAI from "openai";
 import detailedQuestions from "../detailedQuestions.json";
 import { Answer } from "../detailed";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Tools {
 	checkConnection: () => void;
-	chat_gptResponse: string;
-	graphData: string;
 	loading: boolean;
 }
 
@@ -21,16 +19,14 @@ export default function useChatGPT(): Tools {
 		users_responses: Answer[],
 		api_request: string
 	) {
-		setLoading(true);
 		let formattedQ_A = "";
 		users_responses.map((a: Answer) => {
 			return (formattedQ_A += `(${a.questionNo}) ${a.question} \n ${a.choice} \n`);
 		});
 
-		console.log("Loading ChatGPT's response...");
-
 		let response = "";
 		try {
+			setLoading(true);
 			const stream = await openai.chat.completions.create({
 				model: "gpt-4-turbo",
 				messages: [
@@ -39,7 +35,7 @@ export default function useChatGPT(): Tools {
 						content: `I am looking to generate a detailed and lengthy report catered towards helping a user find a list of 4 different careers by name that would closely match with what they've answered given a set of questions. ${
 							api_request === "user_report"
 								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
-								: "Please only list the 4 careers by name and the percentage (that totals up to 100) of how likely the user fits for that specific career as well and nothing else."
+								: "Please only list the 4 careers by name and the percentage (that totals up to 100) of how likely the user fits for that specific career and nothing else."
 						} If any of the questions receive answers that are gibberish, inappropriate, off-topic, or just don't make sense, ignore them. These questions and answers are as follows: \n ${formattedQ_A}`
 					}
 				],
@@ -50,17 +46,25 @@ export default function useChatGPT(): Tools {
 					response += part.choices[0].delta.content;
 				}
 			}
-
-			if (api_request === "user_report") setChat_gptResponse(response);
-			else setGraphData(response);
-
-			setLoading(false);
-			console.log(response);
+			if (api_request === "user_report") {
+				setChat_gptResponse(response);
+				localStorage.setItem("detailed_report", JSON.stringify(response));
+			} else {
+				setGraphData(response);
+				localStorage.setItem("graphData", response);
+			}
 		} catch (error) {
-			console.log(error);
+			alert(error);
 			setLoading(false);
 		}
 	}
+
+	useEffect(() => {
+		// set loading to false once both states are populated
+		if (chat_gptResponse && graphData) {
+			setLoading(false);
+		}
+	}, [chat_gptResponse, graphData]);
 
 	const users_responses: string | null =
 		localStorage.getItem("answered_questions");
@@ -78,9 +82,8 @@ export default function useChatGPT(): Tools {
 			callAPI(openai, JSON.parse(users_responses), "user_report");
 			callAPI(openai, JSON.parse(users_responses), "graph_data");
 		} else {
-			console.log("Please make sure you've entered your API key");
+			alert("Please make sure you've entered your API key");
 		}
 	}
-
-	return { checkConnection, chat_gptResponse, graphData, loading };
+	return { checkConnection, loading };
 }
