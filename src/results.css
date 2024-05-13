@@ -2,6 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap");
+
 .backdrop {
 	width: 100%;
 	box-sizing: border-box;
@@ -24,9 +26,9 @@
 }
 
 .pieChartContainer {
-	width: 80%;
+	width: 100%;
 	box-sizing: border-box;
-	margin: -30px auto 80px;
+	/* margin: -30px auto 80px; */
 	border: 2px solid rgb(6, 52, 180);
 	padding: 10px;
 	background-color: rgb(214, 209, 252);
@@ -35,35 +37,50 @@
 
 .pieChartContainer h3 {
 	text-align: center;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	font-family: "Inter", sans-serif;
+	font-weight: 500;
 	color: purple;
 }
 
 .report {
 	width: 70%;
-	margin: 50px auto 50px;
+	margin: 60px auto 100px;
 	box-sizing: border-box;
 	padding: 10px;
-	/* border: 2px solid black; */
+	border: 2px solid rgb(53, 173, 238);
 	min-height: 100vh;
 	max-height: inherit;
-	font-family: "Rubik", sans-serif;
-	font-weight: 400;
+	font-family: "Inter", sans-serif;
+	font-weight: 500;
+	background-color: aliceblue;
+	padding: 50px;
+	border-radius: 5px;
+}
+
+h1 {
+	text-align: center;
+	font-family: "Inter", sans-serif;
+	font-weight: 600;
+	margin-top: 50px;
+	color: rgb(164, 11, 62);
+}
+
+.report h3 {
+	text-transform: uppercase;
 }
 
 .report h1,
 .report h2,
 .pieChartHeader {
-	font-family: "Merriweather Sans", sans-serif;
 	text-align: center;
-	margin-top: -10px;
-	color: rgb(192, 9, 9);
+	margin: 0px 0 30px 0;
+	color: rgb(9, 122, 192);
+	text-transform: uppercase;
 }
 
-.pieChartHeader {
-	margin: -45px 0 60px 0;
+.report .pieChartHeader {
 	color: rgb(161, 6, 161);
+	margin: 10px 0 20px 0;
 }
 
 .report .alternativesHeader {
@@ -133,47 +150,53 @@
 .userOptionsContainer {
 	width: 70%;
 	box-sizing: border-box;
-	margin: -40px auto 80px;
-	border: 2px solid limegreen;
+	margin: -30px auto 80px;
+	border: 2px solid rgb(50, 169, 205);
 	padding: 10px;
 	border-radius: 10px;
-	background-color: rgb(161, 223, 161);
+	background-color: rgb(135, 180, 222);
+	color: rgb(7, 2, 143);
 }
 
 .userOptionsContainer p {
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	font-family: "Inter", sans-serif;
+	font-weight: 500;
 	font-size: 17px;
+}
+
+.userOptionsContainer p:nth-of-type(2) {
+	margin-top: -5px;
 }
 
 .userOptionsContainer input[type="email"] {
 	width: 50%;
-	margin: 10px;
 	padding: 10px;
 	font-size: 16px;
 	box-sizing: border-box;
 	border-radius: 10px;
 	outline: none;
-	border: 1px solid limegreen;
+	border: 1px solid rgb(50, 171, 205);
 }
 
 .userOptionsContainer button {
 	padding: 10px;
 	font-size: 15px;
 	border-radius: 10px;
-	border: 2px solid limegreen;
-	background-color: green;
+	border: 2px solid rgb(50, 138, 205);
+	background-color: rgb(0, 94, 128);
 	color: white;
+	width: 20%;
+	margin-left: 10px;
 }
 
 .userOptionsContainer button:hover {
 	cursor: pointer;
-	background-color: rgb(6, 108, 6);
+	background-color: rgb(6, 55, 108);
 	transition: 0.5s ease;
 }
 
 .userOptionsContainer button:active {
-	background-color: darkgreen;
+	background-color: rgb(13, 58, 149);
 	transition: 0s;
 }
 
