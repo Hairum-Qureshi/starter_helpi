@@ -65,7 +65,6 @@ export default function useChatGPT(quiz_type: string): Tools {
 	}
 
 	useEffect(() => {
-		// set loading to false once both states are populated
 		if (chat_gptResponse && graphData) {
 			setLoading(false);
 		}
