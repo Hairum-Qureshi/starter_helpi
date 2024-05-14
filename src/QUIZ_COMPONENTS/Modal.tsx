@@ -1,5 +1,5 @@
-import "./CSS/modal.css";
-import useChatGPT from "./hooks/useChatGPT";
+import "../CSS/modal.css";
+import useChatGPT from "../hooks/useChatGPT";
 import { waveform } from "ldrs";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

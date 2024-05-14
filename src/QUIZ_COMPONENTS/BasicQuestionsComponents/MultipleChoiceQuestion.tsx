@@ -1,5 +1,5 @@
 import { Option } from "./Basic";
-import basic_questions from "../JSON_files/basicQuestions.json";
+import basic_questions from "../../JSON_files/basicQuestions.json";
 import { Answer } from "../Detailed";
 
 interface Props {

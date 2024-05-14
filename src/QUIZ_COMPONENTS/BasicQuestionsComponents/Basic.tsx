@@ -1,5 +1,5 @@
-import basic_questions from "../JSON_files/basicQuestions.json";
-import basic_css from "../CSS/basic.module.css";
+import basic_questions from "../../JSON_files/basicQuestions.json";
+import basic_css from "../../CSS/basic.module.css";
 import { useEffect, useState } from "react";
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
 import RangeQuestion from "./RangeQuestion";
@@ -7,8 +7,8 @@ import ProgressBar from "../ProgressBar";
 import { Answer } from "../Detailed";
 import Modal from "../Modal";
 import Confetti from "react-confetti";
-import Results from "../Results";
-import useChatGPT from "../hooks/useChatGPT";
+import Results from "../../Results";
+import useChatGPT from "../../hooks/useChatGPT";
 
 export interface Option {
 	text: string;

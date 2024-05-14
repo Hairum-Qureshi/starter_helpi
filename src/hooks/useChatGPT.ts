@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import detailedQuestions from "../JSON_files/detailedQuestions.json";
 import basicQuestions from "../JSON_files/basicQuestions.json";
-import { Answer } from "../Detailed";
+import { Answer } from "../QUIZ_COMPONENTS/Detailed";
 import { useEffect, useState } from "react";
 
 interface Tools {

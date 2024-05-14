@@ -1,10 +1,10 @@
 import "./CSS/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Detailed from "./Detailed";
+import Detailed from "./QUIZ_COMPONENTS/Detailed";
 import Navigation from "./Navbar";
 import Footer from "./Footer";
 import BasicDetailedButtons from "./BasicDetailedButton";
-import Basic from "./BasicQuestionsComponents/Basic";
+import Basic from "./QUIZ_COMPONENTS/BasicQuestionsComponents/Basic";
 import Home from "./Home";
 import About from "./About";
 

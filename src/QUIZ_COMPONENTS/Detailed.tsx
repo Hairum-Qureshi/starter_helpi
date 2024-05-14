@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./CSS/detailed.css";
-import questions from "./JSON_files/detailedQuestions.json";
+import "../CSS/detailed.css";
+import questions from "../JSON_files/detailedQuestions.json";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
-import Results from "./Results";
+import Results from "../Results";
 import ProgressBar from "./ProgressBar";
-import useChatGPT from "./hooks/useChatGPT";
+import useChatGPT from "../hooks/useChatGPT";
 
 export interface Answer {
 	question: string;
