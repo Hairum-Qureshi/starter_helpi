@@ -39,9 +39,7 @@ export default function MultipleChoiceQuestion({
 							}`,
 							transition: "0.25s ease",
 							border: `${
-								answeredQuestions.some(
-									selectedAnswer => selectedAnswer.choice === option.text
-								)
+								answeredQuestions[currentIndex]?.choice === option.text
 									? "2px solid cyan"
 									: "none"
 							}`

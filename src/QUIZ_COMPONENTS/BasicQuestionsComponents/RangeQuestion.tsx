@@ -14,7 +14,7 @@ export default function RangeQuestion({
 	currentChoice,
 	saveAnswers
 }: Props) {
-	const [rangeVal, setRangeVal] = useState(parseInt(currentChoice) || 1);
+	const [rangeVal, setRangeVal] = useState(1);
 
 	useEffect(() => {
 		addChoice(rangeVal.toString());
@@ -28,7 +28,7 @@ export default function RangeQuestion({
 	}, [rangeVal]);
 
 	useEffect(() => {
-		setRangeVal(parseInt(currentChoice));
+		setRangeVal(!isNaN(parseInt(currentChoice)) ? parseInt(currentChoice) : 1);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentIndex]);
 
