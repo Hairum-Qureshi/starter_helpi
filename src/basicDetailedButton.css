@@ -1,51 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap");
 
 .buttonContainer {
-	width: 50%;
-	box-sizing: border-box;
-	/* border: 2px solid palevioletred; */
-	display: inline-flex;
-	margin: 10px;
-	font-family: "Anybody", sans-serif;
-	line-height: 25px;
-	color: rgb(168, 6, 168);
+  width: 50%;
+  box-sizing: border-box;
+  /* border: 2px solid palevioletred; */
+  display: inline-flex;
+  margin: 10px;
+  font-family: "Anybody", sans-serif;
+  line-height: 25px;
+  color: rgb(168, 6, 168);
 }
 
 .buttonContainer .basicBtnContainer,
 .buttonContainer .detailedBtnContainer {
-	width: 50%;
-	padding: 10px;
-	text-align: center;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 }
 
 .buttonContainer .basicBtnContainer button,
 .buttonContainer .detailedBtnContainer button {
-	width: 100%;
-	box-sizing: border-box;
-	font-size: 17px;
-	padding: 10px;
-	border-radius: 5px;
-	background-color: rgb(73, 107, 165);
-	color: white;
-	font-family: "Anybody", sans-serif;
-	border: 2px solid rgb(0, 174, 255);
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 17px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #720874;
+  color: white;
+  font-family: "Anybody", sans-serif;
+  border: 2px solid #a980de;
 }
 
 .buttonContainer .basicBtnContainer {
-	margin-right: 30px;
+  margin-right: 30px;
 }
 
 .buttonContainer .detailedBtnContainer {
-	margin-left: 30px;
+  margin-left: 30px;
 }
 
 .buttonContainer .basicBtnContainer button:hover,
 .buttonContainer .detailedBtnContainer button:hover {
-	background-color: rgb(44, 81, 145);
-	cursor: pointer;
+  background-color: rgb(44, 81, 145);
+  cursor: pointer;
 }
 
 .buttonContainer .basicBtnContainer button:active,
 .buttonContainer .detailedBtnContainer button:active {
-	background-color: rgb(13, 49, 112);
+  background-color: rgb(13, 49, 112);
 }
