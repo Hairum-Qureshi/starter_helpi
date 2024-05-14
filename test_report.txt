@@ -27,23 +27,24 @@ FAIL src/App.test.tsx
 
     Details:
 
-    /home/runner/work/starter_helpi/starter_helpi/node_modules/react-markdown/index.js:9
-    export {Markdown as default, defaultUrlTransform} from './lib/index.js'
-    ^^^^^^
+    /home/runner/work/starter_helpi/starter_helpi/node_modules/ldrs/dist/index.js:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){export{default as bouncy}from"./elements/bouncy.js";export{default as bouncyArc}from"./elements/bouncyArc.js";export{default as cardio}from"./elements/cardio.js";export{default as chaoticOrbit}from"./elements/chaoticOrbit.js";export{default as dotPulse}from"./elements/dotPulse.js";export{default as dotSpinner}from"./elements/dotSpinner.js";export{default as dotStream}from"./elements/dotStream.js";export{default as dotWave}from"./elements/dotWave.js";export{default as grid}from"./elements/grid.js";export{default as hatch}from"./elements/hatch.js";export{default as helix}from"./elements/helix.js";export{default as hourglass}from"./elements/hourglass.js";export{default as infinity}from"./elements/infinity.js";export{default as jelly}from"./elements/jelly.js";export{default as jellyTriangle}from"./elements/jellyTriangle.js";export{default as leapfrog}from"./elements/leapfrog.js";export{default as lineSpinner}from"./elements/lineSpinner.js";export{default as lineWobble}from"./elements/lineWobble.js";export{default as metronome}from"./elements/metronome.js";export{default as mirage}from"./elements/mirage.js";export{default as miyagi}from"./elements/miyagi.js";export{default as momentum}from"./elements/momentum.js";export{default as newtonsCradle}from"./elements/newtonsCradle.js";export{default as orbit}from"./elements/orbit.js";export{default as ping}from"./elements/ping.js";export{default as pinwheel}from"./elements/pinwheel.js";export{default as pulsar}from"./elements/pulsar.js";export{default as quantum}from"./elements/quantum.js";export{default as reuleaux}from"./elements/reuleaux.js";export{default as ring}from"./elements/ring.js";export{default as ring2}from"./elements/ring2.js";export{default as ripples}from"./elements/ripples.js";export{default as spiral}from"./elements/spiral.js";export{default as square}from"./elements/square.js";export{default as squircle}from"./elements/squircle.js";export{default as superballs}from"./elements/superballs.js";export{default as tailChase}from"./elements/tailChase.js";export{default as tailspin}from"./elements/tailspin.js";export{default as treadmill}from"./elements/treadmill.js";export{default as trefoil}from"./elements/trefoil.js";export{default as trio}from"./elements/trio.js";export{default as waveform}from"./elements/waveform.js";export{default as wobble}from"./elements/wobble.js";export{default as zoomies}from"./elements/zoomies.js";import"./lib/LdrsBaseElement.js";import"./lib/scaleD.js";
+                                                                                      ^^^^^^
 
     SyntaxError: Unexpected token 'export'
 
-      1 | // import useChatGPT from "./hooks/useChatGPT";
-      2 | import "./results.css";
-    > 3 | import Markdown from "react-markdown";
+      1 | import "./modal.css";
+      2 | import useChatGPT from "./hooks/useChatGPT";
+    > 3 | import { waveform } from "ldrs";
         | ^
-      4 | import { PieChart } from "@mui/x-charts/PieChart";
-      5 | import emailjs from "@emailjs/browser";
-      6 | import { FormEvent, useRef, useState } from "react";
+      4 | import { useEffect, useState } from "react";
+      5 | import { useLocation } from "react-router-dom";
+      6 |
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
-      at Object.<anonymous> (src/Results.tsx:3:1)
-      at Object.<anonymous> (src/App.tsx:8:1)
+      at Object.<anonymous> (src/Modal.tsx:3:1)
+      at Object.<anonymous> (src/detailed.tsx:4:1)
+      at Object.<anonymous> (src/App.tsx:3:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
@@ -55,22 +56,25 @@ File                          | % Stmts | % Branch | % Funcs | % Lines | Uncover
 ------------------------------|---------|----------|---------|---------|-------------------
 All files                     |       0 |        0 |       0 |       0 |                   
  src                          |       0 |        0 |       0 |       0 |                   
-  App.tsx                     |       0 |      100 |       0 |       0 | 12                
+  About.tsx                   |       0 |      100 |       0 |       0 | 4                 
+  App.tsx                     |       0 |      100 |       0 |       0 | 13                
   Footer.tsx                  |       0 |        0 |       0 |       0 | 6-26              
   Home.tsx                    |       0 |        0 |       0 |       0 | 7-45              
-  Modal.tsx                   |       0 |        0 |       0 |       0 | 9-30              
+  Modal.tsx                   |       0 |        0 |       0 |       0 | 13-62             
   ProgressBar.tsx             |       0 |      100 |       0 |       0 | 10-16             
   QuestionFormatComponent.tsx |       0 |        0 |       0 |       0 | 5-24              
-  Results.tsx                 |       0 |        0 |       0 |       0 | 26-350            
-  basic.tsx                   |       0 |        0 |       0 |       0 | 15-86             
+  Results.tsx                 |       0 |        0 |       0 |       0 | 16-217            
   basicDetailedButton.tsx     |       0 |      100 |       0 |       0 | 5-18              
-  basicSlider.tsx             |       0 |      100 |       0 |       0 | 3-11              
-  detailed.tsx                |       0 |        0 |       0 |       0 | 14-163            
+  detailed.tsx                |       0 |        0 |       0 |       0 | 15-179            
   index.tsx                   |       0 |      100 |     100 |       0 | 6-19              
   navbar.tsx                  |       0 |        0 |       0 |       0 | 6-8               
   reportWebVitals.ts          |       0 |        0 |       0 |       0 | 3-10              
+ src/BasicQuestionsComponents |       0 |        0 |       0 |       0 |                   
+  Basic.tsx                   |       0 |        0 |       0 |       0 | 18-138            
+  MultipleChoiceQuestion.tsx  |       0 |        0 |       0 |       0 | 20-43             
+  RangeQuestion.tsx           |       0 |        0 |       0 |       0 | 17-42             
  src/hooks                    |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-87             
+  useChatGPT.ts               |       0 |        0 |       0 |       0 | 13-97             
  src/interfaces               |       0 |        0 |       0 |       0 |                   
   basicOption.ts              |       0 |        0 |       0 |       0 |                   
   questionFormat.ts           |       0 |        0 |       0 |       0 |                   
@@ -78,5 +82,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.493 s
+Time:        3.212 s
 Ran all test suites.
