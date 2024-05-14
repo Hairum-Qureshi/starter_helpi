@@ -1,13 +1,13 @@
-import "./CSS/about.css";
+import about_css from "./CSS/about.module.css";
 
 function About() {
 	return (
 		<>
-			<div className="about-bin">
-				<div className="circle"></div>
+			<div className={about_css["about-bin"]}>
+				<div className={about_css.circle}></div>
 				<h1>About Us!</h1>
 			</div>
-			<div className="about-bin">
+			<div className={about_css["about-bin"]}>
 				<p>
 					We are a group of students from the University of Delaware that{" "}
 					<br></br>
