@@ -1,4 +1,4 @@
-import "./modal.css";
+import "./CSS/modal.css";
 import useChatGPT from "./hooks/useChatGPT";
 import { waveform } from "ldrs";
 import { useEffect, useState } from "react";

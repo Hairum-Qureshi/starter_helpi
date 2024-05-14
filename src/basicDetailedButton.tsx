@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./basicDetailedButton.css";
+import "./CSS/basicDetailedButton.css";
 
 function BasicDetailedButtons() {
 	const navigate = useNavigate();

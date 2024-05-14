@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./footer.css";
+import "./CSS/footer.css";
 
 export default function Footer() {
 	//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)

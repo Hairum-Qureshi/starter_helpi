@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./detailed.css";
+import "./CSS/detailed.css";
 import questions from "./JSON_files/detailedQuestions.json";
 import Modal from "./Modal";
 import Confetti from "react-confetti";

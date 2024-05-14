@@ -1,4 +1,4 @@
-import "./results.css";
+import "./CSS/results.css";
 import Markdown from "react-markdown";
 import { PieChart } from "@mui/x-charts/PieChart";
 import emailjs from "@emailjs/browser";
