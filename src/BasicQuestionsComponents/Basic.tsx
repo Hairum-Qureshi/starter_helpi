@@ -105,7 +105,7 @@ export default function Basic() {
             <RangeQuestion
               currentIndex={currentIndex}
               addChoice={addChoice}
-              currentChoice={answeredQuestions[currentIndex].choice}
+              currentChoice={answeredQuestions[currentIndex]?.choice}
               saveAnswers={saveAnswers}
             />
           )}
