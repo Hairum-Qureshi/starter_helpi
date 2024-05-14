@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import Confetti from "react-confetti";
 import Results from "./Results";
 import ProgressBar from "./ProgressBar";
+import useChatGPT from "./hooks/useChatGPT";
 export interface Answer {
 	question: string;
 	questionNo: number;
@@ -61,8 +62,15 @@ function Detailed() {
 		setShowConfetti(false);
 	}
 
+	const { status } = useChatGPT("detailed");
+
+	console.log(status);
+
 	function showFunction() {
-		setShowReport(true);
+		alert(status);
+		// if (status === "OK") {
+		// 	setShowReport(true);
+		// }
 	}
 
 	return !showReport ? (

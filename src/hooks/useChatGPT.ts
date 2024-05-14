@@ -15,7 +15,7 @@ export default function useChatGPT(quiz_type: string): Tools {
 	const [chat_gptResponse, setChat_gptResponse] = useState("");
 	const [graphData, setGraphData] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [status, setStatus] = useState("OK"); // used to check if there's any problems - if there are, this can be used to prevent showing the user report which will save any errors from popping up
+	const [status, setStatus] = useState("BAD");
 
 	async function callAPI(
 		openai: OpenAI,
@@ -91,13 +91,13 @@ export default function useChatGPT(quiz_type: string): Tools {
 				});
 				callAPI(openai, JSON.parse(users_responses), "user_report");
 				callAPI(openai, JSON.parse(users_responses), "graph_data");
-				// localStorage.setItem("status", "OK");
+				setStatus("OK");
 			}
 		} else {
 			alert("Please make sure you've entered your API key");
-			// localStorage.setItem("status", "BAD");
 			setStatus("BAD");
 		}
 	}
+
 	return { checkConnection, loading, status };
 }
