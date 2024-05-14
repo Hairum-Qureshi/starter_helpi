@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import "./home.css";
+import "./CSS/home.css";
 import BasicDetailedButtons from "./basicDetailedButton";
 
 export default function Home() {

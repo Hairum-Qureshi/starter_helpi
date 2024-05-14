@@ -1,0 +1,9 @@
+.progress-bar {
+  height: 20px;
+  background-color: rgb(241, 209, 250);
+  border-radius: 10px;
+}
+
+button {
+  margin-top: 10px;
+}

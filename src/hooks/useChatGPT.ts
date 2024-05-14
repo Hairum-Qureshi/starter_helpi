@@ -1,20 +1,25 @@
 import OpenAI from "openai";
-import detailedQuestions from "../detailedQuestions.json";
-import { Answer } from "../detailed";
+import detailedQuestions from "../JSON_files/detailedQuestions.json";
+import basicQuestions from "../JSON_files/basicQuestions.json";
+import { Answer } from "../QUIZ_COMPONENTS/Detailed";
 import { useEffect, useState } from "react";
 
 interface Tools {
-	checkConnection: () => void;
-	chat_gptResponse: string;
-	graphData: string;
+	checkConnection: (quiz_type: string) => void;
 	loading: boolean;
+	status: string;
 }
 
-export default function useChatGPT(): Tools {
+export default function useChatGPT(quiz_type: string): Tools {
 	const API_KEY: string | null = localStorage.getItem("MYKEY");
 	const [chat_gptResponse, setChat_gptResponse] = useState("");
 	const [graphData, setGraphData] = useState("");
 	const [loading, setLoading] = useState(false);
+	const [status, setStatus] = useState("BAD");
+
+	useEffect(() => {
+		API_KEY && setStatus("OK");
+	}, [API_KEY]);
 
 	async function callAPI(
 		openai: OpenAI,
@@ -34,10 +39,14 @@ export default function useChatGPT(): Tools {
 				messages: [
 					{
 						role: "user",
-						content: `I am looking to generate a detailed and lengthy report catered towards helping a user find a list of 4 different careers by name that would closely match with what they've answered given a set of questions. ${
+						content: `I am looking to generate a detailed and lengthy report catered towards helping a user find a list of 4 different careers by name that would closely match with what they've answered given a set of questions. Please titled it ${
+							quiz_type === "basic"
+								? "Basic Career Report"
+								: "Detailed Career Report"
+						}. ${
 							api_request === "user_report"
-								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
-								: "Please only list the 4 careers by name and the percentage (that totals up to 100) of how likely the user fits for that specific career as well and nothing else."
+								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown that will be localstorage and JSON.parse() friendly. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
+								: "Please only list the 4 careers (1 to 4) by name and the percentage (that totals up to 100) of how likely the user fits that specific career and nothing else. Do not include any titles either, just a numbered list. Abbreviate the career names. Do not add any markdown and make sure none of the percentages are undefined."
 						} If any of the questions receive answers that are gibberish, inappropriate, off-topic, or just don't make sense, ignore them. These questions and answers are as follows: \n ${formattedQ_A}`
 					}
 				],
@@ -48,9 +57,17 @@ export default function useChatGPT(): Tools {
 					response += part.choices[0].delta.content;
 				}
 			}
-
-			if (api_request === "user_report") setChat_gptResponse(response);
-			else setGraphData(response);
+			if (api_request === "user_report") {
+				setChat_gptResponse(response);
+				quiz_type === "detailed"
+					? localStorage.setItem("detailed_report", response)
+					: localStorage.setItem("detailed_report_basic", response);
+			} else {
+				setGraphData(response);
+				quiz_type === "detailed"
+					? localStorage.setItem("graph_data", response)
+					: localStorage.setItem("graph_data_basic", response);
+			}
 		} catch (error) {
 			alert(error);
 			setLoading(false);
@@ -58,31 +75,37 @@ export default function useChatGPT(): Tools {
 	}
 
 	useEffect(() => {
-		// set loading to false once both states are populated
 		if (chat_gptResponse && graphData) {
 			setLoading(false);
 		}
 	}, [chat_gptResponse, graphData]);
 
 	const users_responses: string | null =
-		localStorage.getItem("answered_questions");
+		quiz_type === "detailed"
+			? localStorage.getItem("answered_questions")
+			: localStorage.getItem("answered_questions_basic");
 
-	function checkConnection() {
-		if (
-			API_KEY &&
-			users_responses &&
-			JSON.parse(users_responses).length === detailedQuestions.length
-		) {
-			const openai: OpenAI = new OpenAI({
-				apiKey: JSON.parse(API_KEY), // converts the string literal to a string without the double quotes
-				dangerouslyAllowBrowser: true
-			});
-			callAPI(openai, JSON.parse(users_responses), "user_report");
-			callAPI(openai, JSON.parse(users_responses), "graph_data");
+	function checkConnection(quiz_type: string) {
+		if (API_KEY && users_responses) {
+			if (
+				(quiz_type === "detailed" &&
+					JSON.parse(users_responses).length === detailedQuestions.length) ||
+				(quiz_type === "basic" &&
+					JSON.parse(users_responses).length === basicQuestions.length)
+			) {
+				const openai: OpenAI = new OpenAI({
+					apiKey: JSON.parse(API_KEY), // converts the string literal to a string without the double quotes
+					dangerouslyAllowBrowser: true
+				});
+				callAPI(openai, JSON.parse(users_responses), "user_report");
+				callAPI(openai, JSON.parse(users_responses), "graph_data");
+				setStatus("OK");
+			}
 		} else {
 			alert("Please make sure you've entered your API key");
+			setStatus("BAD");
 		}
 	}
 
-	return { checkConnection, chat_gptResponse, graphData, loading };
+	return { checkConnection, loading, status };
 }

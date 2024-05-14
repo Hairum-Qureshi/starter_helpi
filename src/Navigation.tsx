@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import "./navbar.css";
-import animal from "./caribou.png";
+import "./CSS/navbar.css";
+import animal from "./ASSETS/caribou.png";
 
+// Renamed
 function Navigation() {
 	const location = useLocation();
+	const name: string | null = localStorage.getItem("name");
 
 	return (
 		<>
@@ -20,7 +22,10 @@ function Navigation() {
 					</div>
 				</Link>
 				<ul>
-					{location.pathname !== "/" ? (
+					{(location.pathname !== "/" && name) ||
+					((location.pathname === "/detailed" ||
+						location.pathname === "/basic") &&
+						name) ? (
 						<>
 							<Link to="/basic">
 								<li>BASIC QUESTIONS</li>
