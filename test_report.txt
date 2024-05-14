@@ -65,7 +65,7 @@ All files                     |       0 |        0 |       0 |       0 |
   QuestionFormatComponent.tsx |       0 |        0 |       0 |       0 | 5-24              
   Results.tsx                 |       0 |        0 |       0 |       0 | 16-217            
   basicDetailedButton.tsx     |       0 |      100 |       0 |       0 | 5-18              
-  detailed.tsx                |       0 |        0 |       0 |       0 | 15-179            
+  detailed.tsx                |       0 |        0 |       0 |       0 | 16-188            
   index.tsx                   |       0 |      100 |     100 |       0 | 6-19              
   navbar.tsx                  |       0 |        0 |       0 |       0 | 6-8               
   reportWebVitals.ts          |       0 |        0 |       0 |       0 | 3-10              
@@ -74,7 +74,7 @@ All files                     |       0 |        0 |       0 |       0 |
   MultipleChoiceQuestion.tsx  |       0 |        0 |       0 |       0 | 20-43             
   RangeQuestion.tsx           |       0 |        0 |       0 |       0 | 17-42             
  src/hooks                    |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-102            
+  useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-106            
  src/interfaces               |       0 |        0 |       0 |       0 |                   
   basicOption.ts              |       0 |        0 |       0 |       0 |                   
   questionFormat.ts           |       0 |        0 |       0 |       0 |                   
@@ -82,5 +82,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.29 s
+Time:        3.259 s
 Ran all test suites.
