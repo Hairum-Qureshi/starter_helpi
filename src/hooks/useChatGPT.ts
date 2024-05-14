@@ -17,6 +17,10 @@ export default function useChatGPT(quiz_type: string): Tools {
 	const [loading, setLoading] = useState(false);
 	const [status, setStatus] = useState("BAD");
 
+	useEffect(() => {
+		API_KEY && setStatus("OK");
+	}, [API_KEY]);
+
 	async function callAPI(
 		openai: OpenAI,
 		users_responses: Answer[],
@@ -37,7 +41,7 @@ export default function useChatGPT(quiz_type: string): Tools {
 						role: "user",
 						content: `I am looking to generate a detailed and lengthy report catered towards helping a user find a list of 4 different careers by name that would closely match with what they've answered given a set of questions. ${
 							api_request === "user_report"
-								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
+								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown that will be localstorage and JSON.parse() friendly. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
 								: "Please only list the 4 careers by name and the percentage (that totals up to 100) of how likely the user fits for that specific career and nothing else."
 						} If any of the questions receive answers that are gibberish, inappropriate, off-topic, or just don't make sense, ignore them. These questions and answers are as follows: \n ${formattedQ_A}`
 					}

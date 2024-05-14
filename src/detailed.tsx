@@ -67,10 +67,11 @@ function Detailed() {
 	console.log(status);
 
 	function showFunction() {
-		alert(status);
-		// if (status === "OK") {
-		// 	setShowReport(true);
-		// }
+		if (status === "OK") {
+			setShowReport(true);
+		} else {
+			alert(status);
+		}
 	}
 
 	return !showReport ? (
