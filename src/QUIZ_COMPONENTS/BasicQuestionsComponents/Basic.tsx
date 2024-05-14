@@ -72,6 +72,8 @@ export default function Basic() {
 	function showFunction() {
 		if (status === "OK") {
 			setShowReport(true);
+			// keeping this will remove the answered questions from local storage and that way, when the user has completed the quiz, if they go back to the home page, it won't say "Resume Basic Quiz" but rather, "Start Basic Quiz" which makes sense since by the time they get to the report, they've completed the quiz.
+			localStorage.removeItem("answered_questions_basic");
 		}
 	}
 
