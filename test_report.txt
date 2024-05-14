@@ -65,7 +65,7 @@ All files                     |       0 |        0 |       0 |       0 |
   QuestionFormatComponent.tsx |       0 |        0 |       0 |       0 | 5-24              
   Results.tsx                 |       0 |        0 |       0 |       0 | 16-217            
   basicDetailedButton.tsx     |       0 |      100 |       0 |       0 | 5-18              
-  detailed.tsx                |       0 |        0 |       0 |       0 | 16-188            
+  detailed.tsx                |       0 |        0 |       0 |       0 | 16-186            
   index.tsx                   |       0 |      100 |     100 |       0 | 6-19              
   navbar.tsx                  |       0 |        0 |       0 |       0 | 6-8               
   reportWebVitals.ts          |       0 |        0 |       0 |       0 | 3-10              
@@ -82,5 +82,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.259 s
+Time:        3.38 s
 Ran all test suites.
