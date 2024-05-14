@@ -40,6 +40,7 @@ export default function Home() {
 						/>
 						{showNextBtn ? (
 							<button
+							className="nextButton"
 								onClick={() => {
 									setCurrentSlide(currentSlide => currentSlide + 1);
 									localStorage.setItem("name", name);

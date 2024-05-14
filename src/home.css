@@ -1,75 +1,174 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
 
 .landingContainer img {
-	width: 80%;
-	box-sizing: border-box;
-	position: absolute;
-	bottom: 92px;
-	margin-left: 20%;
-	z-index: -1;
+  width: 80%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 92px;
+  margin-left: 20%;
+  z-index: -1;
 }
 
 .landingContainer .welcomeMessage {
-	margin: 40px;
-	width: 95%;
-	box-sizing: border-box;
+  margin: 40px;
+  width: 95%;
+  box-sizing: border-box;
 }
 
 .landingContainer .welcomeMessage h1,
-/* .landingContainer .welcomeMessage span h2, */
 .landingContainer .welcomeMessage h2 {
-	font-family: "IBM Plex Sans Arabic", sans-serif;
-	font-weight: 700;
-	color: rgb(30, 95, 174);
-	font-size: 70px;
-	margin: -5px 0 -10px 0;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 700;
+  color: #720874;
+  font-size: 70px;
+  margin: -5px 0 -10px 0;
 }
 
 .landingContainer .welcomeMessage p {
-	font-family: "IBM Plex Sans Arabic", sans-serif;
-	font-weight: 500;
-	font-size: 22px;
-	margin: -5px 0 5px 0;
-	color: rgb(8, 137, 197);
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  margin: -5px 0 5px 0;
+  color: #392c60;
 }
 
-/* .landingContainer .welcomeMessage span h2, */
 .landingContainer .welcomeMessage h2 {
-	font-size: 40px;
-	font-weight: 600;
+  font-size: 40px;
+  font-weight: 600;
 }
 
 .landingContainer .welcomeMessage span {
-	display: inline-flex;
-	width: 100%;
-	box-sizing: border-box;
+  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .landingContainer .welcomeMessage span input[type="text"] {
-	margin-left: 10px;
-	width: 20%;
-	box-sizing: border-box;
-	border: none;
-	border-bottom: 2px solid rgb(8, 137, 197);
-	background: transparent;
-	outline: none;
-	font-size: 30px;
-	color: rgb(8, 137, 197);
-	font-family: "IBM Plex Sans Arabic", sans-serif;
-	font-weight: 600;
+  margin-left: 10px;
+  width: 20%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #392c60;
+  background: transparent;
+  outline: none;
+  font-size: 30px;
+  color: #720874;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 600;
 }
 
 .landingContainer .welcomeMessage button {
-	transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .landingContainer .welcomeMessage .quizzesContainer {
-	text-align: center;
-	box-sizing: border-box;
-	margin-left: -190px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: -190px;
 }
 
 .landingContainer .welcomeMessage .quizzesContainer p {
-	margin-top: 15px;
-	font-size: 17px;
+  margin-top: 15px;
+  font-size: 17px;
+}
+
+.nextButton {
+  width: 6%;
+  margin: 10px 10px 15px 10px;
+  font-size: 16px;
+  border: none;
+  box-sizing: border-box;
+  padding: 20px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 500;
+  text-align: left;
+  color: white;
+  border-radius: 5px;
+  background-color: #720874;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: "Archivo", sans-serif;
+}
+
+.modal-content {
+  background-color: #392c60;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #9f86c0;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.modal-content p,
+.modal-content h2 {
+  text-align: center;
+  padding: 10px;
+  width: 70%;
+  margin: 20px auto 30px;
+  line-height: 35px;
+  font-weight: 400;
+  color: white;
+}
+
+.modal-content p {
+  font-size: 20px;
+}
+
+.modal-content .buttonContainer {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+}
+
+.modal-content .buttonContainer .cancelBtn {
+  background-color: #86142d;
+  border: 2px solid rgb(178, 40, 40);
+}
+
+.modal-content .buttonContainer .cancelBtn:hover {
+  background-color: #86142d;
+  border: 2px solid red;
+}
+
+.modal-content .buttonContainer .cancelBtn:active {
+  background-color: #a81132;
+}
+
+.modal-content .buttonContainer button {
+  width: 30%;
+  margin: 0 auto 20px;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #720874;
+  color: white;
+  border: 2px solid #8d5fca;
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.modal-content .buttonContainer button span {
+  margin-top: -1000px;
+}
+
+.modal-content .buttonContainer button:hover {
+  cursor: pointer;
+  border: 2px solid #a980de;
+  background-color: #8c098e;
+  transition: 0.5s ease;
+}
+
+.modal-content .buttonContainer button:active {
+  background-color: #c00ac4;
 }

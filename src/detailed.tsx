@@ -108,7 +108,7 @@ function Detailed() {
                         answeredQuestions.some(
                           (selectedAnswer) => selectedAnswer.choice === choice
                         )
-                          ? "#720874"
+                          ? "#720870"
                           : "#391848"
                       }`,
                       transition: "0.25s ease",
