@@ -11,10 +11,6 @@ export default function Home() {
 		!!localStorage.getItem("name")
 	);
 
-	useEffect(() => {
-		setIsNameSaved(!!localStorage.getItem("name"));
-	}, [name]);
-
 	return (
 		<div className="landingContainer">
 			{currentSlide === -1 && !isNameSaved ? (
