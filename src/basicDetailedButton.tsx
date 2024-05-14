@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import "./basicDetailedButton.css";
+import "./CSS/basicDetailedButton.css";
 
-function BasicDetailedButtons() {
+function BasicDetailedButton() {
 	const navigate = useNavigate();
 
 	return (
@@ -25,4 +25,4 @@ function BasicDetailedButtons() {
 		</>
 	);
 }
-export default BasicDetailedButtons;
+export default BasicDetailedButton;

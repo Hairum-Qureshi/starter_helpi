@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import "./navbar.css";
-import animal from "./caribou.png";
+import "./CSS/navbar.css";
+import animal from "./ASSETS/caribou.png";
 
 function Navigation() {
 	const location = useLocation();

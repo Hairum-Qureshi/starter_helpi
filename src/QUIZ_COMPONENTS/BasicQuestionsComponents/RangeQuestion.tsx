@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import basic_css from "../CSS/basic.module.css";
-import basic_questions from "../JSON_files/basicQuestions.json";
+import basic_css from "../../CSS/basic.module.css";
+import basic_questions from "../../JSON_files/basicQuestions.json";
 
 interface Props {
 	currentIndex: number;

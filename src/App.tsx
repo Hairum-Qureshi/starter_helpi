@@ -1,11 +1,10 @@
-import "./App.css";
+import "./CSS/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Detailed from "./detailed";
-import Navigation from "./navbar";
+import Detailed from "./QUIZ_COMPONENTS/Detailed";
+import Navigation from "./Navigation";
 import Footer from "./Footer";
-import BasicDetailedButtons from "./basicDetailedButton";
-import Results from "./Results";
-import Basic from "./BasicQuestionsComponents/Basic";
+import BasicDetailedButton from "./BasicDetailedButton";
+import Basic from "./QUIZ_COMPONENTS/BasicQuestionsComponents/Basic";
 import Home from "./Home";
 import About from "./About";
 
@@ -18,8 +17,7 @@ function App() {
 					<Route path="/" Component={Home} />
 					<Route path="/basic" Component={Basic} />
 					<Route path="/detailed" Component={Detailed} />
-					<Route path="/basicDetailedButton" Component={BasicDetailedButtons} />
-					<Route path="/results" Component={Results} />
+					<Route path="/basicDetailedButton" Component={BasicDetailedButton} />
 					<Route path="/about" Component={About} />
 				</Routes>
 				<Footer />
