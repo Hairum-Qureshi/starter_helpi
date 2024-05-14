@@ -69,8 +69,6 @@ function Detailed() {
 	function showFunction() {
 		if (status === "OK") {
 			setShowReport(true);
-		} else {
-			alert(status);
 		}
 	}
 
