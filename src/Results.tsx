@@ -29,6 +29,7 @@ export default function Results({ quiz_type }: Props) {
 		};
 
 		convertMarkdownToHtml();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const graph_data: string | null =
@@ -79,6 +80,7 @@ export default function Results({ quiz_type }: Props) {
 			alert("Please provide an email");
 		} else {
 			const valid_email: RegExpMatchArray | null = email.match(
+				// eslint-disable-next-line no-useless-escape
 				/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			);
 
