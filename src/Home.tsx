@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./CSS/home.css";
-import BasicDetailedButtons from "./BasicDetailedButton";
+import BasicDetailedButtons from "./basicDetailedButton";
 
 export default function Home() {
 	const [name, setName] = useState(localStorage.getItem("name") || "");
