@@ -74,7 +74,7 @@ All files                     |       0 |        0 |       0 |       0 |
   MultipleChoiceQuestion.tsx  |       0 |        0 |       0 |       0 | 20-43             
   RangeQuestion.tsx           |       0 |        0 |       0 |       0 | 17-42             
  src/hooks                    |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts               |       0 |        0 |       0 |       0 | 13-97             
+  useChatGPT.ts               |       0 |        0 |       0 |       0 | 14-102            
  src/interfaces               |       0 |        0 |       0 |       0 |                   
   basicOption.ts              |       0 |        0 |       0 |       0 |                   
   questionFormat.ts           |       0 |        0 |       0 |       0 |                   
@@ -82,5 +82,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.212 s
+Time:        3.29 s
 Ran all test suites.
