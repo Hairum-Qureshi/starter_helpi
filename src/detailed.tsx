@@ -136,8 +136,9 @@ function Detailed() {
 										placeholder="Enter your response..."
 										maxLength={500}
 										value={
-											answeredQuestions[currentIndex] &&
-											answeredQuestions[currentIndex].choice
+											(answeredQuestions[currentIndex] &&
+												answeredQuestions[currentIndex]?.choice) ||
+											userInput
 										}
 										onChange={e => {
 											setChoice(e.target.value);
@@ -182,6 +183,7 @@ function Detailed() {
 							} else {
 								setCurrentIndex(index => index + 1);
 								setChoice(answeredQuestions[currentIndex + 1]?.choice || "");
+								setUserInput("");
 							}
 						}}
 					>
