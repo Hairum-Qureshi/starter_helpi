@@ -6,6 +6,7 @@ import Confetti from "react-confetti";
 import Results from "./Results";
 import ProgressBar from "./ProgressBar";
 import useChatGPT from "./hooks/useChatGPT";
+
 export interface Answer {
 	question: string;
 	questionNo: number;
