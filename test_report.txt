@@ -70,7 +70,7 @@ All files                     |       0 |        0 |       0 |       0 |
   navbar.tsx                  |       0 |        0 |       0 |       0 | 6-8               
   reportWebVitals.ts          |       0 |        0 |       0 |       0 | 3-10              
  src/BasicQuestionsComponents |       0 |        0 |       0 |       0 |                   
-  Basic.tsx                   |       0 |        0 |       0 |       0 | 18-138            
+  Basic.tsx                   |       0 |        0 |       0 |       0 | 19-143            
   MultipleChoiceQuestion.tsx  |       0 |        0 |       0 |       0 | 20-43             
   RangeQuestion.tsx           |       0 |        0 |       0 |       0 | 17-42             
  src/hooks                    |       0 |        0 |       0 |       0 |                   
@@ -82,5 +82,5 @@ All files                     |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.38 s
+Time:        3.18 s
 Ran all test suites.
