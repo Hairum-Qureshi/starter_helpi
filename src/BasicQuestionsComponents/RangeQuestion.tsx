@@ -1,8 +1,6 @@
-import { Option } from "./Basic";
 import { useEffect, useState } from "react";
 import basic_css from "../CSS/basic.module.css";
 import basic_questions from "../JSON_files/basicQuestions.json";
-import { Answer } from "../detailed";
 
 interface Props {
 	currentIndex: number;
@@ -26,10 +24,12 @@ export default function RangeQuestion({
 			basic_questions[currentIndex].question_number,
 			basic_questions[currentIndex].question
 		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [rangeVal]);
 
 	useEffect(() => {
 		setRangeVal(parseInt(currentChoice));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentIndex]);
 
 	return (
