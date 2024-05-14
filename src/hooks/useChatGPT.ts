@@ -39,7 +39,11 @@ export default function useChatGPT(quiz_type: string): Tools {
 				messages: [
 					{
 						role: "user",
-						content: `I am looking to generate a detailed and lengthy report catered towards helping a user find a list of 4 different careers by name that would closely match with what they've answered given a set of questions. ${
+						content: `I am looking to generate a detailed and lengthy report catered towards helping a user find a list of 4 different careers by name that would closely match with what they've answered given a set of questions. Please titled it ${
+							quiz_type === "basic"
+								? "Basic Career Report"
+								: "Detailed Career Report"
+						}. ${
 							api_request === "user_report"
 								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown that will be localstorage and JSON.parse() friendly. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
 								: "Please only list the 4 careers by name and the percentage (that totals up to 100) of how likely the user fits for that specific career and nothing else. If the career's name length exceeds 28 characters, abbreviate it."
