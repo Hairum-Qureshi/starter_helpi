@@ -1,9 +1,9 @@
-import "./App.css";
+import "./CSS/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Detailed from "./detailed";
-import Navigation from "./navbar";
+import Detailed from "./Detailed";
+import Navigation from "./Navbar";
 import Footer from "./Footer";
-import BasicDetailedButtons from "./basicDetailedButton";
+import BasicDetailedButtons from "./BasicDetailedButton";
 import Results from "./Results";
 import Basic from "./BasicQuestionsComponents/Basic";
 import Home from "./Home";
