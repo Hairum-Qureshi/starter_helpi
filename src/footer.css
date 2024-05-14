@@ -51,7 +51,7 @@ footer button {
 
 footer button:hover {
   cursor: pointer;
-  color: rgb(195, 26, 26);
+  background-color: rgb(195, 26, 26);
   transition: 0.5s ease;
 }
 

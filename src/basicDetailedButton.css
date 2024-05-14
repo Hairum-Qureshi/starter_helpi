@@ -41,11 +41,11 @@
 
 .buttonContainer .basicBtnContainer button:hover,
 .buttonContainer .detailedBtnContainer button:hover {
-  background-color: rgb(44, 81, 145);
+  background-color: rgb(195, 26, 26);
   cursor: pointer;
 }
 
 .buttonContainer .basicBtnContainer button:active,
 .buttonContainer .detailedBtnContainer button:active {
-  background-color: rgb(13, 49, 112);
+  background-color: rgb(195, 26, 26);
 }
