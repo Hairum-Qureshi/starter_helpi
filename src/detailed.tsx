@@ -64,8 +64,6 @@ function Detailed() {
 
 	const { status } = useChatGPT("detailed");
 
-	console.log(status);
-
 	function showFunction() {
 		if (status === "OK") {
 			setShowReport(true);
