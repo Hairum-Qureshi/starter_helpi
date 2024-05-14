@@ -186,11 +186,11 @@
 			},
 			{
 				"text": "I don't mind anything",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/dtjBGHB/dontcare.jpg"
 			},
 			{
 				"text": "I'm not so sure",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/Vv7Q56N/notsure.png"
 			}
 		],
 		"type": "multipleChoice"
@@ -255,11 +255,11 @@
 			},
 			{
 				"text": "Sometimes",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/3Rr75kM/sometimesnew.png"
 			},
 			{
 				"text": "I'm not sure",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/Vv7Q56N/notsure.png"
 			}
 		],
 		"type": "multipleChoice"
@@ -278,11 +278,11 @@
 			},
 			{
 				"text": "Sometimes",
-				"image": "https://i.ibb.co/wC7Qds2/sometimes.jpg"
+				"image": "https://i.ibb.co/3Rr75kM/sometimesnew.png"
 			},
 			{
 				"text": "It depends on the team dynamics",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/wC7Qds2/sometimes.jpg"
 			}
 		],
 		"type": "multipleChoice"
