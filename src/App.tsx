@@ -7,6 +7,7 @@ import BasicDetailedButtons from "./basicDetailedButton";
 import Results from "./Results";
 import Basic from "./BasicQuestionsComponents/Basic";
 import Home from "./Home";
+import About from "./About";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 					<Route path="/detailed" Component={Detailed} />
 					<Route path="/basicDetailedButton" Component={BasicDetailedButtons} />
 					<Route path="/results" Component={Results} />
+					<Route path="/about" Component={About} />
 				</Routes>
 				<Footer />
 			</>
