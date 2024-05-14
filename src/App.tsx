@@ -1,7 +1,7 @@
 import "./CSS/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Detailed from "./QUIZ_COMPONENTS/Detailed";
-import Navigation from "./Navbar";
+import Navigation from "./Navigation";
 import Footer from "./Footer";
 import BasicDetailedButtons from "./BasicDetailedButton";
 import Basic from "./QUIZ_COMPONENTS/BasicQuestionsComponents/Basic";
