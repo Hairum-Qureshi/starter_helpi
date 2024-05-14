@@ -14,7 +14,7 @@ interface Props {
 export default function Results({ quiz_type }: Props) {
 	const report_markdown =
 		quiz_type === "detailed"
-			? JSON.parse(localStorage.getItem("detailed_report")!)
+			? localStorage.getItem("detailed_report")!
 			: localStorage.getItem("detailed_report_basic")!;
 	const name: string | null = localStorage.getItem("name");
 
