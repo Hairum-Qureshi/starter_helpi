@@ -2,41 +2,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-	position: relative;
-	text-align: center;
+  position: relative;
+  text-align: center;
 }
 
 .about-bin {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 0px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0px;
 }
 
 .about-bin h1 {
-	position: relative;
-	font-size: 45px;
-	font-family: "Changa", sans-serif;
-	color: #c64d23;
-	margin-top: -90px;
+  position: relative;
+  font-size: 45px;
+  font-family: "Changa", sans-serif;
+  color: white;
+  margin-top: -90px;
 }
 
 .circle {
-	position: relative;
-	top: 150px;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 300px;
-	height: 200px;
-	border-radius: 50%;
-	background-color: white;
-	z-index: -1;
+  position: relative;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #720874;
+  z-index: -1;
 }
 
 .about-bin p {
-	top: 50px;
-	position: relative;
-	font-size: 16px;
-	line-height: 1.6;
-	color: #c64d23;
-	font-family: "Anybody", sans-serif;
+  top: 50px;
+  position: relative;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #c64d23;
+  font-family: "Anybody", sans-serif;
 }
