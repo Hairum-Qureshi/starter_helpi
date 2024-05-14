@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./CSS/navbar.css";
 import animal from "./ASSETS/caribou.png";
 
+// Renamed
 function Navigation() {
 	const location = useLocation();
 
