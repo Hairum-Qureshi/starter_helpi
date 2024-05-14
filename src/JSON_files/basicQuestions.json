@@ -255,11 +255,11 @@
 			},
 			{
 				"text": "Sometimes",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/3Rr75kM/sometimesnew.png"
 			},
 			{
 				"text": "I'm not sure",
-				"image": "https://example.com/placeholder.jpg"
+				"image": "https://i.ibb.co/Vv7Q56N/notsure.png"
 			}
 		],
 		"type": "multipleChoice"
