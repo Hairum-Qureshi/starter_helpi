@@ -1,56 +1,60 @@
 body {
-	margin: 0;
-	padding: 0;
-	padding-bottom: 60px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px;
 }
 
 .footerContainer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 footer {
-	box-sizing: border-box;
-	padding: 10px;
-	width: 100%;
-	color: white;
-	text-align: center;
-	background-color: #0d5382;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	border-top: 1px solid rgb(0, 208, 255);
-	z-index: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: #392c60;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-top: 1px solid #9f86c0;
+  z-index: 0;
 }
 
 footer input[type="password"] {
-	width: 30%;
-	font-size: 15px;
-	padding: 8px;
-	box-sizing: border-box;
-	margin: 5px;
-	outline: none;
-	border: 2px solid rgb(23, 163, 238);
-	border-radius: 5px;
+  width: 30%;
+  font-size: 15px;
+  padding: 8px;
+  box-sizing: border-box;
+  margin: 5px;
+  outline: none;
+  border: 2px solid #9f86c0;
+  border-radius: 5px;
 }
 
 footer button {
-	padding: 7px;
-	font-size: 15px;
-	background-color: #1663a2;
-	color: white;
-	border: 2px solid #0aa0eb;
-	border-radius: 4px;
-	width: 8%;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 6%;
+  margin: 10px 10px 10px 10px;
+  font-size: 14px;
+  border: none;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  background-color: #720874;
 }
 
 footer button:hover {
-	cursor: pointer;
-	background-color: #044f8c;
-	transition: 0.5s ease;
+  cursor: pointer;
+  color: rgb(195, 26, 26);
+  transition: 0.5s ease;
 }
 
 footer button:active {
-	background-color: #0d76cb;
+  background-color: rgb(195, 26, 26);
 }
