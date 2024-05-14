@@ -1,7 +1,8 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
 
 .quizContainer {
-	background-color: #2386c0;
+	background-color: #392c60;
 	border-radius: 10px;
 	width: 60%;
 	height: auto;
@@ -10,11 +11,11 @@
 }
 
 .quizContainer .questionContainer {
-	border: 2px solid #00a7e1;
+	border: 2px solid #9f86c0;
 	padding: 10px;
 	color: white;
 	border-radius: 5px;
-	background-color: #0e6a9f;
+	background-color: #392c60;
 	font-family: "Archivo", sans-serif;
 	font-weight: 500;
 	font-size: 18px;
@@ -59,14 +60,14 @@
 	height: 100px;
 	border-radius: 5px;
 	font-size: 17px;
-	border: 2px solid #00a7e1;
+	border: 2px solid #9f86c0;
 	font-family: "Archivo", sans-serif;
 	font-weight: 500;
 	outline: none;
 }
 
 .quizContainer .optionsContainer textarea:focus {
-	border: 2px solid cyan;
+	border: 2px solid #720874;
 }
 
 .quizContainer .optionsContainer button {
@@ -84,12 +85,12 @@
 }
 
 .quizContainer .optionsContainer button:hover {
-	background-color: #00538f;
+	background-color: #720874;
 	cursor: pointer;
 }
 
 .quizContainer .optionsContainer button:active {
-	background-color: #023c5e;
+	background-color: #a81132;
 }
 
 .quizContainer .containerFooter {
@@ -104,7 +105,7 @@
 	font-weight: 500;
 	box-sizing: border-box;
 	padding: 15px;
-	background-color: #2d0371;
+	background-color: #720874;
 	color: white;
 	border: none;
 }
@@ -120,24 +121,24 @@
 }
 
 .quizContainer .containerFooter button:hover {
-	background-color: #3f039f;
+	background-color: #720874;
 	cursor: pointer;
 }
 
 .quizContainer .containerFooter button:active {
-	background-color: #5407d0;
+	background-color: #a81132;
 }
 
 .quizContainer .containerFooter button:disabled {
-	background-color: #1f024e;
+	background-color: #391848;
 	cursor: not-allowed;
 }
 
 .quizContainer .containerFooter button:disabled:hover {
-	background-color: #420d45;
+	background-color: #540765;
 	transition: 0.25s ease-out;
 }
 
 .quizContainer .containerFooter button:disabled:active {
-	background-color: #651169;
+	background-color: #730a88;
 }

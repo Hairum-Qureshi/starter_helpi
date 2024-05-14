@@ -108,15 +108,15 @@ function Detailed() {
                         answeredQuestions.some(
                           (selectedAnswer) => selectedAnswer.choice === choice
                         )
-                          ? "#006BA6"
-                          : "#003459"
+                          ? "#720874"
+                          : "#391848"
                       }`,
                       transition: "0.25s ease",
                       border: `${
                         answeredQuestions.some(
                           (selectedAnswer) => selectedAnswer.choice === choice
                         )
-                          ? "2px solid cyan"
+                          ? "2px solid #391848"
                           : "none"
                       }`,
                     }}
