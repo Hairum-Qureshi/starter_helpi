@@ -26,6 +26,7 @@ export default function Modal({ modalFunction, showFunction }: Props) {
 			setShow(false);
 			showFunction();
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [loading, closingRequest]);
 
 	const name = localStorage.getItem("name");
