@@ -9,6 +9,7 @@ import Modal from "../Modal";
 import Confetti from "react-confetti";
 import Results from "../../Results";
 import useChatGPT from "../../hooks/useChatGPT";
+import { Link } from "react-router-dom";
 
 export interface Option {
 	text: string;
@@ -74,84 +75,92 @@ export default function Basic() {
 		}
 	}
 
-	return !showReport ? (
-		<>
-			{showConfetti && <Confetti />}
-			{modalVisibility ? (
-				<Modal
-					modalFunction={updateModalVisibility}
-					showFunction={showFunction}
-				/>
-			) : null}
-			<div className={basic_css.quizContainer}>
-				<div className={basic_css.progressBarContainer}>
-					<ProgressBar
-						currentIndex={currentIndex}
-						totalQuestions={basic_questions.length}
-					/>
-					<br></br>
-				</div>
-				<div className={basic_css.questionContainer}>
-					<h3>
-						({currentIndex + 1}/{basic_questions.length}) &nbsp;
-						{basic_questions[currentIndex].question}
-					</h3>
-				</div>
-				<div className={basic_css.optionsContainer}>
-					{basic_questions[currentIndex].type === "multipleChoice" ? (
-						<MultipleChoiceQuestion
-							currentQuestionOptions={currentQuestionOptions}
-							currentIndex={currentIndex}
-							addChoice={addChoice}
-							answeredQuestions={answeredQuestions}
-							saveAnswers={saveAnswers}
-						/>
-					) : (
-						<RangeQuestion
-							currentIndex={currentIndex}
-							addChoice={addChoice}
-							currentChoice={answeredQuestions[currentIndex]?.choice}
-							saveAnswers={saveAnswers}
-						/>
-					)}
-				</div>
-				<div className={basic_css.containerFooter}>
-					<button
-						disabled={currentIndex === 0}
-						onClick={() => {
-							setCurrentIndex(index => (index -= 1 % basic_questions.length));
-							setChoice(
-								answeredQuestions[currentIndex] &&
-									answeredQuestions[currentIndex - 1].choice
-							);
-						}}
-					>
-						{currentIndex === 0 ? "END" : "PREV."}
-					</button>
-					<button
-						disabled={!choice}
-						onClick={() => {
-							if (currentIndex === basic_questions.length - 1) {
-								setModalVisibility(!modalVisibility);
-								setShowConfetti(true);
+	const name: string | null = localStorage.getItem("name");
 
-								setTimeout(() => {
-									setShowConfetti(false);
-								}, 8000);
-							} else {
-								setCurrentIndex(index => index + 1);
-								setChoice(answeredQuestions[currentIndex + 1]?.choice || "");
-							}
-						}}
-					>
-						{currentIndex === basic_questions.length - 1
-							? "SUBMIT RESPONSES"
-							: "NEXT"}
-					</button>
+	return name ? (
+		!showReport ? (
+			<>
+				{showConfetti && <Confetti />}
+				{modalVisibility ? (
+					<Modal
+						modalFunction={updateModalVisibility}
+						showFunction={showFunction}
+					/>
+				) : null}
+				<div className={basic_css.quizContainer}>
+					<div className={basic_css.progressBarContainer}>
+						<ProgressBar
+							currentIndex={currentIndex}
+							totalQuestions={basic_questions.length}
+						/>
+						<br></br>
+					</div>
+					<div className={basic_css.questionContainer}>
+						<h3>
+							({currentIndex + 1}/{basic_questions.length}) &nbsp;
+							{basic_questions[currentIndex].question}
+						</h3>
+					</div>
+					<div className={basic_css.optionsContainer}>
+						{basic_questions[currentIndex].type === "multipleChoice" ? (
+							<MultipleChoiceQuestion
+								currentQuestionOptions={currentQuestionOptions}
+								currentIndex={currentIndex}
+								addChoice={addChoice}
+								answeredQuestions={answeredQuestions}
+								saveAnswers={saveAnswers}
+							/>
+						) : (
+							<RangeQuestion
+								currentIndex={currentIndex}
+								addChoice={addChoice}
+								currentChoice={answeredQuestions[currentIndex]?.choice}
+								saveAnswers={saveAnswers}
+							/>
+						)}
+					</div>
+					<div className={basic_css.containerFooter}>
+						<button
+							disabled={currentIndex === 0}
+							onClick={() => {
+								setCurrentIndex(index => (index -= 1 % basic_questions.length));
+								setChoice(
+									answeredQuestions[currentIndex] &&
+										answeredQuestions[currentIndex - 1].choice
+								);
+							}}
+						>
+							{currentIndex === 0 ? "END" : "PREV."}
+						</button>
+						<button
+							disabled={!choice}
+							onClick={() => {
+								if (currentIndex === basic_questions.length - 1) {
+									setModalVisibility(!modalVisibility);
+									setShowConfetti(true);
+
+									setTimeout(() => {
+										setShowConfetti(false);
+									}, 8000);
+								} else {
+									setCurrentIndex(index => index + 1);
+									setChoice(answeredQuestions[currentIndex + 1]?.choice || "");
+								}
+							}}
+						>
+							{currentIndex === basic_questions.length - 1
+								? "SUBMIT RESPONSES"
+								: "NEXT"}
+						</button>
+					</div>
 				</div>
-			</div>
-		</>
+			</>
+		) : (
+			<Results />
+		)
 	) : (
-		<Results />
+		<h1>
+			Please be sure to enter your name! Click <Link to="/">here</Link>!
+		</h1>
 	);
 }
