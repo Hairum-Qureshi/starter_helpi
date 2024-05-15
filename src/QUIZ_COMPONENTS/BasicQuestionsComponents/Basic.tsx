@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
 import RangeQuestion from "./RangeQuestion";
 import ProgressBar from "../ProgressBar";
-import { Answer } from "../Detailed";
+import { Answer } from "../DetailedQuestionsComponents/Detailed";
 import Modal from "../Modal";
 import Confetti from "react-confetti";
 import Results from "../../Results";

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import "../CSS/detailed.css";
-import questions from "../JSON_files/detailedQuestions.json";
-import Modal from "./Modal";
+import "../../CSS/detailed.css";
+import questions from "../../JSON_files/detailedQuestions.json";
+import Modal from "../Modal";
 import Confetti from "react-confetti";
-import Results from "../Results";
-import ProgressBar from "./ProgressBar";
-import useChatGPT from "../hooks/useChatGPT";
+import Results from "../../Results";
+import ProgressBar from "../ProgressBar";
+import useChatGPT from "../../hooks/useChatGPT";
 import { Link } from "react-router-dom";
+import FreeResponse from "./FreeResponse";
+import MultipleChoice from "./MultipleChoice";
 
 export interface Answer {
 	question: string;
@@ -74,6 +76,14 @@ function Detailed() {
 		}
 	}
 
+	function updateUserChoice(userChoice: string) {
+		setChoice(userChoice);
+	}
+
+	function updateUserInput(user_input: string) {
+		setUserInput(user_input);
+	}
+
 	const name: string | null = localStorage.getItem("name");
 
 	return name ? (
@@ -107,64 +117,27 @@ function Detailed() {
 						{questions[currentIndex].type === "multiple_choice"
 							? questions[currentIndex].choices.map(
 									(choice: string, index: number) => (
-										<button
-											key={index}
-											onClick={() => {
-												setChoice(choice);
-												saveAnswers(
-													choice,
-													questions[currentIndex].question_number,
-													questions[currentIndex].type,
-													questions[currentIndex].question
-												);
-											}}
-											style={{
-												backgroundColor: `${
-													answeredQuestions.some(
-														selectedAnswer => selectedAnswer.choice === choice
-													)
-														? "#006BA6"
-														: "#003459"
-												}`,
-												transition: "0.25s ease",
-												border: `${
-													answeredQuestions.some(
-														selectedAnswer => selectedAnswer.choice === choice
-													)
-														? "2px solid cyan"
-														: "none"
-												}`
-											}}
+										<MultipleChoice
+											answeredQuestions={answeredQuestions}
+											currentIndex={currentIndex}
+											updateUserChoice={updateUserChoice}
+											saveAnswers={saveAnswers}
+											index={index}
 										>
 											{choice}
-										</button>
+										</MultipleChoice>
 									)
 							  )
 							: questions[currentIndex].type === "free_response" && (
-									<>
-										<textarea
-											placeholder="Enter your response..."
-											maxLength={500}
-											value={
-												(answeredQuestions[currentIndex] &&
-													answeredQuestions[currentIndex]?.choice) ||
-												userInput
-											}
-											onChange={e => {
-												setChoice(e.target.value);
-												setUserInput(e.target.value);
-												saveAnswers(
-													e.target.value,
-													questions[currentIndex].question_number,
-													questions[currentIndex].type,
-													questions[currentIndex].question
-												);
-											}}
-										></textarea>
-										<p className="characterLimitText">
-											{!choice ? 0 : choice.length}/500 characters remaining
-										</p>
-									</>
+									<FreeResponse
+										answeredQuestions={answeredQuestions}
+										currentIndex={currentIndex}
+										userInput={userInput}
+										updateUserChoice={updateUserChoice}
+										updateUserInput={updateUserInput}
+										saveAnswers={saveAnswers}
+										choice={choice}
+									/>
 							  )}
 					</div>
 					<div className="containerFooter">
