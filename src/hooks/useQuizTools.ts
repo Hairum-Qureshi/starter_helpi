@@ -28,8 +28,11 @@ interface QuizTools {
 
 export default function useQuizTools(quiz_type: string): QuizTools {
 	const [currentIndex, setCurrentIndex] = useState<number>(
-		Number(localStorage.getItem("current_question")) || 0
+		quiz_type === "detailed"
+			? Number(localStorage.getItem("current_question")) || 0
+			: Number(localStorage.getItem("current_question_basic")) || 0
 	);
+
 	const [choice, setChoice] = useState<string>();
 	const [answeredQuestions, setAnsweredQuestions] = useState<Answer[]>(
 		quiz_type === "detailed"
