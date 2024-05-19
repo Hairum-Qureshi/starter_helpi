@@ -117,7 +117,7 @@ function Detailed() {
 									? answeredQuestions.indexOf(
 											answeredQuestions[currentIndex]
 									  ) === -1
-									: !choice || !!(choice && choice.length > 500)
+									: !choice || choice.length > 500
 							}
 							onClick={() => {
 								if (currentIndex === questions.length - 1) {
@@ -132,6 +132,7 @@ function Detailed() {
 									updateUserChoice(
 										answeredQuestions[currentIndex + 1]?.choice || ""
 									);
+									updateUserInput("");
 									updateUserChoice("");
 								}
 							}}

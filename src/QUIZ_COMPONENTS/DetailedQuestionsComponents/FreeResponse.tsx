@@ -16,6 +16,8 @@ export default function FreeResponse({
 	saveAnswers,
 	choice
 }: FR_Props) {
+	console.log(userInput);
+
 	return (
 		<>
 			<textarea
