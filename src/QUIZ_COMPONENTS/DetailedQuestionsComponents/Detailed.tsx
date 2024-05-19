@@ -117,7 +117,10 @@ function Detailed() {
 									? answeredQuestions.indexOf(
 											answeredQuestions[currentIndex]
 									  ) === -1
-									: answeredQuestions[currentIndex].choice === ""
+									: answeredQuestions[currentIndex]?.choice === "" ||
+									  answeredQuestions.indexOf(
+											answeredQuestions[currentIndex]
+									  ) === -1
 							}
 							onClick={() => {
 								if (currentIndex === questions.length - 1) {
