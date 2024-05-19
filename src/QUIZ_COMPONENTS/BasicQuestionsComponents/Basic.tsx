@@ -17,25 +17,23 @@ export interface Option {
 
 export default function Basic() {
 	const {
-		saveAnswers,
-		updateModalVisibility,
-		showFunction,
-		updateUserChoice,
-		updateIndex,
-		updateConfettiVisibility,
-		choice,
-		showConfetti,
-		modalVisibility,
-		currentIndex,
-		answeredQuestions,
-		showReport
+		saveAnswers, // function meant to save the user's answers to local storage
+		updateModalVisibility, // function meant to toggle showing/hiding the modal
+		showFunction, // function responsible for only showing the user their report when ChatGPT finishes its response
+		updateUserChoice, // function responsible for updating the user's choice whenever they change their MC selection
+		updateIndex, // function responsible for updating the current index of the question
+		updateConfettiVisibility, // function meant to toggle showing/hiding the confetti animation
+		choice, // the selection the user chose from the multiple choice
+		showConfetti, // boolean representing whether or not the confetti should be shown or not
+		modalVisibility, // boolean representing whether or not the modal should be visible or not
+		currentIndex, // the current index
+		answeredQuestions, // an array of Answer objects that grows as the user answers more questions
+		showReport // boolean value representing whether or not the report should be shown to the user or not
 	} = useQuizTools("basic");
 
 	const [currentQuestionOptions, setCurrentQuestionOptions] = useState<
 		Option[]
 	>(basic_questions[currentIndex].options as Option[]);
-
-	console.log(currentIndex);
 
 	useEffect(() => {
 		localStorage.setItem("current_question_basic", currentIndex.toString());
