@@ -35,6 +35,8 @@ export default function Basic() {
 		Option[]
 	>(basic_questions[currentIndex].options as Option[]);
 
+	console.log(currentIndex);
+
 	useEffect(() => {
 		localStorage.setItem("current_question_basic", currentIndex.toString());
 		localStorage.setItem(
