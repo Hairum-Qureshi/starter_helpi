@@ -69,19 +69,19 @@ All files                                        |       0 |        0 |       0 
   Modal.tsx                                      |       0 |        0 |       0 |       0 | 13-66             
   ProgressBar.tsx                                |       0 |      100 |       0 |       0 | 9-15              
  src/QUIZ_COMPONENTS/BasicQuestionsComponents    |       0 |        0 |       0 |       0 |                   
-  Basic.tsx                                      |       0 |        0 |       0 |       0 | 20-151            
-  MultipleChoiceQuestion.tsx                     |       0 |        0 |       0 |       0 | 20-28             
-  RangeQuestion.tsx                              |       0 |        0 |       0 |       0 | 17-42             
+  Basic.tsx                                      |       0 |        0 |       0 |       0 | 32-125            
+  MultipleChoiceQuestion.tsx                     |       0 |        0 |       0 |       0 | 29-35             
+  RangeQuestion.tsx                              |       0 |        0 |       0 |       0 | 23-49             
  src/QUIZ_COMPONENTS/DetailedQuestionsComponents |       0 |        0 |       0 |       0 |                   
   Detailed.tsx                                   |       0 |        0 |       0 |       0 | 35-136            
   FreeResponse.tsx                               |       0 |        0 |       0 |       0 | 19-34             
   MultipleChoice.tsx                             |       0 |        0 |       0 |       0 | 26-51             
  src/hooks                                       |       0 |        0 |       0 |       0 |                   
   useChatGPT.ts                                  |       0 |        0 |       0 |       0 | 14-110            
-  useQuizTools.ts                                |       0 |        0 |       0 |       0 | 30-115            
+  useQuizTools.ts                                |       0 |        0 |       0 |       0 | 30-119            
 -------------------------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.509 s
+Time:        3.329 s
 Ran all test suites.
