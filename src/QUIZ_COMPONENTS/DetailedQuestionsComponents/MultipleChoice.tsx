@@ -1,5 +1,5 @@
-import { Answer } from "./Detailed";
 import questions from "../../JSON_files/detailedQuestions.json";
+import { Answer } from "./Detailed";
 
 export interface OptionsProps {
 	answeredQuestions: Answer[];

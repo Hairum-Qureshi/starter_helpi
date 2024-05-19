@@ -85,7 +85,9 @@ export default function Basic() {
 				{showConfetti && <Confetti />}
 				{modalVisibility ? (
 					<Modal
-						modalFunction={updateModalVisibility}
+						// modalFunction={updateModalVisibility}
+						// showFunction={showFunction}
+						updateModalVisibility={updateModalVisibility}
 						showFunction={showFunction}
 					/>
 				) : null}

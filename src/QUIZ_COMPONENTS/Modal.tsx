@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 interface Props {
-	modalFunction: () => void;
+	updateModalVisibility: (show_modal?: boolean) => void;
 	showFunction: () => void;
 }
 
-export default function Modal({ modalFunction, showFunction }: Props) {
+export default function Modal({ updateModalVisibility, showFunction }: Props) {
 	const [show, setShow] = useState(true);
 
 	const location = useLocation();
@@ -34,7 +34,7 @@ export default function Modal({ modalFunction, showFunction }: Props) {
 	return (
 		<div
 			className="modal"
-			onClick={!loading ? modalFunction : undefined}
+			onClick={!loading ? () => updateModalVisibility : undefined}
 			style={{ display: show ? "block" : "none" }}
 		>
 			<div className="modal-content">
@@ -50,7 +50,11 @@ export default function Modal({ modalFunction, showFunction }: Props) {
 				)}
 				<div className="buttonContainer">
 					{!loading ? (
-						<button disabled={loading} className="cancelBtn">
+						<button
+							disabled={loading}
+							className="cancelBtn"
+							onClick={() => updateModalVisibility(false)}
+						>
 							CANCEL
 						</button>
 					) : null}
