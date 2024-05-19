@@ -43,7 +43,7 @@ FAIL src/App.test.tsx
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/QUIZ_COMPONENTS/Modal.tsx:3:1)
-      at Object.<anonymous> (src/QUIZ_COMPONENTS/Detailed.tsx:4:1)
+      at Object.<anonymous> (src/QUIZ_COMPONENTS/DetailedQuestionsComponents/Detailed.tsx:4:1)
       at Object.<anonymous> (src/App.tsx:3:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
@@ -51,33 +51,37 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-----------------------------------------------|---------|----------|---------|---------|-------------------
-File                                          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                     |       0 |        0 |       0 |       0 |                   
- src                                          |       0 |        0 |       0 |       0 |                   
-  About.tsx                                   |       0 |      100 |       0 |       0 | 4                 
-  App.tsx                                     |       0 |      100 |       0 |       0 | 11                
-  Footer.tsx                                  |       0 |        0 |       0 |       0 | 6-26              
-  Home.tsx                                    |       0 |        0 |       0 |       0 | 7-45              
-  Navigation.tsx                              |       0 |        0 |       0 |       0 | 7-10              
-  Results.tsx                                 |       0 |        0 |       0 |       0 | 16-217            
-  basicDetailedButton.tsx                     |       0 |        0 |       0 |       0 | 5-26              
-  index.tsx                                   |       0 |      100 |     100 |       0 | 6-19              
-  reportWebVitals.ts                          |       0 |        0 |       0 |       0 | 3-10              
- src/QUIZ_COMPONENTS                          |       0 |        0 |       0 |       0 |                   
-  Detailed.tsx                                |       0 |        0 |       0 |       0 | 18-196            
-  Modal.tsx                                   |       0 |        0 |       0 |       0 | 13-62             
-  ProgressBar.tsx                             |       0 |      100 |       0 |       0 | 9-15              
- src/QUIZ_COMPONENTS/BasicQuestionsComponents |       0 |        0 |       0 |       0 |                   
-  Basic.tsx                                   |       0 |        0 |       0 |       0 | 20-149            
-  MultipleChoiceQuestion.tsx                  |       0 |        0 |       0 |       0 | 20-28             
-  RangeQuestion.tsx                           |       0 |        0 |       0 |       0 | 17-42             
- src/hooks                                    |       0 |        0 |       0 |       0 |                   
-  useChatGPT.ts                               |       0 |        0 |       0 |       0 | 14-110            
-----------------------------------------------|---------|----------|---------|---------|-------------------
+-------------------------------------------------|---------|----------|---------|---------|-------------------
+File                                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------------------------|---------|----------|---------|---------|-------------------
+All files                                        |       0 |        0 |       0 |       0 |                   
+ src                                             |       0 |        0 |       0 |       0 |                   
+  About.tsx                                      |       0 |      100 |       0 |       0 | 4                 
+  App.tsx                                        |       0 |      100 |       0 |       0 | 11                
+  Footer.tsx                                     |       0 |        0 |       0 |       0 | 6-26              
+  Home.tsx                                       |       0 |        0 |       0 |       0 | 7-45              
+  Navigation.tsx                                 |       0 |        0 |       0 |       0 | 7-10              
+  Results.tsx                                    |       0 |        0 |       0 |       0 | 16-217            
+  basicDetailedButton.tsx                        |       0 |        0 |       0 |       0 | 5-26              
+  index.tsx                                      |       0 |      100 |     100 |       0 | 6-19              
+  reportWebVitals.ts                             |       0 |        0 |       0 |       0 | 3-10              
+ src/QUIZ_COMPONENTS                             |       0 |        0 |       0 |       0 |                   
+  Modal.tsx                                      |       0 |        0 |       0 |       0 | 13-66             
+  ProgressBar.tsx                                |       0 |      100 |       0 |       0 | 9-15              
+ src/QUIZ_COMPONENTS/BasicQuestionsComponents    |       0 |        0 |       0 |       0 |                   
+  Basic.tsx                                      |       0 |        0 |       0 |       0 | 20-151            
+  MultipleChoiceQuestion.tsx                     |       0 |        0 |       0 |       0 | 20-28             
+  RangeQuestion.tsx                              |       0 |        0 |       0 |       0 | 17-42             
+ src/QUIZ_COMPONENTS/DetailedQuestionsComponents |       0 |        0 |       0 |       0 |                   
+  Detailed.tsx                                   |       0 |        0 |       0 |       0 | 35-136            
+  FreeResponse.tsx                               |       0 |        0 |       0 |       0 | 19-34             
+  MultipleChoice.tsx                             |       0 |        0 |       0 |       0 | 26-51             
+ src/hooks                                       |       0 |        0 |       0 |       0 |                   
+  useChatGPT.ts                                  |       0 |        0 |       0 |       0 | 14-110            
+  useQuizTools.ts                                |       0 |        0 |       0 |       0 | 30-115            
+-------------------------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.341 s
+Time:        3.509 s
 Ran all test suites.
