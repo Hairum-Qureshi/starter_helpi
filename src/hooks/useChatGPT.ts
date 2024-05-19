@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import detailedQuestions from "../JSON_files/detailedQuestions.json";
 import basicQuestions from "../JSON_files/basicQuestions.json";
-import { Answer } from "../QUIZ_COMPONENTS/Detailed";
+import { Answer } from "../QUIZ_COMPONENTS/DetailedQuestionsComponents/Detailed";
 import { useEffect, useState } from "react";
 
 interface Tools {
@@ -45,7 +45,7 @@ export default function useChatGPT(quiz_type: string): Tools {
 								: "Detailed Career Report"
 						}. ${
 							api_request === "user_report"
-								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown that will be localstorage and JSON.parse() friendly. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
+								? "When generating this report, please give a detailed explanation why each career you list may be a good fit for the user. Please render the response using markdown that will be local storage and JSON.parse() friendly. Please also provide alternative paths the user could look into if the given list of potential careers you provide may not be of interest to the user."
 								: "Please only list the 4 careers (1 to 4) by name and the percentage (that totals up to 100) of how likely the user fits that specific career and nothing else. Do not include any titles either, just a numbered list. Abbreviate the career names. Do not add any markdown and make sure none of the percentages are undefined."
 						} If any of the questions receive answers that are gibberish, inappropriate, off-topic, or just don't make sense, ignore them. These questions and answers are as follows: \n ${formattedQ_A}`
 					}

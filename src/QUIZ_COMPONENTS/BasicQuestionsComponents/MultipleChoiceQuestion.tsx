@@ -1,6 +1,6 @@
 import { Option } from "./Basic";
 import basic_questions from "../../JSON_files/basicQuestions.json";
-import { Answer } from "../Detailed";
+import { Answer } from "../DetailedQuestionsComponents/Detailed";
 
 interface Props {
 	currentQuestionOptions: Option[];
