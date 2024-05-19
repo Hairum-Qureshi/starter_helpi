@@ -80,7 +80,6 @@ export default function Basic() {
 									<MultipleChoiceQuestion
 										index={index}
 										option={option}
-										currentQuestionOptions={currentQuestionOptions}
 										currentIndex={currentIndex}
 										addChoice={updateUserChoice}
 										answeredQuestions={answeredQuestions}
