@@ -24,20 +24,19 @@ export default function RangeQuestion({
 
 	useEffect(() => {
 		addChoice(rangeVal.toString());
-
 		saveAnswers(
 			rangeVal.toString(),
 			basic_questions[currentIndex].question_number,
 			basic_questions[currentIndex].type,
 			basic_questions[currentIndex].question
 		);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [rangeVal]);
+	}, [addChoice, currentIndex, rangeVal, saveAnswers]);
 
 	useEffect(() => {
 		setRangeVal(!isNaN(parseInt(currentChoice)) ? parseInt(currentChoice) : 1);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentIndex]);
+	// I disabled eslint here too because it wanted me to replace 'currentIndex' in the dependency array with 'currentChoice'. Whenever I refreshed the page upon using the range on the range questions, the range bar would glitch out. Using 'currentIndex' does not have this issue and works perfectly fine.
 
 	return (
 		<div className={basic_css.questionContainer_range}>

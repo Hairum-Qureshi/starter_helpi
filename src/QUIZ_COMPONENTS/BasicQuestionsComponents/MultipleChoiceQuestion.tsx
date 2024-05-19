@@ -5,7 +5,6 @@ import { Answer } from "../DetailedQuestionsComponents/Detailed";
 interface Props {
 	index: number;
 	option: Option;
-	currentQuestionOptions: Option[];
 	currentIndex: number;
 	addChoice: (selection: string) => void;
 	answeredQuestions: Answer[];
@@ -20,7 +19,6 @@ interface Props {
 export default function MultipleChoiceQuestion({
 	index,
 	option,
-	currentQuestionOptions,
 	currentIndex,
 	addChoice,
 	answeredQuestions,

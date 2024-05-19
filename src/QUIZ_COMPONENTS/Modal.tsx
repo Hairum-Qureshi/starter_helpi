@@ -28,6 +28,7 @@ export default function Modal({ updateModalVisibility, showFunction }: Props) {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [loading, closingRequest]);
+	// I disabled eslint here because when I applied its suggestions by removing 'loading' and 'closingRequest' from the dependency array, it messed the program up and would not work as intended. Upon removing them, the program began to glitch out and get stuck in an infinite loop. However, when I re-added the variables, the program resumed working without an issue.
 
 	const name = localStorage.getItem("name");
 

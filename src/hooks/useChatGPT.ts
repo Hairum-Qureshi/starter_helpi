@@ -15,9 +15,10 @@ export default function useChatGPT(quiz_type: string): Tools {
 	const [chat_gptResponse, setChat_gptResponse] = useState("");
 	const [graphData, setGraphData] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [status, setStatus] = useState("BAD");
+	const [status, setStatus] = useState("BAD"); // state responsible for holding the status of whether or not the report has successfully been generated
 
 	useEffect(() => {
+		// needed to re-run and update the status state when the user adds their API key. This also resolved the issue of the status not being set to OK if the only problem was that the user forgot to add their API key; otherwise, the state would've remained as "BAD" even if they added their API key.
 		API_KEY && setStatus("OK");
 	}, [API_KEY]);
 
@@ -26,6 +27,10 @@ export default function useChatGPT(quiz_type: string): Tools {
 		users_responses: Answer[],
 		api_request: string
 	) {
+		// responsible for formatting the the user's array object of choices/responses they typed/selected for each question which can then be used to be passed into the ChatGPT prompt in a manner it can understand through a numbered list in the format:
+		// ([question no.]) [question]
+		// [user choice/response]
+
 		let formattedQ_A = "";
 		users_responses.map((a: Answer) => {
 			return (formattedQ_A += `(${a.questionNo}) ${a.question} \n ${a.choice} \n`);
@@ -34,6 +39,7 @@ export default function useChatGPT(quiz_type: string): Tools {
 		let response = "";
 		try {
 			setLoading(true);
+			// ChatGPT prompt is modified depending on what kind of request it is and what kind of quiz it is
 			const stream = await openai.chat.completions.create({
 				model: "gpt-4-turbo",
 				messages: [
@@ -97,8 +103,8 @@ export default function useChatGPT(quiz_type: string): Tools {
 					apiKey: JSON.parse(API_KEY), // converts the string literal to a string without the double quotes
 					dangerouslyAllowBrowser: true
 				});
-				callAPI(openai, JSON.parse(users_responses), "user_report");
-				callAPI(openai, JSON.parse(users_responses), "graph_data");
+				callAPI(openai, JSON.parse(users_responses), "user_report"); // retrieve the overall user report
+				callAPI(openai, JSON.parse(users_responses), "graph_data"); // retrieve the graph data for the report
 				setStatus("OK");
 			}
 		} else {
