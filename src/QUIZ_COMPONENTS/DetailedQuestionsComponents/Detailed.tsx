@@ -18,20 +18,20 @@ export interface Answer {
 
 function Detailed() {
 	const {
-		saveAnswers,
-		updateModalVisibility,
-		showFunction,
-		updateUserChoice,
-		updateUserInput,
-		updateIndex,
-		updateConfettiVisibility,
-		choice,
-		showConfetti,
-		modalVisibility,
-		currentIndex,
-		userInput,
-		answeredQuestions,
-		showReport
+		saveAnswers, // function meant to save the user's answers to local storage
+		updateModalVisibility, // function meant to toggle showing/hiding the modal
+		showFunction, // function responsible for only showing the user their report when ChatGPT finishes its response
+		updateUserChoice, // function responsible for updating the user's choice whenever they change their MC selection
+		updateUserInput, // function responsible for updating the user's response whenever they change their FR answer
+		updateIndex, // function responsible for updating the current index of the question
+		updateConfettiVisibility, // function meant to toggle showing/hiding the confetti animation
+		choice, // the selection the user chose from the multiple choice
+		showConfetti, // boolean representing whether or not the confetti should be shown or not
+		modalVisibility, // boolean representing whether or not the modal should be visible or not
+		currentIndex, // the current index
+		userInput, // the user's response to a free response question
+		answeredQuestions, // an array of Answer objects that grows as the user answers more questions
+		showReport // boolean value representing whether or not the report should be shown to the user or not
 	} = useQuizTools("detailed");
 
 	useEffect(() => {
@@ -117,7 +117,10 @@ function Detailed() {
 									? answeredQuestions.indexOf(
 											answeredQuestions[currentIndex]
 									  ) === -1
-									: answeredQuestions[currentIndex].choice === ""
+									: answeredQuestions[currentIndex]?.choice === "" ||
+									  answeredQuestions.indexOf(
+											answeredQuestions[currentIndex]
+									  ) === -1
 							}
 							onClick={() => {
 								if (currentIndex === questions.length - 1) {
