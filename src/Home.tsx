@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./CSS/home.css";
 import BasicDetailedButtons from "./basicDetailedButton";
