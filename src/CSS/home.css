@@ -73,3 +73,25 @@
 	margin-top: 15px;
 	font-size: 17px;
 }
+
+.landingContainer .welcomeMessage button {
+	font-size: 20px;
+	width: 10%;
+	margin: 5px;
+	border-radius: 5px;
+	border: 2px solid rgb(0, 110, 255);
+	background-color: rgb(56, 87, 154);
+	color: white;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
+
+.landingContainer .welcomeMessage button:hover {
+	cursor: pointer;
+	transition: 0.5s ease;
+	background-color: rgb(38, 71, 161);
+}
+
+.landingContainer .welcomeMessage button:active {
+	background-color: rgb(7, 39, 128);
+}

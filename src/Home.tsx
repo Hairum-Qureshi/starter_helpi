@@ -11,21 +11,18 @@ export default function Home() {
 		!!localStorage.getItem("name")
 	);
 
-	useEffect(() => {
-		setIsNameSaved(!!localStorage.getItem("name"));
-	}, [name]);
-
 	return (
 		<div className="landingContainer">
 			{currentSlide === -1 && !isNameSaved ? (
 				<div className="welcomeMessage">
-					<h1>Welcome to Careeribou Careers</h1>
+					<h1>Welcome to Careeribou Careers!</h1>
 					<p>
 						Find the career that works just for you through two kinds of quizzes
 						that utilizes unique—but important—questions
 						<br />
-						and actively seeks your input to get tailored and personalized
-						career reports. To get started, let's get to know you.
+						and actively seeks your input to get personalized career reports
+						that helps you find your calling. <br /> To get started, let's get
+						to know you.
 					</p>
 					<span>
 						<h2>What's your name?</h2>
