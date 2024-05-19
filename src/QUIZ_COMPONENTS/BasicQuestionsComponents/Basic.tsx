@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
 import RangeQuestion from "./RangeQuestion";
 import ProgressBar from "../ProgressBar";
-import { Answer } from "../DetailedQuestionsComponents/Detailed";
 import Modal from "../Modal";
 import Confetti from "react-confetti";
 import Results from "../../Results";
-import useChatGPT from "../../hooks/useChatGPT";
 import { Link } from "react-router-dom";
+import useQuizTools from "../../hooks/useQuizTools";
 
 export interface Option {
 	text: string;
@@ -17,65 +16,36 @@ export interface Option {
 }
 
 export default function Basic() {
-	const [currentIndex, setCurrentIndex] = useState<number>(
-		Number(localStorage.getItem("current_question_basic")) || 0
-	);
+	const {
+		saveAnswers, // function meant to save the user's answers to local storage
+		updateModalVisibility, // function meant to toggle showing/hiding the modal
+		showFunction, // function responsible for only showing the user their report when ChatGPT finishes its response
+		updateUserChoice, // function responsible for updating the user's choice whenever they change their MC selection
+		updateIndex, // function responsible for updating the current index of the question
+		updateConfettiVisibility, // function meant to toggle showing/hiding the confetti animation
+		choice, // the selection the user chose from the multiple choice
+		showConfetti, // boolean representing whether or not the confetti should be shown or not
+		modalVisibility, // boolean representing whether or not the modal should be visible or not
+		currentIndex, // the current index
+		answeredQuestions, // an array of Answer objects that grows as the user answers more questions
+		showReport // boolean value representing whether or not the report should be shown to the user or not
+	} = useQuizTools("basic");
+
 	const [currentQuestionOptions, setCurrentQuestionOptions] = useState<
 		Option[]
 	>(basic_questions[currentIndex].options as Option[]);
-	const [choice, setChoice] = useState<string>();
-	const [answeredQuestions, setAnsweredQuestions] = useState<Answer[]>(
-		JSON.parse(localStorage.getItem("answered_questions_basic") || "[]")
-	);
-	const [modalVisibility, setModalVisibility] = useState(false);
-	const [showConfetti, setShowConfetti] = useState(false);
-	const [showReport, setShowReport] = useState(false);
 
 	useEffect(() => {
 		localStorage.setItem("current_question_basic", currentIndex.toString());
-		setCurrentQuestionOptions(
-			basic_questions[currentIndex].options as Option[]
-		);
-	}, [currentIndex]);
 
-	function addChoice(selection: string) {
-		setChoice(selection);
-	}
-
-	function updateModalVisibility() {
-		setModalVisibility(!modalVisibility);
-		setShowConfetti(false);
-	}
-
-	function saveAnswers(choice: string, question_num: number, question: string) {
-		const updatedAnswers = answeredQuestions.map(answer =>
-			answer.questionNo === question_num ? { ...answer, choice } : answer
-		);
-
-		setAnsweredQuestions(
-			updatedAnswers.some(answer => answer.questionNo === question_num)
-				? updatedAnswers
-				: [...answeredQuestions, { question, questionNo: question_num, choice }]
-		);
-	}
-
-	useEffect(() => {
-		localStorage.setItem("current_question_basic", currentIndex.toString());
 		localStorage.setItem(
 			"answered_questions_basic",
 			JSON.stringify(answeredQuestions)
 		);
+		setCurrentQuestionOptions(
+			basic_questions[currentIndex].options as Option[]
+		);
 	}, [currentIndex, answeredQuestions]);
-
-	const { status } = useChatGPT("basic");
-
-	function showFunction() {
-		if (status === "OK") {
-			setShowReport(true);
-			// keeping this will remove the answered questions from local storage and that way, when the user has completed the quiz, if they go back to the home page, it won't say "Resume Basic Quiz" but rather, "Start Basic Quiz" which makes sense since by the time they get to the report, they've completed the quiz.
-			localStorage.removeItem("answered_questions_basic");
-		}
-	}
 
 	const name: string | null = localStorage.getItem("name");
 
@@ -85,8 +55,6 @@ export default function Basic() {
 				{showConfetti && <Confetti />}
 				{modalVisibility ? (
 					<Modal
-						// modalFunction={updateModalVisibility}
-						// showFunction={showFunction}
 						updateModalVisibility={updateModalVisibility}
 						showFunction={showFunction}
 					/>
@@ -107,17 +75,23 @@ export default function Basic() {
 					</div>
 					<div className={basic_css.optionsContainer}>
 						{basic_questions[currentIndex].type === "multipleChoice" ? (
-							<MultipleChoiceQuestion
-								currentQuestionOptions={currentQuestionOptions}
-								currentIndex={currentIndex}
-								addChoice={addChoice}
-								answeredQuestions={answeredQuestions}
-								saveAnswers={saveAnswers}
-							/>
+							currentQuestionOptions.map((option: Option, index: number) => {
+								return (
+									<MultipleChoiceQuestion
+										index={index}
+										option={option}
+										currentQuestionOptions={currentQuestionOptions}
+										currentIndex={currentIndex}
+										addChoice={updateUserChoice}
+										answeredQuestions={answeredQuestions}
+										saveAnswers={saveAnswers}
+									/>
+								);
+							})
 						) : (
 							<RangeQuestion
 								currentIndex={currentIndex}
-								addChoice={addChoice}
+								addChoice={updateUserChoice}
 								currentChoice={answeredQuestions[currentIndex]?.choice}
 								saveAnswers={saveAnswers}
 							/>
@@ -127,8 +101,8 @@ export default function Basic() {
 						<button
 							disabled={currentIndex === 0}
 							onClick={() => {
-								setCurrentIndex(index => (index -= 1 % basic_questions.length));
-								setChoice(
+								updateIndex(currentIndex, "previous");
+								updateUserChoice(
 									answeredQuestions[currentIndex] &&
 										answeredQuestions[currentIndex - 1].choice
 								);
@@ -140,15 +114,17 @@ export default function Basic() {
 							disabled={!choice}
 							onClick={() => {
 								if (currentIndex === basic_questions.length - 1) {
-									setModalVisibility(!modalVisibility);
-									setShowConfetti(true);
+									updateModalVisibility(!modalVisibility);
+									updateConfettiVisibility(true);
 
 									setTimeout(() => {
-										setShowConfetti(false);
+										updateConfettiVisibility(false);
 									}, 8000);
 								} else {
-									setCurrentIndex(index => index + 1);
-									setChoice(answeredQuestions[currentIndex + 1]?.choice || "");
+									updateIndex(currentIndex, "next");
+									updateUserChoice(
+										answeredQuestions[currentIndex + 1]?.choice || ""
+									);
 								}
 							}}
 						>

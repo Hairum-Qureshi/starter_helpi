@@ -28,20 +28,24 @@ interface QuizTools {
 
 export default function useQuizTools(quiz_type: string): QuizTools {
 	const [currentIndex, setCurrentIndex] = useState<number>(
-		Number(localStorage.getItem("current_question")) || 0
+		quiz_type === "detailed"
+			? Number(localStorage.getItem("current_question")) || 0
+			: Number(localStorage.getItem("current_question_basic")) || 0
 	);
+
 	const [choice, setChoice] = useState<string>();
 	const [answeredQuestions, setAnsweredQuestions] = useState<Answer[]>(
-		JSON.parse(localStorage.getItem("answered_questions") || "[]")
+		quiz_type === "detailed"
+			? JSON.parse(localStorage.getItem("answered_questions") || "[]")
+			: JSON.parse(localStorage.getItem("answered_questions_basic") || "[]")
 	);
+
 	const [modalVisibility, setModalVisibility] = useState(false);
 	const [showConfetti, setShowConfetti] = useState(false);
 	const [showReport, setShowReport] = useState(false);
 	const [userInput, setUserInput] = useState<string>(
 		answeredQuestions[currentIndex]?.choice || ""
 	);
-
-	console.log(userInput);
 
 	function saveAnswers(
 		choice: string,
