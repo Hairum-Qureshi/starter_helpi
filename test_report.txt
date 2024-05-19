@@ -73,7 +73,7 @@ All files                                        |       0 |        0 |       0 
   MultipleChoiceQuestion.tsx                     |       0 |        0 |       0 |       0 | 29-35             
   RangeQuestion.tsx                              |       0 |        0 |       0 |       0 | 23-49             
  src/QUIZ_COMPONENTS/DetailedQuestionsComponents |       0 |        0 |       0 |       0 |                   
-  Detailed.tsx                                   |       0 |        0 |       0 |       0 | 35-136            
+  Detailed.tsx                                   |       0 |        0 |       0 |       0 | 35-139            
   FreeResponse.tsx                               |       0 |        0 |       0 |       0 | 19-34             
   MultipleChoice.tsx                             |       0 |        0 |       0 |       0 | 26-51             
  src/hooks                                       |       0 |        0 |       0 |       0 |                   
@@ -83,5 +83,5 @@ All files                                        |       0 |        0 |       0 
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.329 s
+Time:        3.324 s
 Ran all test suites.
