@@ -1,9 +1,8 @@
 import "./CSS/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Detailed from "./QUIZ_COMPONENTS/Detailed";
+import Detailed from "./QUIZ_COMPONENTS/DetailedQuestionsComponents/Detailed";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import BasicDetailedButton from "./basicDetailedButton";
 import Basic from "./QUIZ_COMPONENTS/BasicQuestionsComponents/Basic";
 import Home from "./Home";
 import About from "./About";
@@ -17,7 +16,6 @@ function App() {
 					<Route path="/" Component={Home} />
 					<Route path="/basic" Component={Basic} />
 					<Route path="/detailed" Component={Detailed} />
-					<Route path="/basicDetailedButton" Component={BasicDetailedButton} />
 					<Route path="/about" Component={About} />
 				</Routes>
 				<Footer />

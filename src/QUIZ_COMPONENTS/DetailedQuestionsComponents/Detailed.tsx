@@ -1,49 +1,44 @@
-import basic_questions from "../../JSON_files/basicQuestions.json";
-import basic_css from "../../CSS/basic.module.css";
-import { useEffect, useState } from "react";
-import MultipleChoiceQuestion from "./MultipleChoiceQuestion";
-import RangeQuestion from "./RangeQuestion";
-import ProgressBar from "../ProgressBar";
+import { useEffect } from "react";
+import "../../CSS/detailed.css";
+import questions from "../../JSON_files/detailedQuestions.json";
 import Modal from "../Modal";
 import Confetti from "react-confetti";
 import Results from "../../Results";
+import ProgressBar from "../ProgressBar";
 import { Link } from "react-router-dom";
+import FreeResponse from "./FreeResponse";
+import MultipleChoice from "./MultipleChoice";
 import useQuizTools from "../../hooks/useQuizTools";
 
-export interface Option {
-	text: string;
-	image: string;
+export interface Answer {
+	question: string;
+	questionNo: number;
+	choice: string;
 }
 
-export default function Basic() {
+function Detailed() {
 	const {
 		saveAnswers, // function meant to save the user's answers to local storage
 		updateModalVisibility, // function meant to toggle showing/hiding the modal
 		showFunction, // function responsible for only showing the user their report when ChatGPT finishes its response
 		updateUserChoice, // function responsible for updating the user's choice whenever they change their MC selection
+		updateUserInput, // function responsible for updating the user's response whenever they change their FR answer
 		updateIndex, // function responsible for updating the current index of the question
 		updateConfettiVisibility, // function meant to toggle showing/hiding the confetti animation
 		choice, // the selection the user chose from the multiple choice
 		showConfetti, // boolean representing whether or not the confetti should be shown or not
 		modalVisibility, // boolean representing whether or not the modal should be visible or not
 		currentIndex, // the current index
+		userInput, // the user's response to a free response question
 		answeredQuestions, // an array of Answer objects that grows as the user answers more questions
 		showReport // boolean value representing whether or not the report should be shown to the user or not
-	} = useQuizTools("basic");
-
-	const [currentQuestionOptions, setCurrentQuestionOptions] = useState<
-		Option[]
-	>(basic_questions[currentIndex].options as Option[]);
+	} = useQuizTools("detailed");
 
 	useEffect(() => {
-		localStorage.setItem("current_question_basic", currentIndex.toString());
-
+		localStorage.setItem("current_question", currentIndex.toString());
 		localStorage.setItem(
-			"answered_questions_basic",
+			"answered_questions",
 			JSON.stringify(answeredQuestions)
-		);
-		setCurrentQuestionOptions(
-			basic_questions[currentIndex].options as Option[]
 		);
 	}, [currentIndex, answeredQuestions]);
 
@@ -59,45 +54,51 @@ export default function Basic() {
 						showFunction={showFunction}
 					/>
 				) : null}
-				<div className={basic_css.quizContainer}>
-					<div className={basic_css.progressBarContainer}>
-						<ProgressBar
-							currentIndex={currentIndex}
-							totalQuestions={basic_questions.length}
+				<div className="quizContainer">
+					<ProgressBar
+						currentIndex={currentIndex}
+						totalQuestions={questions.length}
+					></ProgressBar>
+					<br></br>
+					<div className="questionContainer">
+						<img
+							src={questions[currentIndex].image}
+							alt="Visual question aid"
 						/>
-						<br></br>
-					</div>
-					<div className={basic_css.questionContainer}>
 						<h3>
-							({currentIndex + 1}/{basic_questions.length}) &nbsp;
-							{basic_questions[currentIndex].question}
+							({questions[currentIndex].question_number}/{questions.length})
+							&nbsp;
+							{questions[currentIndex].question}
 						</h3>
 					</div>
-					<div className={basic_css.optionsContainer}>
-						{basic_questions[currentIndex].type === "multipleChoice" ? (
-							currentQuestionOptions.map((option: Option, index: number) => {
-								return (
-									<MultipleChoiceQuestion
-										index={index}
-										option={option}
-										currentQuestionOptions={currentQuestionOptions}
-										currentIndex={currentIndex}
-										addChoice={updateUserChoice}
+					<div className="optionsContainer">
+						{questions[currentIndex].type === "multiple_choice"
+							? questions[currentIndex].choices.map(
+									(choice: string, index: number) => (
+										<MultipleChoice
+											answeredQuestions={answeredQuestions}
+											currentIndex={currentIndex}
+											updateUserChoice={updateUserChoice}
+											saveAnswers={saveAnswers}
+											index={index}
+										>
+											{choice}
+										</MultipleChoice>
+									)
+							  )
+							: questions[currentIndex].type === "free_response" && (
+									<FreeResponse
 										answeredQuestions={answeredQuestions}
+										currentIndex={currentIndex}
+										userInput={userInput}
+										updateUserChoice={updateUserChoice}
+										updateUserInput={updateUserInput}
 										saveAnswers={saveAnswers}
+										choice={choice}
 									/>
-								);
-							})
-						) : (
-							<RangeQuestion
-								currentIndex={currentIndex}
-								addChoice={updateUserChoice}
-								currentChoice={answeredQuestions[currentIndex]?.choice}
-								saveAnswers={saveAnswers}
-							/>
-						)}
+							  )}
 					</div>
-					<div className={basic_css.containerFooter}>
+					<div className="containerFooter">
 						<button
 							disabled={currentIndex === 0}
 							onClick={() => {
@@ -111,9 +112,18 @@ export default function Basic() {
 							{currentIndex === 0 ? "END" : "PREV."}
 						</button>
 						<button
-							disabled={!choice}
+							disabled={
+								questions[currentIndex].type !== "free_response"
+									? answeredQuestions.indexOf(
+											answeredQuestions[currentIndex]
+									  ) === -1
+									: answeredQuestions[currentIndex]?.choice === "" ||
+									  answeredQuestions.indexOf(
+											answeredQuestions[currentIndex]
+									  ) === -1
+							}
 							onClick={() => {
-								if (currentIndex === basic_questions.length - 1) {
+								if (currentIndex === questions.length - 1) {
 									updateModalVisibility(!modalVisibility);
 									updateConfettiVisibility(true);
 
@@ -125,10 +135,12 @@ export default function Basic() {
 									updateUserChoice(
 										answeredQuestions[currentIndex + 1]?.choice || ""
 									);
+									updateUserInput("");
+									updateUserChoice("");
 								}
 							}}
 						>
-							{currentIndex === basic_questions.length - 1
+							{currentIndex === questions.length - 1
 								? "SUBMIT RESPONSES"
 								: "NEXT"}
 						</button>
@@ -136,7 +148,7 @@ export default function Basic() {
 				</div>
 			</>
 		) : (
-			<Results />
+			<Results quiz_type={"detailed"} />
 		)
 	) : (
 		<h1>
@@ -144,3 +156,5 @@ export default function Basic() {
 		</h1>
 	);
 }
+
+export default Detailed;

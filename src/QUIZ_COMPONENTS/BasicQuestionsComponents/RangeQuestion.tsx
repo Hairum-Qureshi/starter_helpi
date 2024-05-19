@@ -6,8 +6,14 @@ interface Props {
 	currentIndex: number;
 	addChoice: (selection: string) => void;
 	currentChoice: string;
-	saveAnswers: (choice: string, question_num: number, question: string) => void;
+	saveAnswers: (
+		choice: string,
+		question_num: number,
+		question_type: string,
+		question: string
+	) => void;
 }
+
 export default function RangeQuestion({
 	currentIndex,
 	addChoice,
@@ -22,6 +28,7 @@ export default function RangeQuestion({
 		saveAnswers(
 			rangeVal.toString(),
 			basic_questions[currentIndex].question_number,
+			basic_questions[currentIndex].type,
 			basic_questions[currentIndex].question
 		);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
