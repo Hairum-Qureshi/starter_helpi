@@ -53,6 +53,8 @@ export default function useQuizTools(quiz_type: string): QuizTools {
 		question_type: string,
 		question: string
 	) {
+		// Takes  in user inputs from a question. It updates the state 'answeredQuestions' based on the user's input. If an answer for the given question number already exists, it updates the existing answer with the new choice; otherwise, it adds a new answer object to the state array.
+
 		if (question_type === "free_response" && choice.trim() === "") {
 			setChoice("");
 		}
@@ -97,6 +99,9 @@ export default function useQuizTools(quiz_type: string): QuizTools {
 	}
 
 	function updateIndex(index: number, button_type: string) {
+		// next represents the next button where the user moves to the next question, thus incrementing the question index
+		// previous represents the prev button where the user moves back to the previous question, thus decrementing the index
+
 		if (quiz_type === "detailed") {
 			switch (button_type) {
 				case "next":
