@@ -7,9 +7,8 @@ export default function Home() {
 	const [name, setName] = useState(localStorage.getItem("name") || "");
 	const [showNextBtn, setShowNextBtn] = useState(false);
 	const [currentSlide, setCurrentSlide] = useState(-1);
-	const [isNameSaved, setIsNameSaved] = useState(
-		!!localStorage.getItem("name")
-	);
+
+	const isNameSaved = !!localStorage.getItem("name");
 
 	return (
 		<div className="landingContainer">
