@@ -83,6 +83,7 @@ export default function Results({ quiz_type }: Props) {
 				// eslint-disable-next-line no-useless-escape
 				/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			);
+			// I disabled esLint above because if I removed the unnecessary escape character "\" from the Regex, I'll get an error so it's needed in order for the Regex to be valid
 
 			if (valid_email) {
 				if (!form.current) return; // Ensure form.current is not null
