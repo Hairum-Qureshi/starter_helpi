@@ -61,7 +61,7 @@ All files                                        |       0 |        0 |       0 
   Footer.tsx                                     |       0 |        0 |       0 |       0 | 6-26              
   Home.tsx                                       |       0 |        0 |       0 |       0 | 7-41              
   Navigation.tsx                                 |       0 |        0 |       0 |       0 | 7-10              
-  Results.tsx                                    |       0 |        0 |       0 |       0 | 16-217            
+  Results.tsx                                    |       0 |        0 |       0 |       0 | 16-218            
   basicDetailedButton.tsx                        |       0 |        0 |       0 |       0 | 5-29              
   index.tsx                                      |       0 |      100 |     100 |       0 | 6-19              
   reportWebVitals.ts                             |       0 |        0 |       0 |       0 | 3-10              
@@ -83,5 +83,5 @@ All files                                        |       0 |        0 |       0 
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.34 s
+Time:        3.297 s
 Ran all test suites.
